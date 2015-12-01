@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>MGS2016 Mockups for functionality approval</title>
     <link href="mockup.css" type="text/css" rel="stylesheet" />
+    <link href="overlay.css" type="text/css" rel="stylesheet" />
   </head>
 
   <body>
@@ -14,11 +15,70 @@
 
     <main>
 
-      <article>
+      <div id="student-overlay">
+        <div class="container">
 
-        <section></section>
+          <h1>Artists</h1>
 
-      </article>
+          <div>
+            <ul class="student-nav clearfix">
+              <li class="previous"><-</li>
+              <li class="next">-></li>
+              <li class="close"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+  </li>
+            </ul>
+          </div>
+
+          <div class="student-info" >
+            <h2>{{ firstname }} {{ lastname }}</h2>
+
+            <ul>
+              <li>{{program}}</li>
+              <li>{{exhibitionlocation}}</li>
+              <li>{{showdate}}</li>
+              <li>{{urlofpersonalwebsite}}</li>
+            </ul>
+
+          </div>
+        </div>
+
+        <div class="fullwidth">
+
+          <div id="film_roll">
+            <div>
+              <a href="#" class="fr-no-click"><img src="http://placehold.it/700x500"></a>
+            </div>
+            <div>
+              <a href="#" class="fr-no-click"><img src="http://placehold.it/430x500"></a>
+            </div>
+            <div>
+              <a href="#" class="fr-no-click"><img src="http://placehold.it/430x500"></a>
+            </div>
+            <div>
+              <a href="#" class="fr-no-click"><img src="http://placehold.it/600x500"></a>
+            </div>
+            <div>
+              <a href="#" class="fr-no-click"><img src="http://placehold.it/700x500"></a>
+            </div>
+          </div>
+        </div>
+
+        <div class="container">
+          <article class="group">
+
+            <aside class="three columns program-list">
+              <h4>{{program}}</h4>
+              <ul class="program-peers">
+                <li><a>{{ firstname }} {{ lastname }}</a></li>
+              </ul>
+            </aside>
+
+            <div class="six columns student-statement {{^slideshowimages}}lead{{/slideshowimages}}">{{{ statement }}}</div>
+
+          </article>
+
+        </div> <!-- end center column with images and texts -->
+      </div><!-- END OVERLAY -->
 
     </main>
 
@@ -32,6 +92,15 @@
     <!-- film roll: http://straydogstudio.github.io/film_roll/ -->
     <script src="jquery.film_roll.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.touchswipe/1.6.12/jquery.touchSwipe.min.js"></script>
+
+    <script>
+      $(function() {
+        fr = new FilmRoll({
+          container: '#film_roll',
+        });
+      });
+    </script>
+
   </body>
 
 </html>

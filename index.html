@@ -19,7 +19,25 @@
         <section id="intro"></section>
         <section id="schedule"></section>
         <section id="map"></section>
-        <section id="students"></section>
+        <section id="students">
+          <div class="container">
+            <h2>Students</h2>
+            <div>FILTERS TK</div>
+            <ul id="projects" className="list group">
+              <!-- template for each student -->
+              <li id={uid} onClick={@handleClick} className="student">
+                <img src={pic} alt={fullName} />
+                <ul>
+                  <li className="name"><h4>{fullName}</h4></li>
+                  <li className="program">{programName}</li>
+                  <li className="location">{locationName}</li>
+                  <li className="show-date">{showDate}</li>
+                </ul>
+              </li>
+              <!-- end template for each student -->
+            </ul>
+          </div>
+        </section>
 
       </article>
 

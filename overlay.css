@@ -1,0 +1,81 @@
+/**** OVERLAY.LESS ****/
+/**** OVERLAY.LESS ****/
+/**** OVERLAY.LESS ****/
+/**** OVERLAY.LESS ****/
+
+/****************************/
+/** OVERLAY STYLES **/
+/****************************/
+
+#student-overlay {
+  background: white;
+  position: fixed;
+  top:0;
+  right:0;
+  bottom:0;
+  left:0;
+  z-index: 1000;
+  overflow: scroll;
+  border: 10px solid pink;
+}
+
+article#student-overlay {
+  padding: 15px;
+}
+
+article#student-overlay .container {
+  width:100%;
+}
+
+#student-overlay .close {
+  /** hides the text inside **/
+  text-indent: 500%; /* this shouldn't need to be this big, but there is some mobile chrome bug that is demanding it.*/
+  white-space: nowrap;
+  overflow: hidden;
+  /**/
+  background: transparent url("X.svg") 0 0 no-repeat;
+  background-size: 50px 25px !important;
+  border: none;
+  display: block;
+  height: 25px !important;
+  width: 25px !important;
+  /**/
+  position: fixed;
+  top: 15px;
+  right: 15px;
+  z-index: 1111;
+}
+
+#student-overlay .close:hover {
+  background-position: -25px 0px;
+}
+
+/******* Slideshow/Film roll ******/
+.film_roll_wrapper img {
+  border: 10px solid white;
+  box-shadow: 7px 7px 15px #777;
+  margin-left: 5px;
+  margin-right: 5px;
+  /*transition: all 1s ease;*/
+}
+@media (max-width: 580px) {
+  .film_roll_wrapper img {
+    margin: 0;
+    box-shadow: none;
+  }
+}
+.film_roll_wrapper .active img {
+  border: 10px solid yellow;
+}
+.film_roll_container {
+  position: relative;
+}
+.film_roll_pager a, a.film_roll_prev, a.film_roll_next {
+  -webkit-box-sizing: content-box;
+  -moz-box-sizing: content-box;
+  box-sizing: content-box;
+}
+/**** / END OVERLAY.LESS ****/
+/**** / END OVERLAY.LESS ****/
+/**** / END OVERLAY.LESS ****/
+/**** / END OVERLAY.LESS ****/
