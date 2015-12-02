@@ -8,23 +8,26 @@
 /****************************/
 
 #student-overlay {
-  background: white;
+  background: transparent url(background.png) center center no-repeat;
+  background-size: cover;
   position: fixed;
   top:0;
   right:0;
   bottom:0;
   left:0;
-  z-index: 1000;
-  overflow: scroll;
-  border: 10px solid pink;
 }
 
-article#student-overlay {
-  padding: 15px;
-}
-
-article#student-overlay .container {
-  width:100%;
+#student-overlay .wrapper {
+  background: white;
+  position: absolute;
+  top: 1em;
+  right: 1em;
+  bottom: 1em;
+  left: 1em;
+  padding-top: 2em;
+  padding-bottom: 5em;
+  overflow-y: scroll;
+  overflow-x: hidden;
 }
 
 #student-overlay .close {
@@ -51,30 +54,118 @@ article#student-overlay .container {
 }
 
 /******* Slideshow/Film roll ******/
+#film_roll {
+  margin-bottom: 2em;
+}
 .film_roll_wrapper img {
-  border: 10px solid white;
-  box-shadow: 7px 7px 15px #777;
   margin-left: 5px;
   margin-right: 5px;
-  /*transition: all 1s ease;*/
-}
-@media (max-width: 580px) {
-  .film_roll_wrapper img {
-    margin: 0;
-    box-shadow: none;
-  }
+  opacity: .5;
+  transition: all 1s ease;
+  height: 400px;
+  width: auto;
 }
 .film_roll_wrapper .active img {
-  border: 10px solid yellow;
+  opacity: 1;
 }
 .film_roll_container {
   position: relative;
 }
-.film_roll_pager a, a.film_roll_prev, a.film_roll_next {
-  -webkit-box-sizing: content-box;
-  -moz-box-sizing: content-box;
-  box-sizing: content-box;
+.film_roll_wrapper {
+   display: block;
+   text-align: center;
+   float: none;
+   position: relative;
+   top: auto;
+   right: auto;
+   bottom: auto;
+   left: auto;
+   z-index: auto;
+   width: 100%;
+   margin: 0 !important;
+   padding: 0 !important;
+   overflow: hidden;
+   width: 100%;
+ }
+.film_roll_shuttle {
+   text-align: left;
+   float: none;
+   position: relative;
+   top: 0;
+   left: 0;
+   right: auto;
+   bottom: auto;
+   margin: 0 !important;
+   padding: 0 !important;
+   z-index: auto;
+ }
+ .film_roll_shuttle.vertical_center:before {
+   content: '';
+   display: inline-block;
+   height: 100%;
+   vertical-align: middle;
+   margin-right: -0.25em;
+ }
+.film_roll_child {
+  position: relative;
+  display: inline-block;
+  *display:inline;
+  vertical-align:middle;
+  zoom:1;
 }
+.film_roll_prev, .film_roll_next {
+   position: absolute;
+   top: 40%;
+   left: 2em;
+   width: 2em;
+   height: 2em;
+   margin: 0;
+   padding: 0;
+   font-size: 2em;
+   font-weight: 100;
+   line-height: 2em;
+   color: white;
+   text-align: center;
+   background: #222;
+   border: 3px solid white;
+   border-radius: 2em;
+   opacity: 0.5;
+   text-decoration: none;
+ }
+.film_roll_prev:hover, .film_roll_next:hover {
+   text-decoration: none;
+   opacity: 0.9;
+ }
+.film_roll_next {
+   left: initial;
+   right: 2em;
+ }
+.film_roll_pager {
+   text-align: center;
+ }
+.film_roll_pager a {
+   width: 5px;
+   height: 5px;
+   border: 2px solid #333;
+   border-radius: 5px;
+   display: inline-block;
+   margin: 0 5px 0 0;
+   transition: all 1s ease;
+ }
+.film_roll_pager a:hover {
+   background: #666;
+ }
+.film_roll_pager a.active {
+   background: #333;
+ }
+.film_roll_pager span {
+   display: none;
+ }
+ .film_roll_pager a, a.film_roll_prev, a.film_roll_next {
+   -webkit-box-sizing: content-box;
+   -moz-box-sizing: content-box;
+   box-sizing: content-box;
+ }
 /**** / END OVERLAY.LESS ****/
 /**** / END OVERLAY.LESS ****/
 /**** / END OVERLAY.LESS ****/
