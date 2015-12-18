@@ -1,7 +1,7 @@
 {
-  "name": "boiler",
+  "name": "mgs2016",
   "version": "1.0.1",
-  "description": "Boilerplate with hot reloading React components.",
+  "description": "MICA 2016.",
   "homepage": "https://github.com/cape-io/boiler",
   "author": "Kai Curry <kai@cape.io> (http://github.com/webmasterkai)",
   "contributors": [
@@ -24,16 +24,15 @@
   "main": "server.js",
   "repository": {
     "type": "git",
-    "url": "https://github.com/cape-io/boiler.git"
+    "url": "https://github.com/OOKB/mgs2016.git"
   },
   "bugs": {
-    "url": "https://github.com/cape-io/cape-editor/issues"
+    "url": "https://github.com/OOKB/mgs2016/issues"
   },
   "keywords": [
     "cape",
     "react",
     "reactjs",
-    "boilerplate",
     "hot",
     "reload",
     "hmr",
