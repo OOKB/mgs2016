@@ -8,6 +8,6 @@ This mockup branch contains some static HTML, CSS, and JS files to demo the diff
 git clone git@github.com:OOKB/mgs2016.git
 cd mgs2016
 npm install
-npm run
+npm start
 open http://localhost:3000
 ```
