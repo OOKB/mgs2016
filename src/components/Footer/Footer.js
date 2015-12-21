@@ -4,7 +4,7 @@ import MailchimpForm from './Mailchimp'
 
 export default class Footer extends Component {
   render() {
-    const {author, street, city, state, zip, phone, builtDesigned, nav} = this.props.data
+    const { author, street, city, state, zip, phone, builtDesigned, nav } = this.props.data
     const address = `${city}, ${state} ${zip}`
 
     return (
@@ -29,12 +29,15 @@ export default class Footer extends Component {
             </div>
             <div className="column span1 footer-nav">
               <ul>
-                {nav.map (item) ->
-                  {href, link, title} = item
-                  url = href or '#'+link
-                  unless href is false
-                    <li key={link}><a href={url}>{title}</a></li>
-                }
+                {nav.map((item) => {
+                  const { href, link, title } = item
+                  const url = href || '#' + link
+                  if (href) {
+                    return (
+                      <li key={link}><a href={url}>{title}</a></li>
+                    )
+                  }
+                })}
               </ul>
               <div className="signup">
                 <p><a href="http://eepurl.com/bciqMT">Signup for MICA Grad Show Updates</a></p>
