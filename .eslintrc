@@ -1,6 +1,6 @@
 {
   "extends": [
-    "eslint-config-airbnb",
+    "airbnb",
     "import/warnings"
   ],
   "ecmaFeatures": {
@@ -28,7 +28,8 @@
     "no-console": 1,
     "no-alert": 1,
     "no-trailing-spaces": 2,
-    "object-curly-spacing": [ 2, "always" ]
+    "object-curly-spacing": [ 2, "always" ],
+    "semi": [ 2, "never" ]
   },
   "plugins": [
     "react", "import"
