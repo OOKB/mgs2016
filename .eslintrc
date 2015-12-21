@@ -27,7 +27,8 @@
     "react/react-in-jsx-scope": 2,
     "no-console": 1,
     "no-alert": 1,
-    "no-trailing-spaces": 2
+    "no-trailing-spaces": 2,
+    "object-curly-spacing": [ 2, "always" ]
   },
   "plugins": [
     "react", "import"
