@@ -6,8 +6,9 @@ export default class Credits extends Component {
     const { builtDesigned } = this.props
     const length = builtDesigned.length
     const lastI = length - 1
-    const Links = builtDesigned.map((link, index) => {
-      const { name, link } = link
+    const className = `credits count-${length}`
+    const Links = builtDesigned.map((linkItem, index) => {
+      const { name, link } = linkItem
       const first = (index === 0)
       const last = (index === lastI)
       const linkClasses = classname({
@@ -28,10 +29,12 @@ export default class Credits extends Component {
       )
     })
     return (
-      {Links}
-      <p className={className}>
-        Built and designed by {Links}.
-      </p>
+      <div>
+        {Links}
+        <p className={className}>
+          Built and designed by {Links}.
+        </p>
+      </div>
     )
   }
 }
