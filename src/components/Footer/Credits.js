@@ -1,5 +1,5 @@
 import React, { Component, PropTypes } from 'react'
-import classname from 'classname'
+import classNames from 'classnames'
 
 export default class Credits extends Component {
   render() {
@@ -11,7 +11,7 @@ export default class Credits extends Component {
       const { name, link } = linkItem
       const first = (index === 0)
       const last = (index === lastI)
-      const linkClasses = classname({
+      const linkClasses = classNames({
         credit: true,
         first,
         last,
