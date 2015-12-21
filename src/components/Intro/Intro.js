@@ -2,7 +2,7 @@ import React, { Component, PropTypes } from 'react'
 
 import Logo from'./logo'
 
-export default class Counter extends Component {
+class Intro extends Component {
   render() {
     const { body } = this.props
     return (
@@ -15,6 +15,9 @@ export default class Counter extends Component {
     )
   }
 }
-Counter.propTypes = {
+
+Intro.propTypes = {
   body: PropTypes.string.isRequired,
 }
+
+export default Intro
