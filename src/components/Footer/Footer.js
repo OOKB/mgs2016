@@ -4,8 +4,7 @@ import MailchimpForm from './Mailchimp'
 
 export default class Footer extends Component {
   render() {
-    const {author, street, city, state, zip, phone, builtDesigned, nav} =
-      this.props.data
+    const {author, street, city, state, zip, phone, builtDesigned, nav} = this.props.data
     const address = `${city}, ${state} ${zip}`
 
     return (
@@ -54,7 +53,7 @@ export default class Footer extends Component {
     )
   }
 }
-Footer.propTypes ={
+Footer.propTypes = {
   author: PropTypes.string,
   street: PropTypes.string,
   city: PropTypes.string,
