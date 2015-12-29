@@ -2,6 +2,7 @@ import React, { Component, PropTypes } from 'react'
 
 import Header from './Header/Header'
 import Intro from './Intro/Intro'
+import Schedule from './Schedule'
 
 class Main extends Component {
 
@@ -12,6 +13,7 @@ class Main extends Component {
         <section className="landing-logo">{ "insert logo here" }</section>
         <Header title={title} />
         <Intro />
+        <Schedule />
       </div>
     )
   }
