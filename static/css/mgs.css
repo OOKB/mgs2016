@@ -101,6 +101,12 @@ body {
   line-height: 1.5;
 }
 
+.list-reset {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
 .m0           { margin: 0; }
 .m1           { margin: 1rem; }
 .m2           { margin: 2rem; }
