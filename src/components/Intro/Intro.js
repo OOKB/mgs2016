@@ -3,11 +3,18 @@ import React, { Component, PropTypes } from 'react'
 class Intro extends Component {
   render() {
     const { body } = this.props
+    const videoSrc = 'http://www.micagradshow.com/video/animated_logo-small.mp4'
     return (
       <article id="intro">
         <div className="container">
           <div className="intro-text">
             { body.map((pText, index) => <p key={index}>{ pText }</p>) }
+          </div>
+          <div className="creative-blank-video">
+            <video height="500" controls>
+              <source src={videoSrc} type="video/mp4" />
+              { "Your browser does not support the video tag." }
+            </video>
           </div>
         </div>
       </article>

@@ -9,7 +9,7 @@ class Main extends Component {
     const { title } = this.props
     return (
       <div>
-        { 'main' }
+        <section className="landing-logo">{ "insert logo here" }</section>
         <Header title={title} />
         <Intro />
       </div>
