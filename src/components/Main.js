@@ -5,6 +5,7 @@ import Header from './Header/Header'
 import Intro from './Intro/Intro'
 import Schedule from './Schedule/Schedule'
 import Galleries from './Galleries/Galleries'
+import Students from './Students/Students'
 
 class Main extends Component {
 
@@ -17,6 +18,7 @@ class Main extends Component {
         <Intro />
         <Schedule />
         <Galleries />
+        <Students />
       </div>
     )
   }

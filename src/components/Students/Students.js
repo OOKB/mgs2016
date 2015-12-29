@@ -2,7 +2,7 @@ import React, { Component, PropTypes } from 'react'
 
 import Blurb from './Blurb'
 import Student from './Student'
-import Filters from '../filters/filters'
+import Filters from '../Filters/Filters'
 
 class Students extends Component {
   render() {
@@ -15,13 +15,15 @@ class Students extends Component {
           { programInfo &&
             <Blurb {...programInfo} />
           }
-          <ul id="projects" className="list">
-            {
-              students.map((item) =>
-                <Student model={item} key={item.uid} />
-              )
-            }
-          </ul>
+          { students &&
+            <ul className="list">
+              {
+                students.map((item) =>
+                  <Student model={item} key={item.uid} />
+                )
+              }
+            </ul>
+          }
         </div>
       </article>
     )
@@ -38,7 +40,6 @@ Students.propTypes = {
 
 Students.propDefaults = {
   title: 'Students',
-  students: [],
 }
 
 export default Students
