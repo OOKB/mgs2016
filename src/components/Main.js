@@ -2,7 +2,7 @@ import React, { Component, PropTypes } from 'react'
 
 import Header from './Header/Header'
 import Intro from './Intro/Intro'
-import Schedule from './Schedule'
+import Schedule from './Schedule/Schedule'
 
 class Main extends Component {
 

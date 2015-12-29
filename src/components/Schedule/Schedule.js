@@ -1,4 +1,5 @@
 import React, { PropTypes } from 'react'
+import ScheduleItem from './ScheduleItem'
 
 function Schedule({ }) {
   return (
@@ -6,7 +7,7 @@ function Schedule({ }) {
       <div className="container">
         <h2>Schedule of Events</h2>
         <div>
-          {'listing of dates'}
+          <ScheduleItem />
         </div>
       </div>
     </article>
