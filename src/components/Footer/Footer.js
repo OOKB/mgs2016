@@ -13,7 +13,7 @@ class Footer extends Component {
           <div className="group">
             <div className="three columns footer-logo">
               <a href="http://www.mica.edu/" target="_blank" className="micalogo">
-                <img src="/assets/images/mica_lockup_transp.png" alt="MICA Logo" />
+                <img src="../images/micalogo.svg" alt="MICA Logo" />
               </a>
             </div>
             <div className="three columns footer-contact">
