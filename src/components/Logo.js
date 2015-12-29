@@ -8,12 +8,7 @@ class Logo extends Component {
     const { videoSrc } = this.props
     return (
       <section className="landing-logo">
-        <div className="creative-blank-video">
-          <video height="500" controls>
-            <source src={videoSrc} type="video/mp4" />
-            { "Your browser does not support the video tag." }
-          </video>
-        </div>
+        <h1 className="hidden">MICA Grad Show 2016</h1>
       </section>
     )
   }
