@@ -1,14 +1,19 @@
 import React, { PropTypes } from 'react'
 import ScheduleItem from './ScheduleItem'
 
-function Schedule({ }) {
+function Schedule({ dates }) {
   return (
     <article id="schedule">
       <div className="container">
         <h2>Schedule of Events</h2>
-        <div>
-          <ScheduleItem />
-        </div>
+          { dates &&
+            <div className="dates">
+              {
+                dates.map((dateInfo, index) =>
+                  <ScheduleItem key={index} {...dateInfo} />)
+              }
+            </div>
+          }
       </div>
     </article>
   )

@@ -1,27 +1,18 @@
 import React, { PropTypes } from 'react'
 
-import Gallerylisting from './Gallerylisting'
-import GalleryMap from './GalleryMap'
-
-function Galleries({ locations, settings }) {
+function GalleryMap({ }) {
   return (
-    <article id="galleries">
-      <h2>Participating Galleries</h2>
-      <section className="map-wrapper">
-        <GalleryMap settings={settings} />
-        <Gallerylisting locations={locations} />
-      </section>
-    </article>
+    <div className="google-map-container">
+      {'gmap'}
+    </div>
   )
 }
 
-Galleries.propTypes = {
+GalleryMap.propTypes = {
   locations: PropTypes.array.isRequired,
   settings: PropTypes.object.isRequired,
 }
-Galleries.defaultProps = {
-  locations: [],
-  settings: {},
+GalleryMap.defaultProps = {
 }
 
-export default Galleries
+export default GalleryMap

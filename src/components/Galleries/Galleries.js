@@ -8,7 +8,7 @@ function Galleries({ locations, settings }) {
     <article id="galleries">
       <h2>Participating Galleries</h2>
       <section className="map-wrapper">
-        <GalleryMap settings={settings} />
+        <GalleryMap locations={locations} settings={settings} />
         <GalleryListing locations={locations} />
       </section>
     </article>

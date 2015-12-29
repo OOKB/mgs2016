@@ -23,8 +23,7 @@ function ScheduleItem({ dateStr, images, locations }) {
 }
 
 ScheduleItem.propTypes = {
-  dates: PropTypes.array.isRequired,
-  images: PropTypes.array,
+  dateStr: PropTypes.string.isRequired,
   locations: PropTypes.array,
 }
 ScheduleItem.defaultProps = {
