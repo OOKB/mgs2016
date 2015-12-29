@@ -9,14 +9,14 @@ class Footer extends Component {
 
     return (
       <footer>
-        <div className="container">
+        <div className="container p2">
           <div className="group">
-            <div className="column span1 footer-logo">
+            <div className="three columns footer-logo">
               <a href="http://www.mica.edu/" target="_blank" className="micalogo">
                 <img src="/assets/images/mica_lockup_transp.png" alt="MICA Logo" />
               </a>
             </div>
-            <div className="column span1 footer-contact">
+            <div className="three columns footer-contact">
               <ul>
                 {author && <li>{author}</li>}
                 {street && <li>{street}</li>}
@@ -24,12 +24,7 @@ class Footer extends Component {
                 {phone && <li>{phone}</li>}
               </ul>
             </div>
-            { builtDesigned &&
-              <div className="column span1 footer-credits">
-                <Credits builtDesigned={builtDesigned} />
-              </div>
-            }
-            <div className="column span1 footer-nav">
+            <div className="three columns footer-nav">
               { nav &&
                 <ul>
                   {nav.map((item) => {
@@ -47,7 +42,7 @@ class Footer extends Component {
                 <p><a href={signup.src}>{signup.title}</a></p>
               </div>
             </div>
-            <div className="column span1 archive">
+            <div className="three columns archive">
               <h3>Archive</h3>
               <ul>
                 {
@@ -57,6 +52,11 @@ class Footer extends Component {
                 }
               </ul>
             </div>
+            { builtDesigned &&
+              <div className="three columns footer-credits">
+                <Credits builtDesigned={builtDesigned} />
+              </div>
+            }
           </div>
         </div>
       </footer>
