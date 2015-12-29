@@ -1,0 +1,258 @@
+body{
+    font-family: 'Balto', sans-serif;
+}
+
+h4{
+    text-transform: uppercase;
+    font-size: 1.25em;
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+
+h5{
+    text-transform: uppercase;
+    font-weight: 500;
+    letter-spacing: 1px;
+}
+
+.bold{
+    font-weight: 500;
+}
+.head-container{
+    @include outer-container(1200px);
+    height: 120px;
+    padding-bottom: 50px;
+
+    .number-logo{
+        @include span-columns(1);
+        padding-top: 35px;
+        img{
+            width: 78px;
+        }
+    }
+
+    .navigation{
+        @include span-columns(11);
+        padding-top: 50px;
+        list-style: none;
+        text-align: right;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+
+
+        li{
+            display: inline;
+            margin-right: 1em;
+            font-size: .75em;
+            padding-bottom: 1em;
+
+            a{
+                color: black;
+                text-decoration: none;
+
+                &:hover{
+                    padding-bottom: .35em;
+                    border-bottom: 2px solid $orange;
+                }
+            }
+        }
+    }
+}
+
+.landing-logo{
+    height: 90vh;
+    background: url("../images/logo.png");
+    background-position: center;
+    background-size: 300px 327px;
+    background-repeat: no-repeat;
+}
+
+.intro{
+    @include row();
+    background-image: url("../images/background.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+
+    .main-paragraph{
+        @include span-columns(6);
+        @include shift(3);
+        color: white;
+        font-size: 1.25em;
+        line-height: 1.5em;
+
+        p{
+            margin-bottom: 1em;
+
+            &:first-child{
+                margin-top: 100px;
+            }
+            &:last-child{
+                margin-bottom: 100px;
+
+            }
+
+        }
+    }
+
+    .creative-blank-video{
+        @include span-columns(8);
+        @include shift(2);
+        margin-bottom: 100px;
+
+        video{
+            width: 100%;
+        }
+    }
+
+}
+
+.schedule{
+    @include row();
+    margin-top: 100px;
+
+    .schedule-filter{
+        @include row();
+
+        .filter-options{
+            @include span-columns(9);
+            @include shift(2);
+            margin-bottom: 12px;
+
+            ul{
+                text-transform:uppercase;
+
+                li{
+                    display:inline;
+                    color: $lightgray;
+                    font-size: 1.25em;
+
+                    a{
+                        color: $lightgray;
+                        text-decoration: none;
+                        letter-spacing: 2px;
+
+                        &:hover{
+                            color: $orange;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+.schedule-event{
+    @include row();
+
+    .schedule-text{
+        @include span-columns(3);
+        @include shift(2);
+        padding: 20px 0 20px 0;
+
+        hr{
+            border: none;
+            height: 1px;
+            background: white;
+            margin: 1em 0 1em 0;
+        }
+
+        p{
+            line-height: 1.5em;
+        }
+
+    }
+
+    .schedule-images{
+        display: none;
+    }
+
+    &:last-child{
+        margin-bottom: 100px;
+    }
+}
+
+.event-active{
+    background-image: url("../images/event-active.png");
+    background-repeat: repeat-y;
+    color: white;
+
+    .schedule-images{
+        @include span-columns(6);
+        display: block;
+        padding: 20px 0 20px 0;
+
+        img{
+            @include span-columns(4);
+        }
+    }
+}
+.map{
+    @include row();
+    margin-bottom: 100px;
+
+    .g-map{
+        @include span-columns(9);
+        img{
+            width: 100%;
+        }
+    }
+
+    .map-text{
+        @include span-columns(3);
+
+        .filter-options{
+            margin-bottom: 12px;
+
+            ul{
+                text-transform:uppercase;
+
+                li{
+                    display:block;
+                    color: $lightgray;
+                    font-size: 1.25em;
+
+                    a{
+                        color: $lightgray;
+                        text-decoration: none;
+                        letter-spacing: 2px;
+
+                        &:hover{
+                            color: $orange;
+                        }
+                    }
+                }
+            }
+        }
+
+        .galleries{
+            margin-bottom: 1.25em;
+
+            &:last-child{
+                margin-bottom: none;
+            }
+        }
+    }
+}
+
+.students{
+    @include row();
+
+    .container{
+        @include span-columns(8);
+        @include shift(2);
+    }
+
+    .students-row{
+        padding-bottom: 150px;
+    }
+
+
+    .individual-student{
+        @include span-columns(3);
+    }
+}
+
+footer{
+    @include row();
+}

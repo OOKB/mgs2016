@@ -1,0 +1,21 @@
+{
+  "name": "awd-05",
+  "version": "0.0.0",
+  "description": "gulp class example",
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jqueryjs": "~1.8.2",
+    "jquery-ui": "~1.11.3"
+  },
+  "devDependencies": {
+    "jquery-ui": "~1.11.3"
+  }
+}

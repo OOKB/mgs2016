@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+
+<head>
+  <title>MICA Grad Show 2016</title>
+  <link rel="stylesheet" type="text/css" href="css/styles.css">
+</head>
+<body>
+    <!-- HEADER BEGIN -->
+    <header class="head-container">
+            <div class="number-logo"><img src="images/16-white.png"/></div>
+            <ul class="navigation">
+                <li><a href="#">Welcome</a></li>
+                <li><a href="#">Schedule</a></li>
+                <li><a href="#">Galleries</a></li>
+                <li><a href="#">Students</a></li>
+                <li><a href="#">Programs</a></li>
+                <li><a href="#">Updates</a></li>
+                <li><a href="#">Graduate Admission</a></li>
+                <li><a href="#">Creative Blank</a></li>
+                <li><input></input></li>
+            </ul>
+    </header>
+    <!-- HEADER END -->
+
+    <!-- MAIN BEGIN -->
+    <main>
+
+      <article>
+        <!-- LOGO LANDING BEGIN -->
+        <section class="landing-logo"></section>
+        <!-- LOGO LANDING END -->
+
+
+        <!-- INTRO TEXT/VIDEO BEGIN -->
+        <section class="intro">
+            <div class="main-paragraph">
+                <p>We invite you to join the next generation of creative thinkers&mdash;artists, designers, educators, curators and critics&mdash;as they demonstrate the power and possibilities of contemporary art and design.</p>
+
+                <p>MICA Grad Show 2016 includes exhibitions and critiques, gallery talks and presentations, public programs, a symposium, and student-curated installations throughout Baltimore city.</p>
+
+                <p>Join us for a season of innovative and inspiring events and exhibitions featuring the culminating work of more than 150 of MICA&#39;s graduate students from the College&#39;s internationally renowned programs.</p>
+            </div>
+            <div class="creative-blank-video">
+                <video height="500" controls>
+                  <source src="video/animated_logo-small.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+                </video>
+            </div>
+        </section>
+        <!-- INTRO TEXT/VIDEO END -->
+
+
+        <!-- SCHEDULE OF EVENTS BEGINS -->
+        <section class="schedule">
+            <div class="schedule-filter">
+                <div class="filter-options">
+                    <ul>
+                        <li><a href="#">exhibitions</a></li>
+                        <li>/</li>
+                        <li><a href="#">single day events</a></li>
+                        <li>/</li>
+                        <li><a href="#">Curatorial Practice Programs</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="schedule-event event-active">
+                <div class="schedule-text">
+                    <h4>April 16</h4>
+                    <p>Critical Studies, MA, Symposium</p><br>
+
+                    <h5>reorientation: alternative attitudes toward space and self</h5><br>
+
+                    <p><span class="bold">Location:</span> Lazarus Center Auditorium<br>
+                    131 W. North Avenue<br></p>
+                    <hr>
+                    <p><span class="bold">Opening Reception</span><br>
+                    Friday, April 16, 10AM-5PM</p>
+                </div>
+                <div class="schedule-images">
+                    <img src="images/gallery.png" />
+                    <img src="images/gallery.png" />
+                    <img src="images/gallery.png" />
+                </div>
+            </div>
+            <div class="schedule-event">
+                <div class="schedule-text">
+                    <h4>April 15–May 1</h4>
+                    <p>Community Arts, MFA</p>
+                    <p>LeRoy E. Hoffberger School of Painting</p>
+                    <p>Mount Royal School of Art</p>
+                    <p>Photographic and Electronic Media, MFA</p>
+                    <p>Rinehart School of Sculpture</p>
+                </div>
+                <div class="schedule-images">
+                    <img src="images/gallery.png" />
+                    <img src="images/gallery.png" />
+                    <img src="images/gallery.png" />
+                </div>
+            </div>
+            <div class="schedule-event">
+                <div class="schedule-text">
+                    <h4>April 15–May 1</h4>
+                    <p>Community Arts, MFA</p>
+                    <p>LeRoy E. Hoffberger School of Painting</p>
+                    <p>Mount Royal School of Art</p>
+                    <p>Photographic and Electronic Media, MFA</p>
+                    <p>Rinehart School of Sculpture</p>
+                </div>
+                <div class="schedule-images">
+                    <img src="images/gallery.png" />
+                    <img src="images/gallery.png" />
+                    <img src="images/gallery.png" />
+                </div>
+            </div>
+        </section>
+        <!-- SCHEDULE OF EVENTS ENDS -->
+
+
+        <!-- GOOGLE MAP BEGINS -->
+        <section class="map">
+            <div class="g-map">
+                <img src="images/gmap-placeholder.png" />
+            </div>
+            <div class="map-text">
+                <div class="filter-options">
+                    <ul>
+                        <li><a href="#">galleries</a></li>
+                        <li><a href="#">curatorial practice venues</a></li>
+                    </ul>
+                </div>
+                <div class="galleries">
+                    <h4>3 Meyerhoff Gallery</h4>
+                    <p>1303 W. Mt. Royal Ave.</p>
+                    <p>Baltimore, MD 21217</p>
+                </div>
+
+                <div class="galleries">
+                    <h4>3 Meyerhoff Gallery</h4>
+                    <p>1303 W. Mt. Royal Ave.</p>
+                    <p>Baltimore, MD 21217</p>
+                </div>
+            </div>
+        </section>
+        <!-- GOOGLE MAP ENDS -->
+
+
+        <!-- STUDENTS LISTING BEGINS -->
+        <section class="students">
+          <div class="container">
+            <div>FILTERS TK</div>
+
+        <div class="students-row">
+            <div class="individual-student">
+                <ul id="projects" className="list group">
+                  <!-- template for each student -->
+                  <li id={uid} onClick={@handleClick} className="student">
+                    <img src={pic} alt={fullName} />
+                    <ul>
+                      <li className="name"><h4>{fullName}</h4></li>
+                      <li className="program">{programName}</li>
+                      <li className="location">{locationName}</li>
+                      <li className="show-date">{showDate}</li>
+                    </ul>
+                  </li>
+                  <!-- end template for each student -->
+                </ul>
+            </div>
+
+            <div class="individual-student">
+                <ul id="projects" className="list group">
+                  <!-- template for each student -->
+                  <li id={uid} onClick={@handleClick} className="student">
+                    <img src={pic} alt={fullName} />
+                    <ul>
+                      <li className="name"><h4>{fullName}</h4></li>
+                      <li className="program">{programName}</li>
+                      <li className="location">{locationName}</li>
+                      <li className="show-date">{showDate}</li>
+                    </ul>
+                  </li>
+                  <!-- end template for each student -->
+                </ul>
+            </div>
+
+            <div class="individual-student">
+                <ul id="projects" className="list group">
+                  <!-- template for each student -->
+                  <li id={uid} onClick={@handleClick} className="student">
+                    <img src={pic} alt={fullName} />
+                    <ul>
+                      <li className="name"><h4>{fullName}</h4></li>
+                      <li className="program">{programName}</li>
+                      <li className="location">{locationName}</li>
+                      <li className="show-date">{showDate}</li>
+                    </ul>
+                  </li>
+                  <!-- end template for each student -->
+                </ul>
+            </div>
+
+            <div class="individual-student">
+                    <ul id="projects" className="list group">
+                      <!-- template for each student -->
+                      <li id={uid} onClick={@handleClick} className="student">
+                        <img src={pic} alt={fullName} />
+                        <ul>
+                          <li className="name"><h4>{fullName}</h4></li>
+                          <li className="program">{programName}</li>
+                          <li className="location">{locationName}</li>
+                          <li className="show-date">{showDate}</li>
+                        </ul>
+                      </li>
+                      <!-- end template for each student -->
+                    </ul>
+                </div>
+            </div>
+
+            <div class="students-row">
+                <div class="individual-student">
+                    <ul id="projects" className="list group">
+                      <!-- template for each student -->
+                      <li id={uid} onClick={@handleClick} className="student">
+                        <img src={pic} alt={fullName} />
+                        <ul>
+                          <li className="name"><h4>{fullName}</h4></li>
+                          <li className="program">{programName}</li>
+                          <li className="location">{locationName}</li>
+                          <li className="show-date">{showDate}</li>
+                        </ul>
+                      </li>
+                      <!-- end template for each student -->
+                    </ul>
+                </div>
+
+                <div class="individual-student">
+                    <ul id="projects" className="list group">
+                      <!-- template for each student -->
+                      <li id={uid} onClick={@handleClick} className="student">
+                        <img src={pic} alt={fullName} />
+                        <ul>
+                          <li className="name"><h4>{fullName}</h4></li>
+                          <li className="program">{programName}</li>
+                          <li className="location">{locationName}</li>
+                          <li className="show-date">{showDate}</li>
+                        </ul>
+                      </li>
+                      <!-- end template for each student -->
+                    </ul>
+                </div>
+
+                <div class="individual-student">
+                    <ul id="projects" className="list group">
+                      <!-- template for each student -->
+                      <li id={uid} onClick={@handleClick} className="student">
+                        <img src={pic} alt={fullName} />
+                        <ul>
+                          <li className="name"><h4>{fullName}</h4></li>
+                          <li className="program">{programName}</li>
+                          <li className="location">{locationName}</li>
+                          <li className="show-date">{showDate}</li>
+                        </ul>
+                      </li>
+                      <!-- end template for each student -->
+                    </ul>
+                </div>
+
+                <div class="individual-student">
+                    <ul id="projects" className="list group">
+                      <!-- template for each student -->
+                      <li id={uid} onClick={@handleClick} className="student">
+                        <img src={pic} alt={fullName} />
+                        <ul>
+                          <li className="name"><h4>{fullName}</h4></li>
+                          <li className="program">{programName}</li>
+                          <li className="location">{locationName}</li>
+                          <li className="show-date">{showDate}</li>
+                        </ul>
+                      </li>
+                      <!-- end template for each student -->
+                    </ul>
+                </div>
+            </div>
+
+          </div>
+        </section>
+        <!-- STUDENTS LISTING ENDS -->
+
+
+      </article>
+
+    </main>
+    <!-- MAIN END -->
+
+    <!-- FOOTER BEGIN -->
+    <footer>
+        This is a footer if we have one.
+    </footer>
+    <!-- FOOTER END -->
+
+    <!-- build:js scripts/site.js -->
+    <!-- bower:js -->
+    <script src="bower_components/jquery/dist/jquery.js"></script>
+    <script src="bower_components/jqueryjs/jquery.js"></script>
+    <script src="bower_components/jquery-ui/jquery-ui.js"></script>
+    <!-- endbower -->
+    <!-- endbuild -->
+
+
+</body>
+
+</html>
