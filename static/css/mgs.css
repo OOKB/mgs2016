@@ -114,7 +114,20 @@ body {
 .bg-black     { background-color: black; }
 
 .lead {
-  font-size: 112.5%;
+  font-size: 125%;
+  line-height: 1.5;
+}
+
+/***** General Styles for all "stripes" *****/
+
+.mgs .landing-logo,
+.mgs #intro,
+.mgs #schedule,
+.mgs #galleries,
+.mgs #students {
+  min-height: 50vh;
+  padding-top:6.25rem;
+  padding-bottom: 6.25rem;
 }
 
 /***** Intro Section *****/
