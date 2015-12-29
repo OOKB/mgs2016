@@ -1,12 +1,11 @@
-React = require 'react'
-cx = require '../cx'
-_ = require 'lodash'
+import React, { Component, PropTypes } from 'react'
+import className from 'className'
+import _ from 'lodash'
 
-Search = require './search'
-ProgramList = require '../filters/programs'
+import Search from './Search'
+import Toggle from './toggle'
 
-Toggle = require './toggle'
-LARGE_SCREEN_SIZE = 767
+const LARGE_SCREEN_SIZE = 767
 
 module.exports = React.createClass
   getInitialState: ->
