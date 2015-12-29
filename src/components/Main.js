@@ -6,6 +6,7 @@ import Intro from './Intro/Intro'
 import Schedule from './Schedule/Schedule'
 import Galleries from './Galleries/Galleries'
 import Students from './Students/Students'
+import Footer from './Footer/Footer'
 
 class Main extends Component {
 
@@ -19,6 +20,7 @@ class Main extends Component {
         <Schedule />
         <Galleries />
         <Students />
+        <Footer />
       </div>
     )
   }

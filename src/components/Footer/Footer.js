@@ -1,10 +1,10 @@
 import React, { Component, PropTypes } from 'react'
 import Credits from './Credits'
-import MailchimpForm from './Mailchimp'
+// import MailchimpForm from './Mailchimp'
 
-export default class Footer extends Component {
+class Footer extends Component {
   render() {
-    const { author, street, city, state, zip, phone, builtDesigned, nav } = this.props.data
+    const { archive, author, street, city, state, zip, phone, builtDesigned, nav, signup } = this.props
     const address = `${city}, ${state} ${zip}`
 
     return (
@@ -18,36 +18,43 @@ export default class Footer extends Component {
             </div>
             <div className="column span1 footer-contact">
               <ul>
-                <li>{author}</li>
-                <li>{street}</li>
-                <li>{address}</li>
-                <li>{phone}</li>
+                {author && <li>{author}</li>}
+                {street && <li>{street}</li>}
+                {address && <li>{address}</li>}
+                {phone && <li>{phone}</li>}
               </ul>
             </div>
-            <div className="column span1 footer-credits">
-              <Credits builtDesigned={builtDesigned} />
-            </div>
+            { builtDesigned &&
+              <div className="column span1 footer-credits">
+                <Credits builtDesigned={builtDesigned} />
+              </div>
+            }
             <div className="column span1 footer-nav">
-              <ul>
-                {nav.map((item) => {
-                  const { href, link, title } = item
-                  const url = href || '#' + link
-                  if (href) {
-                    return (
-                      <li key={link}><a href={url}>{title}</a></li>
-                    )
-                  }
-                })}
-              </ul>
+              { nav &&
+                <ul>
+                  {nav.map((item) => {
+                    const { href, link, title } = item
+                    const url = href || '#' + link
+                    if (href) {
+                      return (
+                        <li key={link}><a href={url}>{title}</a></li>
+                      )
+                    }
+                  })}
+                </ul>
+              }
               <div className="signup">
-                <p><a href="http://eepurl.com/bciqMT">Signup for MICA Grad Show Updates</a></p>
+                <p><a href={signup.src}>{signup.title}</a></p>
               </div>
             </div>
             <div className="column span1 archive">
               <h3>Archive</h3>
               <ul>
-                <li><a href="http://graduate.mica.edu/gradshow/2014/">2014</a></li>
-                <li><a href="http://graduate.mica.edu/thesis/">2013</a></li>
+                {
+                  archive.map((item, index) => (
+                    <li key={index}><a href={item.src}>{item.title}</a></li>
+                  ))
+                }
               </ul>
             </div>
           </div>
@@ -57,6 +64,7 @@ export default class Footer extends Component {
   }
 }
 Footer.propTypes = {
+  archive: PropTypes.array.isRequired,
   author: PropTypes.string,
   street: PropTypes.string,
   city: PropTypes.string,
@@ -65,4 +73,17 @@ Footer.propTypes = {
   phone: PropTypes.string,
   builtDesigned: PropTypes.array,
   nav: PropTypes.array,
+  signup: PropTypes.object,
 }
+Footer.defaultProps = {
+  archive: [
+    { title: '2015', src: 'http://2015.micagradshow.com' },
+    { title: '2014', src: 'http://graduate.mica.edu/gradshow/2014/' },
+    { title: '2013', src: 'http://graduate.mica.edu/thesis/' },
+  ],
+  signup: {
+    title: 'Signup for MICA Grad Show Updates',
+    src: 'http://eepurl.com/bciqMT',
+  },
+}
+export default Footer
