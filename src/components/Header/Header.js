@@ -9,10 +9,12 @@ class Header extends Component {
 
   render() {
     const { title } = this.props
+
     // <Nav data={data} programs={programs} />
     return (
       <header className="">
         <h1 style={{ display: 'none' }}>{title}</h1>
+        {'navigation'}
       </header>
     )
   }
