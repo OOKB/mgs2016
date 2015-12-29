@@ -6,10 +6,13 @@ class Intro extends Component {
     return (
       <article id="intro">
         <div className="container">
-          <div className="intro-text">
+          <div className="intro-text lead white">
             { body.map((pText, index) => <p key={index}>{ pText }</p>) }
           </div>
           <div className="creative-blank-video">
+            <div className="embed-container">
+                <iframe src="http://player.vimeo.com/video/149053402" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
+            </div>
           </div>
         </div>
       </article>

@@ -1,0 +1,153 @@
+* {
+  position: relative;
+}
+
+html {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+*, *:before, *:after {
+  -webkit-box-sizing: inherit;
+  -moz-box-sizing: inherit;
+  box-sizing: inherit;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+img {
+  width: 100%;
+  height: auto;
+}
+
+.container,
+.container-fluid {
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+.container {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.row::after,
+.group::after,
+.grouped::after,
+.clearfix::after {
+  content: '';
+  clear: both;
+  display: table;
+}
+
+@media (min-width: 30em) {
+  .container {
+    width: 80%;
+  }
+}
+
+@media (min-width: 50em) {
+  .container {
+    max-width: 1200px;
+  }
+
+  .row,
+  .group,
+  .grouped {
+    margin-left: -1rem;
+    margin-right: -1rem;
+  }
+
+  .column,
+  .columns {
+    /* this will make things a column */
+    float: left;
+    padding-left: 1rem; /* make this half of what you want your gutters to be */
+    padding-right: 1rem; /* make this half of what you want your gutters to be */
+  }
+
+  /* these styles declare column widths */
+  .one      { width: calc(100% / 12 * 01); }
+  .two      { width: calc(100% / 12 * 02); }
+  .three    { width: calc(100% / 12 * 03); }
+  .four     { width: calc(100% / 12 * 04); }
+  .five     { width: calc(100% / 12 * 05); }
+  .six      { width: calc(100% / 12 * 06); }
+  .seven    { width: calc(100% / 12 * 07); }
+  .eight    { width: calc(100% / 12 * 08); }
+  .nine     { width: calc(100% / 12 * 09); }
+  .ten      { width: calc(100% / 12 * 10); }
+  .eleven   { width: calc(100% / 12 * 11); }
+  .twelve   { width: calc(100% / 12 * 12); }
+
+  /* these styles declare column offsets */
+  .offset-by-one      { margin-left: calc(100% / 12 * 01); }
+  .offset-by-two      { margin-left: calc(100% / 12 * 02); }
+  .offset-by-three    { margin-left: calc(100% / 12 * 03); }
+  .offset-by-four     { margin-left: calc(100% / 12 * 04); }
+  .offset-by-five     { margin-left: calc(100% / 12 * 05); }
+  .offset-by-six      { margin-left: calc(100% / 12 * 06); }
+  .offset-by-seven    { margin-left: calc(100% / 12 * 07); }
+  .offset-by-eight    { margin-left: calc(100% / 12 * 08); }
+  .offset-by-nine     { margin-left: calc(100% / 12 * 09); }
+  .offset-by-ten      { margin-left: calc(100% / 12 * 10); }
+  .offset-by-eleven   { margin-left: calc(100% / 12 * 11); }
+  .offset-by-twelve   { margin-left: calc(100% / 12 * 12); }
+}
+
+/*** Type. ***/
+body {
+  font-family: "Balto", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 1em;
+  line-height: 1.25em;
+}
+
+/***** Modules *****/
+.white        { color: white; }
+.black        { color: black; }
+
+.bg-white     { background-color: white; }
+.bg-black     { background-color: black; }
+
+.lead {
+  font-size: 112.5%;
+}
+
+/***** Intro Section *****/
+#intro {
+  display: block;
+  background-image: url("../images/background.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+#intro .intro-text,
+.creative-blank-video {
+  max-width: 50rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.embed-container {
+  position: relative;
+  padding-bottom: 56.25%;
+  height: 0;
+  overflow: hidden;
+  max-width: 100%;
+  width: 100%;
+  margin:0;
+}
+
+.embed-container iframe,
+.embed-container object,
+.embed-container embed {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}

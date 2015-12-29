@@ -119,16 +119,16 @@ h5 {
   background-size: 300px 327px;
   background-repeat: no-repeat; }
 
-.intro {
+#intro {
   display: block;
   background-image: url("../images/background.png");
   background-size: cover;
   background-repeat: no-repeat; }
-  .intro::after {
+  #intro::after {
     clear: both;
     content: "";
     display: table; }
-  .intro .main-paragraph {
+  #intro .main-paragraph {
     float: left;
     display: block;
     margin-right: 2.35765%;
@@ -137,24 +137,24 @@ h5 {
     color: white;
     font-size: 1.25em;
     line-height: 1.5em; }
-    .intro .main-paragraph:last-child {
+    #intro .main-paragraph:last-child {
       margin-right: 0; }
-    .intro .main-paragraph p {
+    #intro .main-paragraph p {
       margin-bottom: 1em; }
-      .intro .main-paragraph p:first-child {
+      #intro .main-paragraph p:first-child {
         margin-top: 100px; }
-      .intro .main-paragraph p:last-child {
+      #intro .main-paragraph p:last-child {
         margin-bottom: 100px; }
-  .intro .creative-blank-video {
+  #intro .creative-blank-video {
     float: left;
     display: block;
     margin-right: 2.35765%;
     width: 65.88078%;
     margin-left: 17.05961%;
     margin-bottom: 100px; }
-    .intro .creative-blank-video:last-child {
+    #intro .creative-blank-video:last-child {
       margin-right: 0; }
-    .intro .creative-blank-video video {
+    #intro .creative-blank-video video {
       width: 100%; }
 
 .schedule {

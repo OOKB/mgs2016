@@ -36,7 +36,7 @@ class App extends Component {
   render() {
     const { children } = this.props
     return (
-      <div className="container">
+      <div className="mgs">
         { this.renderErrorMessage() }
         { children }
       </div>
