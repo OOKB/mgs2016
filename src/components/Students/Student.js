@@ -2,7 +2,7 @@ import React, { PropTypes } from 'react'
 
 function Student({ name, programName, locationName, onClick, photo, showDate, uid }) {
   return (
-    <li id={uid} onClick={onClick} className="student">
+    <li id={uid} onClick={onClick} className="student three columns">
       <img src={photo.url} alt={name.display} />
       <ul>
         <li className="name"><h4>{name.display}</h4></li>
