@@ -26,11 +26,11 @@ function mapStateToProps(state) {
     entities: { profile, url, program },
   } = state
   return {
-    profiles: map(profile, (item) => {
-      item.photo = url[item.photo].preview.image
-      item.program = program[item.programId]
-      return item
-    }),
+    profiles: map(profile, ({ photo, programId, ...rest }) => ({
+      ...rest,
+      photo: url[photo].preview.image,
+      program: program[programId],
+    })),
   }
 }
 
