@@ -11,3 +11,4 @@ npm install
 npm start
 open http://localhost:3000
 ```
+once running, press the “h” key to hide the right developer sidebar thing
