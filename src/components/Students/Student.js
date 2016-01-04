@@ -4,7 +4,7 @@ function Student({ name, programName, locationName, onClick, photo, showDate, ui
   return (
     <li id={uid} onClick={onClick} className="student three columns">
       <img src={photo.url} alt={name.display} />
-      <ul>
+      <ul className="list-reset">
         <li className="name"><h4>{name.display}</h4></li>
         { programName && <li className="program">{programName}</li> }
         { locationName && <li className="location">{locationName}</li> }

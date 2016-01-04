@@ -16,7 +16,7 @@ class Students extends Component {
             <Blurb {...programInfo} />
           }
           { students &&
-            <ul className="list group">
+            <ul className="list-reset group">
               {
                 students.map((item) =>
                   <Student key={item.id} {...item} />
