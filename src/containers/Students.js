@@ -1,5 +1,6 @@
 import React, { Component, PropTypes } from 'react'
 import { connect } from 'react-redux'
+import map from 'lodash/collection/map'
 
 import { loadProfiles } from '../redux/actions'
 import Students from '../components/Students/Students'
@@ -10,7 +11,7 @@ class StudentsSection extends Component {
   }
   render() {
     const { profiles } = this.props
-    return <Students profiles={profiles} />
+    return <Students students={profiles} />
   }
 }
 StudentsSection.propTypes = {
@@ -22,10 +23,13 @@ StudentsSection.propTypes = {
 // Which part of the Redux global state does our component want to receive as props?
 function mapStateToProps(state) {
   const {
-    entities: { profile },
+    entities: { profile, url },
   } = state
   return {
-    profiles: profile,
+    profiles: map(profile, (item) => {
+      item.photo = url[item.photo].preview.image
+      return item
+    }),
   }
 }
 

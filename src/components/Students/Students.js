@@ -19,7 +19,7 @@ class Students extends Component {
             <ul className="list">
               {
                 students.map((item) =>
-                  <Student model={item} key={item.uid} />
+                  <Student key={item.id} {...item} />
                 )
               }
             </ul>

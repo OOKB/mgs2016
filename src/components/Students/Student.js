@@ -1,11 +1,11 @@
 import React, { PropTypes } from 'react'
 
-function Student({ fullName, programName, locationName, onClick, pic, showDate, uid }) {
+function Student({ name, programName, locationName, onClick, photo, showDate, uid }) {
   return (
     <li id={uid} onClick={onClick} className="student">
-      <img src={pic} alt={fullName} />
+      <img src={photo.url} alt={name.display} />
       <ul>
-        <li className="name"><h4>{fullName}</h4></li>
+        <li className="name"><h4>{name.display}</h4></li>
         <li className="program">{programName}</li>
         <li className="location">{locationName}</li>
         <li className="show-date">{showDate}</li>
@@ -15,13 +15,13 @@ function Student({ fullName, programName, locationName, onClick, pic, showDate, 
 }
 
 Student.propTypes = {
-  fullName: PropTypes.string.isRequired,
+  name: PropTypes.object.isRequired,
   programName: PropTypes.string.isRequired,
   locationName: PropTypes.string.isRequired,
   onClick: PropTypes.func.isRequired,
-  pic: PropTypes.string.isRequired,
+  photo: PropTypes.object.isRequired,
   showDate: PropTypes.string.isRequired,
-  uid: PropTypes.string.isRequired,
+  id: PropTypes.string.isRequired,
 }
 Student.defaultProps = {
 }
