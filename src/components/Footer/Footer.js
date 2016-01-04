@@ -44,7 +44,7 @@ class Footer extends Component {
             </div>
             <div className="three columns archive">
               <h3>Archive</h3>
-              <ul>
+              <ul className="list-reset">
                 {
                   archive.map((item, index) => (
                     <li key={index}><a href={item.src}>{item.title}</a></li>
