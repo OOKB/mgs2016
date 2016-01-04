@@ -6,9 +6,9 @@ function Student({ name, programName, locationName, onClick, photo, showDate, ui
       <img src={photo.url} alt={name.display} />
       <ul>
         <li className="name"><h4>{name.display}</h4></li>
-        <li className="program">{programName}</li>
-        <li className="location">{locationName}</li>
-        <li className="show-date">{showDate}</li>
+        { programName && <li className="program">{programName}</li> }
+        { locationName && <li className="location">{locationName}</li> }
+        { showDate && <li className="show-date">{showDate}</li> }
       </ul>
     </li>
   )
