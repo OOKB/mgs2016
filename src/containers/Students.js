@@ -23,11 +23,12 @@ StudentsSection.propTypes = {
 // Which part of the Redux global state does our component want to receive as props?
 function mapStateToProps(state) {
   const {
-    entities: { profile, url },
+    entities: { profile, url, program },
   } = state
   return {
     profiles: map(profile, (item) => {
       item.photo = url[item.photo].preview.image
+      item.program = program[item.programId]
       return item
     }),
   }
