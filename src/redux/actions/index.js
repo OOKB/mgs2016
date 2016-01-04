@@ -1,167 +1,59 @@
-import { CALL_API, Schemas } from '../middleware/api'
+import { CALL_API } from '../middleware/api'
+import isEmpty from 'lodash/lang/isEmpty'
 
-export const USER_REQUEST = 'USER_REQUEST'
-export const USER_SUCCESS = 'USER_SUCCESS'
-export const USER_FAILURE = 'USER_FAILURE'
+export const PROFILE_REQUEST = 'PROFILE_REQUEST'
+export const PROFILE_SUCCESS = 'PROFILE_SUCCESS'
+export const PROFILE_FAILURE = 'PROFILE_FAILURE'
 
-// Fetches a single user from Github API.
+// Fetches a single profile from CAPE API.
 // Relies on the custom API middleware defined in ../middleware/api.js.
-function fetchUser(login) {
+function fetchProfile(id) {
   return {
     [CALL_API]: {
-      types: [ USER_REQUEST, USER_SUCCESS, USER_FAILURE ],
-      api: 'github',
-      endpoint: `users/${login}`,
-      schema: Schemas.USER,
+      types: [ PROFILE_REQUEST, PROFILE_SUCCESS, PROFILE_FAILURE ],
+      api: 'cape',
+      endpoint: `mica/profile/${id}`,
     },
   }
 }
 
-// Fetches a single user from Github API unless it is cached.
+// Fetches a profile unless it is cached.
 // Relies on Redux Thunk middleware.
-export function loadUser(login, requiredFields = []) {
+export function loadProfile(id, requiredFields = []) {
   return (dispatch, getState) => {
-    const user = getState().entities.users[login]
-    if (user && requiredFields.every(key => user.hasOwnProperty(key))) {
+    const entity = getState().entities.profile[id]
+    if (entity && requiredFields.every(key => entity.hasOwnProperty(key))) {
       return null
     }
-
-    return dispatch(fetchUser(login))
+    return dispatch(fetchProfile(id))
   }
 }
 
-export const REPO_REQUEST = 'REPO_REQUEST'
-export const REPO_SUCCESS = 'REPO_SUCCESS'
-export const REPO_FAILURE = 'REPO_FAILURE'
+export const PROFILES_REQUEST = 'PROFILES_REQUEST'
+export const PROFILES_SUCCESS = 'PROFILES_SUCCESS'
+export const PROFILES_FAILURE = 'PROFILES_FAILURE'
 
-// Fetches a single repository from Github API.
-// Relies on the custom API middleware defined in ../middleware/api.js.
-function fetchRepo(fullName) {
+// Fetch profile index from CAPE API.
+function fetchProfiles() {
   return {
     [CALL_API]: {
-      types: [ REPO_REQUEST, REPO_SUCCESS, REPO_FAILURE ],
-      api: 'github',
-      endpoint: `repos/${fullName}`,
-      schema: Schemas.REPO,
+      types: [ PROFILES_REQUEST, PROFILES_SUCCESS, PROFILES_FAILURE ],
+      api: 'cape',
+      endpoint: `mica/profile`,
     },
   }
 }
 
-// Fetches a single repository from Github API unless it is cached.
-// Relies on Redux Thunk middleware.
-export function loadRepo(fullName, requiredFields = []) {
+// Fetches a profiles unless we have a valid cache.
+export function loadProfiles() {
   return (dispatch, getState) => {
-    const repo = getState().entities.repos[fullName]
-    if (repo && requiredFields.every(key => repo.hasOwnProperty(key))) {
-      return null
-    }
-
-    return dispatch(fetchRepo(fullName))
-  }
-}
-
-export const STARRED_REQUEST = 'STARRED_REQUEST'
-export const STARRED_SUCCESS = 'STARRED_SUCCESS'
-export const STARRED_FAILURE = 'STARRED_FAILURE'
-
-// Fetches a page of starred repos by a particular user.
-// Relies on the custom API middleware defined in ../middleware/api.js.
-function fetchStarred(login, nextPageUrl) {
-  return {
-    login,
-    [CALL_API]: {
-      types: [ STARRED_REQUEST, STARRED_SUCCESS, STARRED_FAILURE ],
-      api: 'github',
-      endpoint: nextPageUrl,
-      schema: Schemas.REPO_ARRAY,
-    },
-  }
-}
-
-// Fetches a page of starred repos by a particular user.
-// Bails out if page is cached and user didn’t specifically request next page.
-// Relies on Redux Thunk middleware.
-export function loadStarred(login, nextPage) {
-  return (dispatch, getState) => {
-    const {
-      nextPageUrl = `users/${login}/starred`,
-      pageCount = 0,
-    } = getState().pagination.starredByUser[login] || {}
-
-    if (pageCount > 0 && !nextPage) {
-      return null
-    }
-
-    return dispatch(fetchStarred(login, nextPageUrl))
-  }
-}
-
-export const STARGAZERS_REQUEST = 'STARGAZERS_REQUEST'
-export const STARGAZERS_SUCCESS = 'STARGAZERS_SUCCESS'
-export const STARGAZERS_FAILURE = 'STARGAZERS_FAILURE'
-
-// Fetches a page of stargazers for a particular repo.
-// Relies on the custom API middleware defined in ../middleware/api.js.
-function fetchStargazers(fullName, nextPageUrl) {
-  return {
-    fullName,
-    [CALL_API]: {
-      types: [ STARGAZERS_REQUEST, STARGAZERS_SUCCESS, STARGAZERS_FAILURE ],
-      api: 'github',
-      endpoint: nextPageUrl,
-      schema: Schemas.USER_ARRAY,
-    },
-  }
-}
-
-// Fetches a page of stargazers for a particular repo.
-// Bails out if page is cached and user didn’t specifically request next page.
-// Relies on Redux Thunk middleware.
-export function loadStargazers(fullName, nextPage) {
-  return (dispatch, getState) => {
-    const {
-      nextPageUrl = `repos/${fullName}/stargazers`,
-      pageCount = 0,
-    } = getState().pagination.stargazersByRepo[fullName] || {}
-
-    if (pageCount > 0 && !nextPage) {
-      return null
-    }
-
-    return dispatch(fetchStargazers(fullName, nextPageUrl))
+    const loaded = !isEmpty(getState().entities.profile)
+    if (loaded) return null
+    return dispatch(fetchProfiles())
   }
 }
 
 export const RESET_ERROR_MESSAGE = 'RESET_ERROR_MESSAGE'
-
-export const FORM_REQUEST = 'FORM_REQUEST'
-export const FORM_SUCCESS = 'FORM_SUCCESS'
-export const FORM_FAILURE = 'FORM_FAILURE'
-
-// Fetches a single user from Github API.
-// Relies on the custom API middleware defined in ../middleware/api.js.
-function fetchForm(formId) {
-  return {
-    [CALL_API]: {
-      types: [ FORM_REQUEST, FORM_SUCCESS, FORM_FAILURE ],
-      api: 'cape',
-      endpoint: `content/type/${formId}`,
-      schema: Schemas.FORM,
-    },
-  }
-}
-
-// Fetches a single form from CAPE API unless it is cached.
-// Relies on Redux Thunk middleware.
-export function loadForm(formId) {
-  return (dispatch, getState) => {
-    const form = getState().entities.forms[formId]
-    if (form) {
-      return null
-    }
-    return dispatch(fetchForm(formId))
-  }
-}
 
 // Resets the currently visible error message.
 export function resetErrorMessage() {

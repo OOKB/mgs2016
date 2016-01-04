@@ -8,22 +8,17 @@ import { callApi } from '../../utils/callApi'
 
 // Read more about Normalizr: https://github.com/gaearon/normalizr
 
-const userSchema = new Schema('users', {
-  idAttribute: 'value',
-})
+const profileSchema = new Schema('profile')
+
 const sessionSchema = new Schema('session', {
   idAttribute: () => 'me',
 })
-const formSchema = new Schema('forms')
 const urlSchema = new Schema('url')
 
 // Schemas for Github API responses.
 export const Schemas = {
+  PROFILE: profileSchema,
   URL: urlSchema,
-  USER: userSchema,
-  USER_ARRAY: arrayOf(userSchema),
-  FORM: formSchema,
-  FORM_ARRAY: arrayOf(formSchema),
   SESSION: sessionSchema,
 }
 
@@ -50,9 +45,9 @@ export default store => next => action => {
   if (typeof api !== 'string') {
     throw new Error('Specify a string api.')
   }
-  if (!schema && !entityInfo) {
-    throw new Error('Specify one of the exported Schemas or provide entityInfo.')
-  }
+  // if (!schema && !entityInfo) {
+  //   throw new Error('Specify one of the exported Schemas or provide entityInfo.')
+  // }
   if (!Array.isArray(types) || types.length !== 3) {
     throw new Error('Expected an array of three action types.')
   }
