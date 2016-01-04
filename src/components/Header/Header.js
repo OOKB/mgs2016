@@ -13,8 +13,10 @@ class Header extends Component {
     // <Nav data={data} programs={programs} />
     return (
       <header className="">
-        <h1>{title}</h1>
-        {'navigation'}
+        <div className="container clearfix">
+          <h1 className="pull-left">{title}</h1>
+          <nav className="pull-right">{'navigation temp placeholder'}</nav>
+        </div>
       </header>
     )
   }
