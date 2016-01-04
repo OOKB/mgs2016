@@ -5,7 +5,7 @@ import Header from './Header/Header'
 import Intro from './Intro/Intro'
 import Schedule from './Schedule/Schedule'
 import Galleries from './Galleries/Galleries'
-import Students from './Students/Students'
+import Students from '../containers/Students'
 import Footer from './Footer/Footer'
 
 class Main extends Component {
