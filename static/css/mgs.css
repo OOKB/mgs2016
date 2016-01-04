@@ -88,6 +88,11 @@ body {
   font-family: "Balto", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 1em;
   line-height: 1.25em;
+  /**/
+  -webkit-hyphens: auto;
+  -moz-hyphens: auto;
+  hyphens: auto;
+  text-rendering: optimizeLegibility;
 }
 
 /***** Modules *****/
