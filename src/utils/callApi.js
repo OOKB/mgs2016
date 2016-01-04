@@ -1,7 +1,7 @@
 import { normalize } from 'normalizr'
 import { camelizeKeys } from 'humps'
 import forEach from 'lodash/collection/forEach'
-import merge from 'lodash/object/merge'
+// import merge from 'lodash/object/merge'
 import omit from 'lodash/object/omit'
 import 'isomorphic-fetch'
 
@@ -22,7 +22,7 @@ function getNextPageUrl(response) {
 
 const APIS = {
   api: '/api/',
-  cape: 'https://api6.cape.io/api/',
+  cape: 'http://mica.cape.io/api/',
   github: 'https://api.github.com/',
 }
 
@@ -41,9 +41,9 @@ export function callApi({ endpoint, schema, api, method, body, entityInfo }) {
     method: method || 'get',
     body: body ? JSON.stringify(body) : undefined,
   })
-  .then( response =>
+  .then(response =>
     response.json()
-    .then( json => ({ json, response }))
+    .then(json => ({ json, response }))
   )
   .then(({ json, response }) => {
     if (!response.ok) {
@@ -64,7 +64,8 @@ export function callApi({ endpoint, schema, api, method, body, entityInfo }) {
         normalize(camelizedJson, schema),
         { nextPageUrl, urlIndex }
       )
-    } else if (entityInfo) {
+    }
+    if (entityInfo) {
       const { id, entityId } = entityInfo
       const entities = json._refs || {}
       if (!entities[id]) {
@@ -74,8 +75,7 @@ export function callApi({ endpoint, schema, api, method, body, entityInfo }) {
       return {
         entities,
       }
-    } else {
-      return json
     }
+    return json
   })
 }
