@@ -85,5 +85,12 @@ Footer.defaultProps = {
     title: 'Signup for MICA Grad Show Updates',
     src: 'http://eepurl.com/bciqMT',
   },
+  builtDesigned: [
+    { title: 'David Dale', src: 'http://davidharleydale.com/'},
+    { title: 'Hitesh Singhal', src: 'http://www.hiteshsinghal.in/'},
+    { title: 'Ran Zheng', src: 'http://www.ranzhengdesign.com/'},
+    { title: 'OOKB', src: 'https://www.ookb.co'},
+    { title: 'CAPE.io', src: 'https://www.cape.io'},
+  ],
 }
 export default Footer
