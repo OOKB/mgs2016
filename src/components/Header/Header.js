@@ -13,7 +13,7 @@ class Header extends Component {
     // <Nav data={data} programs={programs} />
     return (
       <header className="">
-        <h1 style={{ display: 'none' }}>{title}</h1>
+        <h1>{title}</h1>
         {'navigation'}
       </header>
     )
