@@ -51,6 +51,7 @@ img {
     float: left;
     padding-left: 1rem; /* make this half of what you want your gutters to be */
     padding-right: 1rem; /* make this half of what you want your gutters to be */
+    margin-bottom: 2rem;
   }
 
   /* these styles declare column widths */
