@@ -7,9 +7,9 @@ class Filters extends Component {
       <ul className="student-filters">
         {
           filterOptions.map((option) => (
-            <li key={option.id} className={option.id}>
+            <li key={option.value} className={option.value}>
               <button className="filter">
-                <span>{ option.name }</span>
+                <span>{ option.label }</span>
               </button>
             </li>
           ))
@@ -25,9 +25,9 @@ Filters.propTypes = {
 
 Filters.defaultProps = {
   filterOptions: [
-    { id: 'programs', name: 'Program' },
-    { id: 'galleries', name: 'Gallery' },
-    { id: 'dates', name: 'Show Date' },
+    { value: 'programs', label: 'Program' },
+    { value: 'galleries', label: 'Gallery' },
+    { value: 'dates', label: 'Show Date' },
   ],
 }
 

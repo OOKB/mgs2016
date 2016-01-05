@@ -11,7 +11,7 @@ class Students extends Component {
       <article id="students">
         <div className="container">
           <h2>{ title }</h2>
-          <Filters locations={locations} programs={programs} />
+          <Filters locations={locations} filterOptions={programs} />
           { programInfo &&
             <Blurb {...programInfo} />
           }
