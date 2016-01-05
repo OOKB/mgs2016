@@ -87,6 +87,11 @@ body {
   font-family: "Balto", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 1em;
   line-height: 1.25em;
+  /**/
+  -webkit-hyphens: auto;
+  -moz-hyphens: auto;
+  hyphens: auto;
+  text-rendering: optimizeLegibility;
 }
 
 /***** Modules *****/
@@ -142,6 +147,18 @@ header {
   right:0;
   z-index: 999999;
 }
+
+header h1 {
+  height: 4.5rem;
+  width: 4.5rem;
+  text-indent: 200%;
+  overflow: hidden;
+  white-space: nowrap;
+  background: transparent url('../images/16-white.png') center center no-repeat;
+  background-size: contain;
+  margin: .1rem 0;
+}
+
 /***** Landing Logo *****/
 .landing-logo {
   height: 90vh;
@@ -195,4 +212,12 @@ footer {
   background-image: url("../images/background.png");
   background-size: cover;
   background-repeat: no-repeat;
+}
+
+footer .archive h3 {
+  margin-bottom: 0
+}
+
+footer .archive ul {
+  margin: 0;
 }
