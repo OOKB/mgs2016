@@ -1,6 +1,7 @@
 import React, { Component, PropTypes } from 'react'
 import { connect } from 'react-redux'
-import map from 'lodash/collection/map'
+import each from 'lodash/collection/each'
+import values from 'lodash/object/values'
 
 import { loadProfiles } from '../redux/actions'
 import Students from '../components/Students/Students'
@@ -10,13 +11,14 @@ class StudentsSection extends Component {
     this.props.loadProfiles()
   }
   render() {
-    const { profiles } = this.props
-    return <Students students={profiles} />
+    const { profiles, programs } = this.props
+    return <Students students={profiles} programs={programs} />
   }
 }
 StudentsSection.propTypes = {
   loadProfiles: PropTypes.func.isRequired,
   profiles: PropTypes.array,
+  programs: PropTypes.array,
 }
 
 // This is where we define computed fields (reselect module) or make other changes.
@@ -25,12 +27,23 @@ function mapStateToProps(state) {
   const {
     entities: { profile, url, program },
   } = state
-  return {
-    profiles: map(profile, ({ photo, programId, ...rest }) => ({
+  const profiles = []
+  const programs = {}
+
+  each(profile, ({ photo, programId, ...rest }) => {
+    // Add useful student info to profiles array.
+    profiles.push({
       ...rest,
       photo: url[photo].preview.image,
       program: program[programId],
-    })),
+    })
+    // Add programId to programs object.
+    programs[programId] = program[programId]
+  })
+
+  return {
+    programs: values(programs),
+    profiles,
   }
 }
 
