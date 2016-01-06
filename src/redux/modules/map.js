@@ -18,9 +18,9 @@ export default function reducer(state = defaultState, action) {
 
 export function togglePin(pinId) {
   return (dispatch, getState) => {
-    return {
+    return dispatch({
       activePin: getState().map.activePin === pinId ? null : pinId,
       type: TOGGLE_PIN,
-    }
+    })
   }
 }
