@@ -9,7 +9,7 @@ function Galleries({ locations }) {
       <ul>
         {
           locations.map((location) =>
-            <ListingItem key={location.value} location={location} />
+            <ListingItem key={location.value} {...location} />
           )
         }
       </ul>
