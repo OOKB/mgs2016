@@ -12,6 +12,7 @@ function Galleries({ locations, settings, title }) {
       <h2>{ title }</h2>
       <section className="map-wrapper">
         <GalleryMap locations={locations} settings={settings} />
+        <GalleryListing locations={locations} />
       </section>
     </article>
   )
