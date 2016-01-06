@@ -33,6 +33,12 @@ Galleries.defaultProps = {
       lng: -76.62016,
     },
     zoom: 10,
+    options: {
+      scrollwheel: false,
+      mapTypeControl: false,
+      streetViewControl: false,
+      zoomControl: true,
+    },
   },
   title: 'Participating Galleries',
 }
