@@ -52,6 +52,7 @@
     "babel-polyfill": "^6.2.0",
     "classnames": "^2.2.0",
     "eslint-plugin-react": "^3.11.3",
+    "google-map-react": "^0.9.3",
     "history": "1.17.0",
     "humps": "^1.0.0",
     "isomorphic-fetch": "^2.2.0",
