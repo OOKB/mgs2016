@@ -2,13 +2,6 @@ import React, { PropTypes } from 'react'
 import GoogleMap from 'google-map-react'
 
 function GalleryMap({ locations, settings }) {
-  const mapOptions = {
-    defaultCenter: {
-      lat: 34.347595,
-      lng: -112.156636,
-    },
-    zoom: 10,
-  }
   return (
     <div
       className="google-map-container"
@@ -17,7 +10,7 @@ function GalleryMap({ locations, settings }) {
         position: 'relative',
       }}
     >
-      <GoogleMap {...mapOptions}>
+      <GoogleMap {...settings}>
       </GoogleMap>
       Some text
     </div>
