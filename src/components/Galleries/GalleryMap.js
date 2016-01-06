@@ -2,7 +2,7 @@ import React, { PropTypes } from 'react'
 import GoogleMap from 'google-map-react'
 import GalleryLocation from './GalleryLocation'
 
-function GalleryMap({ locations, settings }) {
+function GalleryMap({ locations, settings, togglePin }) {
   return (
     <div
       className="google-map-container"
@@ -23,6 +23,7 @@ function GalleryMap({ locations, settings }) {
               key={index}
               lat={lat}
               lng={lng}
+              togglePin={togglePin}
               {...location}
             />
           )
@@ -35,6 +36,7 @@ function GalleryMap({ locations, settings }) {
 GalleryMap.propTypes = {
   locations: PropTypes.array.isRequired,
   settings: PropTypes.object.isRequired,
+  togglePin: PropTypes.func.isRequired,
 }
 GalleryMap.defaultProps = {
 }
