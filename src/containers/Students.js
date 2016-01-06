@@ -4,6 +4,8 @@ import each from 'lodash/collection/each'
 import map from 'lodash/collection/map'
 
 import { loadProfiles } from '../redux/actions'
+import { disableFilter, enableFilter } from '../redux/modules/filter'
+
 import Students from '../components/Students/Students'
 
 class StudentsSection extends Component {
@@ -11,10 +13,18 @@ class StudentsSection extends Component {
     this.props.loadProfiles()
   }
   render() {
-    return <Students {...this.props} />
+    const { disableFilter, enableFilter, filterTypes, ...rest } = this.props
+    const filterInfo = {
+      disableFilter,
+      enableFilter,
+      filterTypes,
+    }
+    return <Students {...rest} filterInfo={filterInfo} />
   }
 }
 StudentsSection.propTypes = {
+  disableFilter: PropTypes.func.isRequired,
+  enableFilter: PropTypes.func.isRequired,
   loadProfiles: PropTypes.func.isRequired,
   profiles: PropTypes.array,
   programs: PropTypes.array,
@@ -25,6 +35,7 @@ StudentsSection.propTypes = {
 function mapStateToProps(state) {
   const {
     entities: { profile, url, program },
+    filter,
   } = state
   const profiles = []
   const programs = {}
@@ -41,13 +52,20 @@ function mapStateToProps(state) {
   })
 
   // Build up filter options.
-  const programFilterOpts = map(programs, (programInfo) => ({
-    value: '',
-    label: '',
+  const programFilterOpts = map(programs, ({ value, label }) => ({
+    value,
+    label,
+    // enabled: filter.students[value], // Figure out if the filter option is enabled.
   }))
+
   const filterTypes = [
     // { value: 'galleries', label: 'Gallery', options: locations },
-    { value: 'programs', label: 'Programs', options: programFilterOpts },
+    {
+      value: 'programId',
+      label: 'Programs',
+      options: programFilterOpts,
+      enabled: filter.students.programId,
+    },
   ]
 
   return {
@@ -59,6 +77,8 @@ function mapStateToProps(state) {
 // Which action creators does it want to receive by props?
 // This gets merged into props too.
 const mapDispatchToProps = {
+  disableFilter,
+  enableFilter,
   loadProfiles,
 }
 
