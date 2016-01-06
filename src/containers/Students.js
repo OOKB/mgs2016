@@ -11,8 +11,7 @@ class StudentsSection extends Component {
     this.props.loadProfiles()
   }
   render() {
-    const { profiles, programs } = this.props
-    return <Students students={profiles} programs={programs} />
+    return <Students {...this.props} />
   }
 }
 StudentsSection.propTypes = {
@@ -53,7 +52,7 @@ function mapStateToProps(state) {
 
   return {
     filterTypes,
-    profiles,
+    students: profiles,
   }
 }
 
