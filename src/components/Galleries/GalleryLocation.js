@@ -9,8 +9,12 @@ function GalleryLocation({ }) {
 }
 
 GalleryLocation.propTypes = {
-  locations: PropTypes.array.isRequired,
-  settings: PropTypes.object.isRequired,
+  name: PropTypes.string.isRequired,
+  alias: PropTypes.array,
+  value: PropTypes.string.isRequired,
+  street: PropTypes.string.isRequired,
+  zip: PropTypes.number.isRequired,
+  geoData: PropTypes.object.isRequired,
 }
 GalleryLocation.defaultProps = {
 }
