@@ -1,7 +1,7 @@
 import React, { Component, PropTypes } from 'react'
 import { connect } from 'react-redux'
 import each from 'lodash/collection/each'
-import values from 'lodash/object/values'
+import map from 'lodash/collection/map'
 
 import { loadProfiles } from '../redux/actions'
 import Students from '../components/Students/Students'
@@ -41,8 +41,18 @@ function mapStateToProps(state) {
     programs[programId] = program[programId]
   })
 
+  // Build up filter options.
+  const programFilterOpts = map(programs, (programInfo) => ({
+    value: '',
+    label: '',
+  }))
+  const filterTypes = [
+    // { value: 'galleries', label: 'Gallery', options: locations },
+    { value: 'programs', label: 'Programs', options: programFilterOpts },
+  ]
+
   return {
-    programs: values(programs),
+    filterTypes,
     profiles,
   }
 }

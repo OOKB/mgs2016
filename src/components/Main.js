@@ -4,7 +4,7 @@ import Logo from './Logo'
 import Header from './Header/Header'
 import Intro from './Intro/Intro'
 import Schedule from './Schedule/Schedule'
-import Galleries from './Galleries/Galleries'
+import Galleries from '../containers/Galleries'
 import Students from '../containers/Students'
 import Footer from './Footer/Footer'
 
