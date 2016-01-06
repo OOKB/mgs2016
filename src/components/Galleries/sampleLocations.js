@@ -13,7 +13,7 @@ export default [
         "lat": 39.310582,
         "lng": -76.618085
       },
-      "location_type": "ROOFTOP"
+      "locationType": "ROOFTOP"
     }
   },
   {
@@ -27,7 +27,7 @@ export default [
         "lat": 39.310552,
         "lng": -76.623796
       },
-      "location_type": "ROOFTOP"
+      "locationType": "ROOFTOP"
     }
   },
   {
@@ -55,7 +55,7 @@ export default [
         "lat": 39.3078104,
         "lng": -76.62106179999999
       },
-      "location_type": "RANGE_INTERPOLATED",
+      "locationType": "RANGE_INTERPOLATED",
       "viewport": {
         "northeast": {
           "lat": 39.3095106802915,
@@ -92,7 +92,7 @@ export default [
         "lat": 39.3078104,
         "lng": -76.62106179999999
       },
-      "location_type": "RANGE_INTERPOLATED",
+      "locationType": "RANGE_INTERPOLATED",
       "viewport": {
         "northeast": {
           "lat": 39.3095106802915,
@@ -120,7 +120,7 @@ export default [
         "lat": 39.310547,
         "lng": -76.61894099999999
       },
-      "location_type": "ROOFTOP",
+      "locationType": "ROOFTOP",
       "viewport": {
         "northeast": {
           "lat": 39.3118959802915,
@@ -158,7 +158,7 @@ export default [
         "lat": 39.3078104,
         "lng": -76.62106179999999
       },
-      "location_type": "RANGE_INTERPOLATED",
+      "locationType": "RANGE_INTERPOLATED",
       "viewport": {
         "northeast": {
           "lat": 39.3095106802915,
@@ -196,7 +196,7 @@ export default [
         "lat": 39.3111633,
         "lng": -76.6172297
       },
-      "location_type": "RANGE_INTERPOLATED",
+      "locationType": "RANGE_INTERPOLATED",
       "viewport": {
         "northeast": {
           "lat": 39.31250878029149,
@@ -234,7 +234,7 @@ export default [
         "lat": 39.3078245,
         "lng": -76.621077
       },
-      "location_type": "RANGE_INTERPOLATED",
+      "locationType": "RANGE_INTERPOLATED",
       "viewport": {
         "northeast": {
           "lat": 39.3095106802915,
@@ -265,7 +265,7 @@ export default [
         "lat": 39.310547,
         "lng": -76.61894099999999
       },
-      "location_type": "ROOFTOP",
+      "locationType": "ROOFTOP",
       "viewport": {
         "northeast": {
           "lat": 39.3118959802915,
@@ -291,7 +291,7 @@ export default [
         "lat": 39.3676219,
         "lng": -76.6531947
       },
-      "location_type": "ROOFTOP",
+      "locationType": "ROOFTOP",
       "viewport": {
         "northeast": {
           "lat": 39.36897088029149,
@@ -317,7 +317,7 @@ export default [
         "lat": 39.2739568,
         "lng": -76.6016324
       },
-      "location_type": "ROOFTOP",
+      "locationType": "ROOFTOP",
       "viewport": {
         "northeast": {
           "lat": 39.2753057802915,
@@ -343,7 +343,7 @@ export default [
         "lat": 39.316287,
         "lng": -76.61314899999999
       },
-      "location_type": "ROOFTOP",
+      "locationType": "ROOFTOP",
       "viewport": {
         "northeast": {
           "lat": 39.3176359802915,
@@ -387,7 +387,7 @@ export default [
         "lat": 39.3268706,
         "lng": -76.6177833
       },
-      "location_type": "RANGE_INTERPOLATED",
+      "locationType": "RANGE_INTERPOLATED",
       "viewport": {
         "northeast": {
           "lat": 39.3283166802915,
@@ -413,7 +413,7 @@ export default [
         "lat": 39.30595,
         "lng": -76.63722
       },
-      "location_type": "ROOFTOP",
+      "locationType": "ROOFTOP",
       "viewport": {
         "northeast": {
           "lat": 39.30729898029149,
@@ -440,7 +440,7 @@ export default [
         "lat": 39.30800199999999,
         "lng": -76.614407
       },
-      "location_type": "ROOFTOP",
+      "locationType": "ROOFTOP",
       "viewport": {
         "northeast": {
           "lat": 39.3093509802915,
@@ -477,7 +477,7 @@ export default [
         "lat": 39.2832715,
         "lng": -76.6768527
       },
-      "location_type": "RANGE_INTERPOLATED",
+      "locationType": "RANGE_INTERPOLATED",
       "viewport": {
         "northeast": {
           "lat": 39.2846271802915,
@@ -505,7 +505,7 @@ export default [
         "lat": 39.3184614,
         "lng": -76.64472909999999
       },
-      "location_type": "ROOFTOP",
+      "locationType": "ROOFTOP",
       "viewport": {
         "northeast": {
           "lat": 39.31981038029149,
@@ -531,7 +531,7 @@ export default [
         "lat": 39.208574,
         "lng": -76.067112
       },
-      "location_type": "ROOFTOP"
+      "locationType": "ROOFTOP"
     }
   },
   {
@@ -561,7 +561,7 @@ export default [
         "lat": 39.2860269,
         "lng": -76.6096483
       },
-      "location_type": "ROOFTOP",
+      "locationType": "ROOFTOP",
       "viewport": {
         "northeast": {
           "lat": 39.2873758802915,
@@ -589,7 +589,7 @@ export default [
         "lat": 39.2965928,
         "lng": -76.61609949999999
       },
-      "location_type": "ROOFTOP",
+      "locationType": "ROOFTOP",
       "viewport": {
         "northeast": {
           "lat": 39.2979417802915,
@@ -627,7 +627,7 @@ export default [
         "lat": 39.31144,
         "lng": -76.616843
       },
-      "location_type": "ROOFTOP",
+      "locationType": "ROOFTOP",
       "viewport": {
         "northeast": {
           "lat": 39.31278898029149,
