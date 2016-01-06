@@ -25,8 +25,10 @@ Galleries.propTypes = {
 Galleries.defaultProps = {
   locations: sampleLocations,
   settings: {
-    latitude: 39.30902,
-    longitude: -76.62016,
+    location: {
+      lat: 39.30902,
+      lng: -76.62016,
+    },
     zoom: 15,
     // height: 800,
     // width: 1400,
