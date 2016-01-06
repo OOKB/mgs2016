@@ -25,7 +25,13 @@ Galleries.propTypes = {
 }
 Galleries.defaultProps = {
   locations: sampleLocations,
-  settings: {},
+  settings: {
+    latitude: 39.30902,
+    longitude: -76.62016,
+    zoom: 15,
+    // height: 800,
+    // width: 1400,
+  },
   title: 'Participating Galleries',
 }
 
