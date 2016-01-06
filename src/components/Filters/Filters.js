@@ -8,7 +8,7 @@ class Filters extends Component {
       <ul className={`filters-${groupId}`}>
         {
           filterTypes.map((option) => {
-            const onClick = () => {
+            function onClick() {
               enableFilter(groupId, option.value)
             }
             return (
