@@ -1,6 +1,9 @@
 import React, { PropTypes } from 'react'
 
-function GalleryLocation({ togglePin, active }) {
+function GalleryLocation({ togglePin, active, value }) {
+  function handleClick() {
+    togglePin(value)
+  }
   return (
     <div>
       <svg
@@ -8,7 +11,7 @@ function GalleryLocation({ togglePin, active }) {
         width="24"
         height="24"
         viewBox="0 0 24 24"
-        onClick={togglePin}
+        onClick={handleClick}
         style={{
           cursor: 'pointer',
         }}
