@@ -8,9 +8,7 @@ class Filters extends Component {
         {
           options.map(({ value, label }) => (
             <li key={value} className={value}>
-              <button className="filter">
-                <span>{ label }</span>
-              </button>
+              <span>{ label }</span>
             </li>
           ))
         }

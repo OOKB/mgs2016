@@ -64,7 +64,7 @@ function mapStateToProps(state) {
       value: 'programId',
       label: 'Programs',
       options: programFilterOpts,
-      enabled: filter.students.programId,
+      active: filter.students.programId,
     },
   ]
 

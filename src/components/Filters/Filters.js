@@ -1,5 +1,7 @@
 import React, { Component, PropTypes } from 'react'
 
+import FilterOptions from './FilterOptions'
+
 class Filters extends Component {
   // We need to know what filterType is expanded.
   render() {
@@ -7,15 +9,21 @@ class Filters extends Component {
     return (
       <ul className={`filters-${groupId}`}>
         {
-          filterTypes.map((option) => {
+          filterTypes.map(({ value, label, active, options }) => {
             function onClick() {
-              enableFilter(groupId, option.value)
+              enableFilter(groupId, value)
+            }
+            function handleCategoryClick() {
+              return true
             }
             return (
-              <li key={option.value} className={option.value}>
+              <li key={value} className={value}>
                 <button className="filter" onClick={onClick}>
-                  <span>{ option.label }</span>
+                  <span>{ label }</span>
                 </button>
+                { active &&
+                  <FilterOptions onClick={handleCategoryClick} options={options} />
+                }
               </li>
             )
           })
