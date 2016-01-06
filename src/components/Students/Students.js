@@ -6,14 +6,14 @@ import Filters from '../Filters/Filters'
 
 class Students extends Component {
   render() {
-    const { filterTypes, programInfo, students, title } = this.props
+    const { filterInfo, programInfo, students, title } = this.props
 
     return (
       <article id="students">
         <div className="container">
           <h2>{ title }</h2>
 
-          <Filters filterTypes={filterTypes} />
+          <Filters {...filterInfo} groupId="students" />
 
           { programInfo &&
             <Blurb {...programInfo} />
@@ -35,7 +35,7 @@ class Students extends Component {
 
 Students.propTypes = {
   programInfo: PropTypes.object,
-  filterTypes: PropTypes.array.isRequired,
+  filterInfo: PropTypes.object.isRequired,
   students: PropTypes.array.isRequired,
   title: PropTypes.string.isRequired,
 }
