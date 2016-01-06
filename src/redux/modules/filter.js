@@ -43,6 +43,6 @@ export function toggleFilter(groupId, filterType) {
   return (dispatch, getState) => {
     // This assumes the filterType is known about beforehand. @see `defaultState` up top.
     const enabled = !getState().filter[groupId][filterType]
-    return _toggleFilter(groupId, filterType, enabled)
+    return dispatch(_toggleFilter(groupId, filterType, enabled))
   }
 }
