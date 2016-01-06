@@ -16,7 +16,7 @@ function Student({ name, program, locationName, onClick, photo, showDate, uid })
 
 Student.propTypes = {
   name: PropTypes.object.isRequired,
-  program: PropTypes.string.isRequired,
+  program: PropTypes.object.isRequired,
   locationName: PropTypes.string.isRequired,
   onClick: PropTypes.func.isRequired,
   photo: PropTypes.object.isRequired,

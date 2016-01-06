@@ -4,7 +4,7 @@ import each from 'lodash/collection/each'
 import map from 'lodash/collection/map'
 
 import { loadProfiles } from '../redux/actions'
-import { disableFilter, enableFilter } from '../redux/modules/filter'
+import { toggleFilter as toggleFilterAction } from '../redux/modules/filter'
 
 import Students from '../components/Students/Students'
 
@@ -13,21 +13,19 @@ class StudentsSection extends Component {
     this.props.loadProfiles()
   }
   render() {
-    const { disableFilter, enableFilter, filterTypes, ...rest } = this.props
+    const { toggleFilter, filterTypes, ...rest } = this.props
     const filterInfo = {
-      disableFilter,
-      enableFilter,
+      toggleFilter,
       filterTypes,
     }
     return <Students {...rest} filterInfo={filterInfo} />
   }
 }
 StudentsSection.propTypes = {
-  disableFilter: PropTypes.func.isRequired,
-  enableFilter: PropTypes.func.isRequired,
+  toggleFilter: PropTypes.func.isRequired,
   loadProfiles: PropTypes.func.isRequired,
   profiles: PropTypes.array,
-  programs: PropTypes.array,
+  filterTypes: PropTypes.array,
 }
 
 // This is where we define computed fields (reselect module) or make other changes.
@@ -77,8 +75,7 @@ function mapStateToProps(state) {
 // Which action creators does it want to receive by props?
 // This gets merged into props too.
 const mapDispatchToProps = {
-  disableFilter,
-  enableFilter,
+  toggleFilter: toggleFilterAction,
   loadProfiles,
 }
 
