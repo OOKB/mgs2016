@@ -3,6 +3,9 @@ import React, { PropTypes } from 'react'
 import GalleryListing from './GalleryListing'
 import GalleryMap from './GalleryMap'
 
+// Used only for development!
+import sampleLocations from './sampleLocations'
+
 function Galleries({ locations, settings, title }) {
   return (
     <article id="galleries">
@@ -21,7 +24,7 @@ Galleries.propTypes = {
   title: PropTypes.string.isRequired,
 }
 Galleries.defaultProps = {
-  locations: [],
+  locations: sampleLocations,
   settings: {},
   title: 'Participating Galleries',
 }
