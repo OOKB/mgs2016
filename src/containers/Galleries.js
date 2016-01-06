@@ -12,7 +12,7 @@ function mapStateToProps(state) {
   } = state
 
   return {
-    locations: locations.map((location) => {
+    locations: locations.filter(loc => loc.geoData).map((location) => {
       location.active = map.activePin === location.value
       return location
     }),
