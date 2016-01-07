@@ -2,6 +2,7 @@ import React, { Component, PropTypes } from 'react'
 import { connect } from 'react-redux'
 import each from 'lodash/collection/each'
 import map from 'lodash/collection/map'
+import { replacePath as replacePathAction } from 'redux-simple-router'
 
 import { loadProfiles } from '../redux/actions'
 import { toggleFilter as toggleFilterAction } from '../redux/modules/filter'
@@ -13,19 +14,21 @@ class StudentsSection extends Component {
     this.props.loadProfiles()
   }
   render() {
-    const { toggleFilter, filterTypes, ...rest } = this.props
+    const { toggleFilter, filterTypes, replacePath, ...rest } = this.props
     const filterInfo = {
       toggleFilter,
       filterTypes,
+      replacePath,
     }
     return <Students {...rest} filterInfo={filterInfo} />
   }
 }
 StudentsSection.propTypes = {
+  filterTypes: PropTypes.array,
   toggleFilter: PropTypes.func.isRequired,
   loadProfiles: PropTypes.func.isRequired,
   profiles: PropTypes.array,
-  filterTypes: PropTypes.array,
+  replacePath: PropTypes.func.isRequired,
 }
 
 // This is where we define computed fields (reselect module) or make other changes.
@@ -77,6 +80,7 @@ function mapStateToProps(state) {
 const mapDispatchToProps = {
   toggleFilter: toggleFilterAction,
   loadProfiles,
+  replacePath: replacePathAction,
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(StudentsSection)

@@ -5,7 +5,7 @@ import FilterOptions from './FilterOptions'
 class Filters extends Component {
   // We need to know what filterType is expanded.
   render() {
-    const { toggleFilter, filterTypes, groupId } = this.props
+    const { toggleFilter, filterTypes, groupId, replacePath } = this.props
     return (
       <ul className={`filters-${groupId}`}>
         {
@@ -22,7 +22,11 @@ class Filters extends Component {
                   <span>{ label }</span>
                 </button>
                 { active &&
-                  <FilterOptions onClick={handleCategoryClick} options={options} />
+                  <FilterOptions
+                    onClick={handleCategoryClick}
+                    options={options}
+                    replacePath={replacePath}
+                  />
                 }
               </li>
             )
@@ -36,6 +40,7 @@ class Filters extends Component {
 Filters.propTypes = {
   filterTypes: PropTypes.array.isRequired,
   groupId: PropTypes.string.isRequired,
+  replacePath: PropTypes.func.isRequired,
   toggleFilter: PropTypes.func.isRequired,
 }
 
