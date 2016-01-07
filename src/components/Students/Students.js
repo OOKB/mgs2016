@@ -40,7 +40,7 @@ Students.propTypes = {
   title: PropTypes.string.isRequired,
 }
 
-Students.propDefaults = {
+Students.defaultProps = {
   title: 'Students',
 }
 

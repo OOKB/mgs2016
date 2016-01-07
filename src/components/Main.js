@@ -11,7 +11,7 @@ import Footer from './Footer/Footer'
 class Main extends Component {
 
   render() {
-    const { title } = this.props
+    const { title, location } = this.props
     return (
       <div>
         <Header title={title} />
@@ -19,13 +19,14 @@ class Main extends Component {
         <Intro />
         <Schedule />
         <Galleries />
-        <Students />
+        <Students location={location} />
         <Footer />
       </div>
     )
   }
 }
 Main.propTypes = {
+  location: PropTypes.object.isRequired,
   title: PropTypes.string.isRequired,
 }
 Main.defaultProps = {

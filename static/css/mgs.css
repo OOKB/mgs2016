@@ -161,7 +161,7 @@ header h1 {
 
 /***** Landing Logo *****/
 .landing-logo {
-  height: 90vh;
+  height: 100vh;
   background: url("../images/mgslogo.png");
   background-position: center;
   background-size: 300px 327px;
@@ -205,6 +205,15 @@ header h1 {
   left: 0;
   width: 100%;
   height: 100%;
+}
+
+/***** Gallery *****/
+#gallerylisting ul {
+    list-style: none;
+}
+
+#gallerylisting ul li h4 {
+    margin-bottom: 0;
 }
 
 /***** Footer *****/

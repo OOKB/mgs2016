@@ -9,9 +9,9 @@ import { createHistory } from 'history'
 // Enhance your history object with a scroll behavior.
 // https://github.com/rackt/scroll-behavior
 // Attempts to imitate native browser scroll behavior.
-import useScroll from 'scroll-behavior/lib/useStandardScroll'
+// import useScroll from 'scroll-behavior/lib/useStandardScroll'
 // Init our history object for use by router.
-const history = useScroll(createHistory)()
+const history = createHistory() // useScroll(createHistory)()
 
 // Root React component.
 import Root from './containers/Root'
