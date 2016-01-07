@@ -216,6 +216,24 @@ header h1 {
     margin-bottom: 0;
 }
 
+/***** Students *****/
+.filters-students{
+    list-style: none;
+    padding-left: .75em;
+}
+button.filter{
+    border: none;
+    background: none;
+    color: #bcbec0;
+    font-size: 1.2em;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+button.filter:hover{
+    color: #f37743;
+}
+
 /***** Footer *****/
 footer {
   background-image: url("../images/background.png");
