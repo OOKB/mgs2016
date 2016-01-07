@@ -1,7 +1,14 @@
 import React, { Component, PropTypes } from 'react'
 import { connect } from 'react-redux'
+
 import each from 'lodash/collection/each'
-import map from 'lodash/collection/map'
+import every from 'lodash/collection/every'
+import filter from 'lodash/collection/filter'
+import isEmpty from 'lodash/lang/isEmpty'
+// import map from 'lodash/collection/map'
+import mapValues from 'lodash/object/mapValues'
+import values from 'lodash/object/values'
+
 import { replacePath as replacePathAction } from 'redux-simple-router'
 
 import { loadProfiles } from '../redux/actions'
@@ -33,30 +40,41 @@ StudentsSection.propTypes = {
 
 // This is where we define computed fields (reselect module) or make other changes.
 // Which part of the Redux global state does our component want to receive as props?
-function mapStateToProps(state) {
+function mapStateToProps(state, ownProps) {
   const {
     entities: { profile, url, program },
-    filter,
   } = state
-  const profiles = []
-  const programs = {}
-
-  each(profile, ({ photo, programId, ...rest }) => {
-    // Add useful student info to profiles array.
-    profiles.push({
-      ...rest,
-      photo: url[photo].preview.image,
-      program: program[programId],
-    })
-    // Add programId to programs object.
-    programs[programId] = program[programId]
+  const { query } = ownProps.location || {}
+  // Get the query parms we care about.
+  const filterValues = {}
+  each(query, (value, key) => {
+    if (key.startsWith('profile-')) {
+      filterValues[key.split('-')[1]] = value
+    }
   })
-
-  // Build up filter options.
-  const programFilterOpts = map(programs, ({ value, label }) => ({
-    value,
+  const noFilters = isEmpty(filterValues)
+  const programFilterOpts = mapValues(program, ({ label, value }) => ({
+    // Figure out if the filter option is enabled.
+    active: filterValues.programId && filterValues.programId === value,
     label,
-    // enabled: filter.students[value], // Figure out if the filter option is enabled.
+    itemCount: 0,
+    value,
+  }))
+  // Filter programs first.
+  const profiles = filter(profile, (item) => {
+    // Increment programId counter.
+    programFilterOpts[item.programId].itemCount++
+    if (noFilters) return true
+    return every(filterValues, (value, key) => (
+      item[key] && item[key] === value
+    ))
+  })
+  // Merge graph nodes.
+  .map(({ photo, programId, ...rest }) => ({
+    // Add useful student info to profiles array.
+    ...rest,
+    photo: url[photo].preview.image,
+    program: program[programId],
   }))
 
   const filterTypes = [
@@ -64,8 +82,8 @@ function mapStateToProps(state) {
     {
       value: 'programId',
       label: 'Programs',
-      options: programFilterOpts,
-      active: filter.students.programId,
+      options: values(programFilterOpts),
+      active: state.filter.students.programId,
     },
   ]
 
