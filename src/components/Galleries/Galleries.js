@@ -6,7 +6,6 @@ import GalleryMap from './GalleryMap'
 function Galleries({ locations, settings, title, togglePin }) {
   return (
     <article id="galleries" className="clearfix">
-      <h2>{ title }</h2>
       <section className="map-wrapper">
         <GalleryMap
           locations={locations}
