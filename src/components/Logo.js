@@ -9,6 +9,7 @@ class Logo extends Component {
     return (
       <section className="landing-logo">
         <h1 className="hidden">MICA Grad Show 2016</h1>
+        <div className="rotating-text"><img src="images/wordschange.gif" /></div>
       </section>
     )
   }
