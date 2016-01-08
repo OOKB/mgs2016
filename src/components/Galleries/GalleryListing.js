@@ -4,7 +4,10 @@ import ListingItem from './ListingItem'
 
 function Galleries({ locations }) {
   return (
-    <aside id="gallerylisting">
+    <aside
+      id="gallerylisting"
+      className="pull-right"
+    >
       <h3>Gallery Listing</h3>
       <ul>
         {

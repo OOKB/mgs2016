@@ -20,7 +20,7 @@ function GalleryLocation({ togglePin, active, value }) {
       </svg>
       <span>
         { active ?
-            <div>
+            <div className="mapPopup">
               Some text to make sure it's showing
             </div>
           :

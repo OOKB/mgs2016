@@ -5,11 +5,7 @@ import GalleryLocation from './GalleryLocation'
 function GalleryMap({ locations, settings, togglePin }) {
   return (
     <div
-      className="google-map-container"
-      style={{
-        height: '500px',
-        position: 'relative',
-      }}
+      className="google-map-container pull-left"
     >
       <GoogleMap {...settings}>
         {locations.map((location, index) => {
