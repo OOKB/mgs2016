@@ -6,3 +6,19 @@
   margin-top: .5em;
   margin-bottom: 0;
 }
+
+/* working out some things with the filters */
+#students .filters-students,
+#students .filters-students > li {
+  position: relative;
+}
+
+#students .filters-students > li button {
+  z-index: 11;
+}
+
+#students .filters-students > li .student-filters {
+  background: white;
+  position: absolute;
+  z-index: 10;
+}
