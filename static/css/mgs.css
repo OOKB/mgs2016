@@ -145,7 +145,7 @@ header {
   top:0;
   left:0;
   right:0;
-  z-index: 999999;x
+  z-index: 999999;
 }
 
 header h1 {
@@ -218,20 +218,21 @@ header h1 {
 
 /***** Students *****/
 .filters-students{
-    list-style: none;
-    padding-left: .75em;
+  list-style: none;
+  padding-left: .75em;
 }
+
 button.filter{
-    border: none;
-    background: none;
-    color: #bcbec0;
-    font-size: 1.2em;
-    letter-spacing: 2px;
-    text-transform: uppercase;
+  border: none;
+  background: none;
+  color: #bcbec0;
+  font-size: 1.2em;
+  letter-spacing: 2px;
+  text-transform: uppercase;
 }
 
 button.filter:hover{
-    color: #f37743;
+  color: #f37743;
 }
 
 /***** Footer *****/
