@@ -5,7 +5,8 @@ import { combineReducers } from 'redux'
 import { reducer as formReducer } from 'redux-form'
 
 import db from './modules/db'
-import filter from './modules/filter'
+import display from './modules/display'
+import filters from './modules/filters'
 import map from './modules/map'
 
 // Used only for development!
@@ -43,7 +44,8 @@ const rootReducer = combineReducers({
   db,
   entities,
   errorMessage,
-  filter,
+  display,
+  filters,
   form: formReducer,
   map,
   // Special place to save url. { changeId, path }

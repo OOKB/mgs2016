@@ -4,28 +4,29 @@ import { connect } from 'react-redux'
 import each from 'lodash/collection/each'
 import every from 'lodash/collection/every'
 import filter from 'lodash/collection/filter'
+import get from 'lodash/object/get'
 import isEmpty from 'lodash/lang/isEmpty'
 // import map from 'lodash/collection/map'
 import mapValues from 'lodash/object/mapValues'
 import values from 'lodash/object/values'
 
-import { replacePath as replacePathAction } from 'redux-simple-router'
-
 import { loadProfiles } from '../redux/actions'
-import { toggleFilter as toggleFilterAction } from '../redux/modules/filter'
-
+import { toggle as toggleFilterAction, update as updateFilterAction } from '../redux/modules/filters'
+import { update as updateDisplayAction } from '../redux/modules/display'
 import Students from '../components/Students/Students'
+
+import photoDisplay from '../utils/studentPhoto'
 
 class StudentsSection extends Component {
   componentWillMount() {
     this.props.loadProfiles()
   }
   render() {
-    const { toggleFilter, filterTypes, replacePath, ...rest } = this.props
+    const { toggleFilter, filterTypes, updateFilter, ...rest } = this.props
     const filterInfo = {
-      toggleFilter,
-      filterTypes,
-      replacePath,
+      toggle: toggleFilter,
+      types: filterTypes,
+      update: updateFilter,
     }
     return <Students {...rest} filterInfo={filterInfo} />
   }
@@ -35,13 +36,16 @@ StudentsSection.propTypes = {
   toggleFilter: PropTypes.func.isRequired,
   loadProfiles: PropTypes.func.isRequired,
   profiles: PropTypes.array,
-  replacePath: PropTypes.func.isRequired,
+  students: PropTypes.array,
+  updateDisplay: PropTypes.func.isRequired,
+  updateFilter: PropTypes.func.isRequired,
 }
 
 // This is where we define computed fields (reselect module) or make other changes.
 // Which part of the Redux global state does our component want to receive as props?
 function mapStateToProps(state, ownProps) {
   const {
+    display,
     entities: { profile, url, program },
   } = state
   const { query } = ownProps.location || {}
@@ -69,13 +73,19 @@ function mapStateToProps(state, ownProps) {
       item[key] && item[key] === value
     ))
   })
-  // Merge graph nodes.
-  .map(({ photo, programId, ...rest }) => ({
+  // Merge graph nodes and stuff.
+  .map(({ photo, programId, id, ...rest }) => {
+    // Does this profile have an active hover? Converting `undefined` to `false` with double bang.
+    const active = !!get(display, [ 'profile', id, 'hover' ])
     // Add useful student info to profiles array.
-    ...rest,
-    photo: url[photo].preview.image,
-    program: program[programId],
-  }))
+    return {
+      ...rest,
+      id,
+      active,
+      photo: photoDisplay(url[photo], active),
+      program: program[programId],
+    }
+  })
 
   const filterTypes = [
     // { value: 'galleries', label: 'Gallery', options: locations },
@@ -83,7 +93,7 @@ function mapStateToProps(state, ownProps) {
       value: 'programId',
       label: 'Programs',
       options: values(programFilterOpts),
-      active: state.filter.students.programId,
+      active: get(state.filters, [ 'students', 'programId', 'active' ]),
     },
   ]
 
@@ -98,7 +108,8 @@ function mapStateToProps(state, ownProps) {
 const mapDispatchToProps = {
   toggleFilter: toggleFilterAction,
   loadProfiles,
-  replacePath: replacePathAction,
+  updateDisplay: updateDisplayAction,
+  updateFilter: updateFilterAction,
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(StudentsSection)

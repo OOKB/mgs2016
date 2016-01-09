@@ -6,7 +6,7 @@ import Filters from '../Filters/Filters'
 
 class Students extends Component {
   render() {
-    const { filterInfo, programInfo, students, title } = this.props
+    const { filterInfo, programInfo, students, updateDisplay } = this.props
 
     return (
       <article id="students">
@@ -20,9 +20,22 @@ class Students extends Component {
           { students &&
             <ul className="list-reset group">
               {
-                students.map((item) =>
-                  <Student key={item.id} {...item} />
-                )
+                students.map((item) => {
+                  function handleHover() {
+                    updateDisplay([ 'profile', item.id, 'hover' ], true)
+                  }
+                  function handleLeave() {
+                    updateDisplay([ 'profile', item.id, 'hover' ], false)
+                  }
+                  return (
+                    <Student
+                      key={item.id}
+                      {...item}
+                      onMouseEnter={handleHover}
+                      onMouseLeave={handleLeave}
+                    />
+                  )
+                })
               }
             </ul>
           }
@@ -36,11 +49,10 @@ Students.propTypes = {
   programInfo: PropTypes.object,
   filterInfo: PropTypes.object.isRequired,
   students: PropTypes.array.isRequired,
-  title: PropTypes.string.isRequired,
+  updateDisplay: PropTypes.func.isRequired,
 }
 
 Students.defaultProps = {
-  title: 'Students',
 }
 
 export default Students

@@ -1,8 +1,8 @@
 import React, { PropTypes } from 'react'
 
-function Student({ name, program, locationName, onClick, photo, showDate, uid }) {
+function Student({ name, program, locationName, photo, showDate, uid, ...rest }) {
   return (
-    <li id={uid} onClick={onClick} className="student three columns">
+    <li {...rest} id={uid} className="student three columns">
       <img src={photo.url} alt={name.display} />
       <ul className="list-reset">
         <li className="name"><h4>{name.display}</h4></li>
@@ -19,6 +19,8 @@ Student.propTypes = {
   program: PropTypes.object.isRequired,
   locationName: PropTypes.string.isRequired,
   onClick: PropTypes.func.isRequired,
+  onMouseEnter: PropTypes.func.isRequired,
+  onMouseLeave: PropTypes.func.isRequired,
   photo: PropTypes.object.isRequired,
   showDate: PropTypes.string.isRequired,
   id: PropTypes.string.isRequired,
