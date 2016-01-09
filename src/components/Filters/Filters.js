@@ -1,31 +1,31 @@
 import React, { Component, PropTypes } from 'react'
+// import partial from 'lodash/function/partial'
 
 import FilterOptions from './FilterOptions'
 
 class Filters extends Component {
   // We need to know what filterType is expanded.
   render() {
-    const { toggleFilter, filterTypes, groupId, replacePath } = this.props
+    const { groupId, update, toggle, types } = this.props
     return (
       <ul className={`filters-${groupId}`}>
         {
-          filterTypes.map(({ value, label, active, options }) => {
-            function onClick() {
-              toggleFilter(groupId, value)
+          types.map(({ value, label, active, options }) => {
+            function handleClick() {
+              toggle(groupId, value)
             }
-            function handleCategoryClick() {
-              return true
+            function handleCategoryClick(optId) {
+              return update(groupId, value, optId)
             }
             return (
               <li key={value} className={value}>
-                <button className="filter" onClick={onClick}>
+                <button className="filter" onClick={handleClick}>
                   <span>{ label }</span>
                 </button>
                 { active &&
                   <FilterOptions
                     onClick={handleCategoryClick}
                     options={options}
-                    replacePath={replacePath}
                   />
                 }
               </li>
@@ -38,10 +38,10 @@ class Filters extends Component {
 }
 
 Filters.propTypes = {
-  filterTypes: PropTypes.array.isRequired,
+  types: PropTypes.array.isRequired,
   groupId: PropTypes.string.isRequired,
-  replacePath: PropTypes.func.isRequired,
-  toggleFilter: PropTypes.func.isRequired,
+  update: PropTypes.func.isRequired,
+  toggle: PropTypes.func.isRequired,
 }
 
 Filters.defaultProps = {
