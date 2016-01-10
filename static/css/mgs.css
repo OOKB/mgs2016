@@ -167,6 +167,21 @@ header h1 {
   background-size: 300px 327px;
   background-repeat: no-repeat;
 }
+.rotating-text{
+    width: 350px;
+    position: absolute;
+    bottom: 10em;
+    right: 12em;
+}
+
+@media (max-width: 600px) {
+  .rotating-text {
+      position: absolute;
+      bottom: 10em;
+      right: 4em;
+  }
+}
+
 
 /***** Intro Section *****/
 #intro {
@@ -222,6 +237,10 @@ header h1 {
   padding-left: .75em;
 }
 
+.student .name h4{
+    text-transform: uppercase;
+}
+
 button.filter{
   border: none;
   background: none;
@@ -233,6 +252,7 @@ button.filter{
 
 button.filter:hover{
   color: #f37743;
+  cursor: pointer;
 }
 
 /***** Footer *****/
@@ -248,4 +268,8 @@ footer .archive h3 {
 
 footer .archive ul {
   margin: 0;
+}
+footer .archive ul li a {
+    color: white;
+    text-decoration: none;
 }
