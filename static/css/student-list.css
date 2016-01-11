@@ -52,3 +52,16 @@
 .student:hover .student-photo > .photo-inactive {
   opacity: 0;
 }
+
+/** control heights for now so that the grid stays a nice grid **/
+@media (min-width: 50em) {
+  .student {
+    height: 280px;
+  }
+}
+
+@media (min-width: 65em) {
+  .student {
+    height: 325px;
+  }
+}
