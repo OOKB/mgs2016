@@ -12,17 +12,17 @@ import React, { Component, PropTypes } from 'react'
 // </Link>
 class Filters extends Component {
   render() {
-    const { options, replacePath } = this.props
+    const { options, onClick } = this.props
     return (
       <ul className="student-filters">
         {
           options.map(({ value, label, itemCount }) => {
-            function link() {
-              replacePath(`/?profile-programId=${value}#students`)
+            function handleOptClick() {
+              onClick(value)
             }
             return (
               <li key={value} className={value}>
-                { itemCount ? <button onClick={link}>{ label }</button> : label }
+                { itemCount ? <button onClick={handleOptClick}>{ label }</button> : label }
                 { itemCount ? <span className="item-count">{itemCount}</span> : false }
               </li>
             )
@@ -35,7 +35,7 @@ class Filters extends Component {
 
 Filters.propTypes = {
   options: PropTypes.array.isRequired,
-  replacePath: PropTypes.func.isRequired,
+  onClick: PropTypes.func.isRequired,
 }
 
 Filters.defaultProps = {

@@ -1,18 +1,19 @@
 import React, { PropTypes } from 'react'
 
-function Blurb({ name, blurb, infoLinkMsg, infoLinkSrc }) {
+function Blurb({ label, value, blurb, infoLinkMsg, infoLinkSrc }) {
   return (
-    <div className="program-info">
-      <h3>{ name }</h3>
-      <p>{ blurb }</p>
-      <p><a href={ infoLinkSrc }>{ infoLinkMsg }</a></p>
+    <div className={`program-info ${value}`}>
+      <h3>{ label }</h3>
+      { blurb && <p>{ blurb }</p> }
+      { infoLinkMsg && infoLinkSrc && <p><a href={ infoLinkSrc }>{ infoLinkMsg }</a></p> }
     </div>
   )
 }
 
 Blurb.propTypes = {
-  name: PropTypes.string.isRequired,
-  blurb: PropTypes.string.isRequired,
+  label: PropTypes.string.isRequired,
+  value: PropTypes.string.isRequired,
+  blurb: PropTypes.string,
   infoLinkMsg: PropTypes.string.isRequired,
   infoLinkSrc: PropTypes.string.isRequired,
 }

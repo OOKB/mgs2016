@@ -14,7 +14,7 @@ const defaultState = immutable({
 export default function reducer(state = defaultState, action) {
   switch (action.type) {
     case UPDATE:
-      return state.merge(action.payload)
+      return state.setIn(action.payload.path, action.payload.value)
     default:
       return state
   }
@@ -22,7 +22,7 @@ export default function reducer(state = defaultState, action) {
 
 export function update(groupId, filterType, propertyId, value) {
   return {
-    payload: set({}, [ groupId, filterType, propertyId ], value),
+    payload: { path: [ groupId, filterType, propertyId ], value },
     type: UPDATE,
   }
 }
