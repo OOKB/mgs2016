@@ -1,12 +1,15 @@
+.google-map-container,
+#gallerylisting {
+  height: 80vh;
+}
+
 .google-map-container {
-  height: 80vw;
   width: 66%;
   position: relative;
 }
 
 #gallerylisting {
   width: 33%;
-  height: 80vw;
   overflow-y: scroll;
 }
 

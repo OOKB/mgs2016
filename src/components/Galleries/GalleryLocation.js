@@ -21,7 +21,7 @@ function GalleryLocation({ togglePin, active, value }) {
       <span>
         { active ?
             <div className="mapPopup">
-              Some text to make sure it's showing
+              Gallery info TK
             </div>
           :
             false
