@@ -75,13 +75,13 @@ function mapStateToProps(state) {
   // Merge graph nodes and stuff.
   .map(({ photo, programId, id, ...rest }) => {
     // Does this profile have an active hover? Converting `undefined` to `false` with double bang.
-    const active = !!get(display, [ 'profile', id, 'hover' ])
+    // const active = !!get(display, [ 'profile', id, 'hover' ])
     // Add useful student info to profiles array.
     return {
       ...rest,
       id,
-      active,
-      photo: photoDisplay(url[photo], active),
+      // active,
+      photos: { active: photoDisplay(url[photo], true), inactive: photoDisplay(url[photo], false) },
       program: program[programId],
     }
   })

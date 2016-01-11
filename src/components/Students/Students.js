@@ -21,18 +21,10 @@ class Students extends Component {
             <ul className="list-reset group">
               {
                 students.map((item) => {
-                  function handleHover() {
-                    updateDisplay([ 'profile', item.id, 'hover' ], true)
-                  }
-                  function handleLeave() {
-                    updateDisplay([ 'profile', item.id, 'hover' ], false)
-                  }
                   return (
                     <Student
                       key={item.id}
                       {...item}
-                      onMouseEnter={handleHover}
-                      onMouseLeave={handleLeave}
                     />
                   )
                 })
