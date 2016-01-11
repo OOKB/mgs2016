@@ -35,5 +35,20 @@
 .student-photo > img {
   display: block;
   position: absolute;
+  transition: all 400ms;
+  z-index: 1;
+  top:0;
+  left:0;
+  right:0;
+  width: 100%;
+  height: auto;
 }
 
+.student-photo > .photo-inactive {
+  z-index: 2;
+  opacity: 1;
+}
+
+.student:hover .student-photo > .photo-inactive {
+  opacity: 0;
+}
