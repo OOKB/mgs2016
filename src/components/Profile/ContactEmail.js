@@ -15,10 +15,7 @@ function ContactEmail({ personalEmail }) {
 }
 
 ContactEmail.propTypes = {
-  personalEmail: PropTypes.oneOfType([
-    PropTypes.bool,
-    PropTypes.string,
-  ]),
+  personalEmail: PropTypes.string,
 }
 ContactEmail.defaultProps = {
 }

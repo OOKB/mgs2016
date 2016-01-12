@@ -11,10 +11,7 @@ function ContactWebsite({ website }) {
 }
 
 ContactWebsite.propTypes = {
-  website: PropTypes.oneOfType([
-    PropTypes.bool,
-    PropTypes.string,
-  ]),
+  website: PropTypes.string,
 }
 ContactWebsite.defaultProps = {
 }
