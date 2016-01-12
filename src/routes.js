@@ -1,11 +1,10 @@
 import React from 'react'
 import { IndexRoute, Route } from 'react-router'
-import { Profile } from './containers/Profile'
 
 import {
     App,
     Main,
-    // UserPage,
+    Profile,
   } from './containers'
 
 /**

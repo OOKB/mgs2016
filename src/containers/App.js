@@ -1,12 +1,19 @@
 import React, { Component, PropTypes } from 'react'
 import { connect } from 'react-redux'
 import { pushPath } from 'redux-simple-router'
-import { resetErrorMessage } from '../redux/actions'
+import isEmpty from 'lodash/lang/isEmpty'
+
+import { loadProfiles, resetErrorMessage } from '../redux/actions'
+import Loading from '../components/Loading'
 
 class App extends Component {
   constructor(props) {
     super(props)
     this.handleDismissClick = this.handleDismissClick.bind(this)
+  }
+
+  componentWillMount() {
+    this.props.loadProfiles()
   }
 
   handleDismissClick(err) {
@@ -34,11 +41,11 @@ class App extends Component {
   }
 
   render() {
-    const { children } = this.props
+    const { children, hasProfile } = this.props
     return (
       <div className="mgs">
         { this.renderErrorMessage() }
-        { children }
+        { hasProfile ? children : <Loading message="Loading artist information..." /> }
       </div>
     )
   }
@@ -47,6 +54,8 @@ class App extends Component {
 App.propTypes = {
   // Injected by React Redux
   errorMessage: PropTypes.string,
+  loadProfiles: PropTypes.func.isRequired,
+  hasProfile: PropTypes.bool.isRequired,
   resetErrorMessage: PropTypes.func.isRequired,
   pushPath: PropTypes.func.isRequired,
   // Injected by React Router
@@ -54,12 +63,20 @@ App.propTypes = {
 }
 
 function mapStateToProps(state) {
+  const {
+    entities: { profile },
+    errorMessage,
+  } = state
   return {
-    errorMessage: state.errorMessage,
+    hasProfile: !!profile && !isEmpty(profile),
+    errorMessage,
   }
 }
 
-export default connect(mapStateToProps, {
-  resetErrorMessage,
+const mapDispatchToProps = {
+  loadProfiles,
   pushPath,
-})(App)
+  resetErrorMessage,
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(App)

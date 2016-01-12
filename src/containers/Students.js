@@ -12,7 +12,8 @@ import some from 'lodash/collection/some'
 import values from 'lodash/object/values'
 
 import { loadProfiles } from '../redux/actions'
-import { toggle as toggleFilterAction, update as updateFilterAction } from '../redux/modules/filters'
+import {
+  toggle as toggleFilterAction, update as updateFilterAction } from '../redux/modules/filters'
 import { update as updateDisplayAction } from '../redux/modules/display'
 import Students from '../components/Students/Students'
 

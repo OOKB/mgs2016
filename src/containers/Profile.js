@@ -8,7 +8,7 @@ function mapStateToProps(state, ownProps) {
   } = state
   const { id } = ownProps.params
   return {
-    profile: profile[id],
+    profile: profile && profile[id],
   }
 }
 
