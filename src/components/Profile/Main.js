@@ -12,15 +12,13 @@ function Main({ file, pos, type, usr }) {
         :
           <NoImages />
       }
-      { statement ?
+      { statement &&
           <div
             className="statement"
             dangerouslySetInnerHTML = {{
               __html: statement,
             }}
           />
-        :
-          false
       }
     </div>
   )
