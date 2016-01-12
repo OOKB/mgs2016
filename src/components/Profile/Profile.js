@@ -1,5 +1,6 @@
 import React, { Component, PropTypes } from 'react'
 import Info from './Info'
+import Main from './Main'
 
 class Profile extends Component {
   componentWillMount() {
@@ -7,6 +8,7 @@ class Profile extends Component {
   }
   render() {
     const { profile } = this.props
+    console.log(profile)
     const uid = 'foo'
     const className = `student-${uid}`
     return (
