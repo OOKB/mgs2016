@@ -8,7 +8,6 @@ class Profile extends Component {
   }
   render() {
     const { profile } = this.props
-    console.log(profile)
     const uid = 'foo'
     const className = `student-${uid}`
     return (

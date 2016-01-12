@@ -3,7 +3,8 @@ import React, { PropTypes } from 'react'
 import ContactEmail from './ContactEmail'
 import ContactWebsite from './ContactWebsite'
 
-function Contact({ personalEmail, website }) {
+function Contact({ contactEmail, website, twitter, email }) {
+  console.log(website)
   return (
     <ul className="contact-info">
       { website ?
@@ -11,8 +12,8 @@ function Contact({ personalEmail, website }) {
         :
           false
       }
-      { personalEmail ?
-          <ContactEmail mailto={personalEmail} />
+      { contactEmail ?
+          <ContactEmail mailto={contactEmail} />
         :
           false
       }
@@ -21,14 +22,10 @@ function Contact({ personalEmail, website }) {
 }
 
 Contact.propTypes = {
-  personalEmail: PropTypes.oneOfType([
-    PropTypes.bool,
-    PropTypes.string,
-  ]),
-  website: PropTypes.oneOfType([
-    PropTypes.bool,
-    PropTypes.string,
-  ]),
+  contactEmail: PropTypes.string,
+  website: PropTypes.string,
+  twitter: PropTypes.string,
+  instagram: PropTypes.string,
 }
 Contact.defaultProps = {
 }
