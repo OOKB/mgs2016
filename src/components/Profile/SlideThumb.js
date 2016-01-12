@@ -1,7 +1,7 @@
 import React from 'react'
 import classnames from 'classnames'
 
-function slideThumb() {
+function SlideThumb() {
   return (
     <li>
     </li>
