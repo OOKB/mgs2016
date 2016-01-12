@@ -10,11 +10,14 @@ function Details({ user }) {
     <div className="student-details">
       <h2>{ name.display }</h2>
       <ul className="show-details">
-        <li className="program"><h3>{ programName }</h3></li>
+        <li className="program"><h3>{programName}</h3></li>
         <li className="location">Showing in: {locationName}</li>
         <li className="show-dates">{showDates}</li>
       </ul>
-      <Contact {...user} />
+      <Contact
+        website={user.website}
+        {...user}
+      />
     </div>
   )
 }
