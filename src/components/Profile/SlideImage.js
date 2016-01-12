@@ -1,10 +1,11 @@
 import React, { PropTypes } from 'react'
+import ImageCaption from './ImageCaption'
 
-function SlideImage({ imgSrc, ImageCaption, file }) {
+function SlideImage({ imgSrc, handleClick, file }) {
   return (
     <div className="grouped">
       <div className="active-image">
-        <img src={imgSrc} onClick={this.handleClick} alt="art" />
+        <img src={imgSrc} onClick={handleClick} alt="art" />
       </div>
       <ImageCaption img={file} />
     </div>
@@ -13,7 +14,7 @@ function SlideImage({ imgSrc, ImageCaption, file }) {
 
 SlideImage.PropTypes = {
   imgSrc: PropTypes.object.isRequired,
-  ImageCaption: PropTypes.object.isRequired,
+  handleClick: PropTypes.func.isRequired,
   file: PropTypes.object.isRequired,
 }
 

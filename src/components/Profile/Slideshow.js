@@ -3,7 +3,6 @@ import { Link, Navigation } from 'react-router'
 import classnames from 'classnames'
 
 import SlideThumb from './SlideThumb'
-import ImageCaption from './ImageCaption'
 import SlideImage from './SlideImage'
 
 class Slideshow extends Component {
@@ -56,7 +55,11 @@ class Slideshow extends Component {
       const imgSrc = file.largeSrc.replace('#', '%23')
       // TODO: make this a component
       activeFileEl = (
-        <div slideImage={slideImage} />
+        <SlideImage
+          imgSrc={imgSrc}
+          handleClick={this.handleClick}
+          file={file}
+        />
       )
     }
     if (type === 'embed') {
