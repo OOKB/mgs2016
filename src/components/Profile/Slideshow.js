@@ -39,17 +39,10 @@ class Slideshow extends Component {
   }
 
   render() {
-    const { usr, file, type } = this.props
-    const { files, embeds } = usr
+    const { user, file, type } = this.props
+    const { art, embeds } = user
     let thumbEl = []
     let activeFileEl = ''
-
-    if (files && files.length > 0) {
-      thumbEl = thumbEl.concat(this.getThumbs('img', files))
-    }
-    if (embeds && embeds.length > 0) {
-      thumbEl = thumbEl.concat(this.getThumbs('embed', files))
-    }
 
     if (type === 'img') {
       const imgSrc = file.largeSrc.replace('#', '%23')
@@ -90,7 +83,7 @@ class Slideshow extends Component {
 
 // TODO: real proptypes
 Slideshow.propTypes = {
-  usr: PropTypes.any,
+  user: PropTypes.any,
   file: PropTypes.any,
   pos: PropTypes.any,
   type: PropTypes.any,

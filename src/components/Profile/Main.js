@@ -3,12 +3,17 @@ import React, { PropTypes } from 'react'
 import Slideshow from './Slideshow'
 import NoImages from './NoImages'
 
-function Main({ file, pos, type, usr }) {
-  const statement = usr
+function Main({ file, pos, type, user }) {
+  const { statement } = user
   return (
     <div className="student-main">
       { file ?
-          <Slideshow usr={usr} file={file} pos={pos} type={type} />
+          <Slideshow
+            user={user}
+            file={file}
+            pos={1}
+            type={'image'}
+          />
         :
           <NoImages />
       }
@@ -26,10 +31,10 @@ function Main({ file, pos, type, usr }) {
 
 // TODO: look at the data and set these correctly
 Main.propTypes = {
-  file: PropTypes.any,
+  file: PropTypes.array,
   pos: PropTypes.any,
   type: PropTypes.any,
-  usr: PropTypes.object,
+  user: PropTypes.object,
 }
 Main.defaultProps = {
 }

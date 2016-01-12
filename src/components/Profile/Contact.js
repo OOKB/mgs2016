@@ -4,7 +4,30 @@ import ContactEmail from './ContactEmail'
 import ContactSocial from './ContactSocial'
 import ContactWebsite from './ContactWebsite'
 
-function Contact({ contactEmail, instagram, twitter, website }) {
+function Contact({ website, social, contactEmail }) {
+  const socialLinks = []
+  const socialServices = {
+    twitter: {
+      href: 'https://www.twitter.com',
+      hrefText: 'Twitter',
+    },
+    instagram: {
+      href: 'https://www.instagram.com',
+      hrefText: 'Instagram',
+    },
+  }
+  if (social) {
+    for (const key of Object.keys(social)) {
+      socialLinks.push(
+        <ContactSocial
+          key={key}
+          {...socialServices[key]}
+          service={key}
+          username={social[key]}
+        />
+      )
+    }
+  }
   return (
     <ul className="contact-info">
       { website &&
@@ -13,31 +36,19 @@ function Contact({ contactEmail, instagram, twitter, website }) {
       { contactEmail &&
           <ContactEmail mailto={contactEmail} />
       }
-      { twitter &&
-          <ContactSocial
-            href="https://www.twitter.com"
-            hrefText="Twitter"
-            service="twitter"
-            username={twitter}
-          />
-      }
-      { instagram &&
-          <ContactSocial
-            href="https://www.instagram.com"
-            hrefText="Instagram"
-            service="instagram"
-            username={instagram}
-          />
-      }
+      {socialLinks}
     </ul>
   )
 }
 
 Contact.propTypes = {
-  contactEmail: PropTypes.string,
-  website: PropTypes.string,
-  twitter: PropTypes.string,
-  instagram: PropTypes.string,
+  user: PropTypes.shape({
+    fullName: PropTypes.string,
+    program: PropTypes.object,
+    locationName: PropTypes.string,
+    showDates: PropTypes.string,
+    social: PropTypes.object,
+  }),
 }
 Contact.defaultProps = {
 }

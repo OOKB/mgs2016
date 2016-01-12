@@ -3,7 +3,7 @@ import React, { PropTypes } from 'react'
 import Contact from './Contact'
 
 function Details({ user }) {
-  const { name, locationName, program, showDates, website, contactEmail } = user
+  const { name, locationName, program, showDates } = user
   const programName = program.label
   return (
     <div className="student-details">
@@ -13,11 +13,7 @@ function Details({ user }) {
         <li className="location">Showing in: {locationName}</li>
         <li className="show-dates">{showDates}</li>
       </ul>
-      <Contact
-        contactEmail={contactEmail}
-        website={website}
-        {...user.social}
-      />
+      <Contact {...user} />
     </div>
   )
 }

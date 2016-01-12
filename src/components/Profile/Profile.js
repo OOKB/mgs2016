@@ -18,6 +18,10 @@ class Profile extends Component {
           </button>
           <div className="container">
             <Info user={profile} />
+            <Main
+              user={profile}
+              file={profile.art}
+            />
           </div>
         </div>
       </article>
