@@ -2,12 +2,12 @@ import React, { PropTypes } from 'react'
 
 import Contact from './Contact'
 
-function Details({ fullName, locationName, programName, showDates, usr }) {
+function Details({ name, locationName, programName, showDates, usr }) {
   return (
     <div className="student-details">
-      <h2>{fullName}</h2>
+      <h2>{ name.display }</h2>
       <ul className="show-details">
-        <li className="program"><h3>{programName}</h3></li>
+        <li className="program"><h3>{ programName }</h3></li>
         <li className="location">Showing in: {locationName}</li>
         <li className="show-dates">{showDates}</li>
       </ul>
