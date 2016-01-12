@@ -8,7 +8,7 @@ function Info({ user }) {
   return (
     <div className="student-info">
       {/* <StudentNav user={user} /> */}
-      <Details {...user} />
+      <Details user={user} />
       {/* <ProgramList user={user} /> */}
     </div>
   )
