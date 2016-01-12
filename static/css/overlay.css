@@ -1,0 +1,59 @@
+/**** OVERLAY.LESS ****/
+/**** OVERLAY.LESS ****/
+/**** OVERLAY.LESS ****/
+/**** OVERLAY.LESS ****/
+
+/****************************/
+/** OVERLAY STYLES **/
+/****************************/
+
+#student-overlay {
+  background: transparent url(../images/background.png) center center no-repeat;
+  background-size: cover;
+  position: fixed;
+  top:0;
+  right:0;
+  bottom:0;
+  left:0;
+}
+
+#student-overlay .wrapper {
+  background: white;
+  position: absolute;
+  top: 1em;
+  right: 1em;
+  bottom: 1em;
+  left: 1em;
+  padding-top: 2em;
+  padding-bottom: 5em;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+
+#student-overlay .close {
+  /** hides the text inside **/
+  text-indent: 500%; /* this shouldn't need to be this big, but there is some mobile chrome bug that is demanding it.*/
+  white-space: nowrap;
+  overflow: hidden;
+  /**/
+  background: transparent url("images/X.svg") 0 0 no-repeat;
+  background-size: 50px 25px !important;
+  border: none;
+  display: block;
+  height: 25px !important;
+  width: 25px !important;
+  /**/
+  position: fixed;
+  top: 15px;
+  right: 15px;
+  z-index: 1111;
+}
+
+#student-overlay .close:hover {
+  background-position: -25px 0px;
+}
+
+/**** / END OVERLAY.LESS ****/
+/**** / END OVERLAY.LESS ****/
+/**** / END OVERLAY.LESS ****/
+/**** / END OVERLAY.LESS ****/

@@ -13,11 +13,13 @@ class Profile extends Component {
     const className = `student-${uid}`
     return (
       <article id="student-overlay" className={className}>
-        <button role="button" className="close">
-          x
-        </button>
-        <div className="container">
-          <Info user={profile} />
+        <div className="wrapper">
+          <button role="button" className="close">
+            x
+          </button>
+          <div className="container">
+            <Info user={profile} />
+          </div>
         </div>
       </article>
     )
