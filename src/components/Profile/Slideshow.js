@@ -4,6 +4,7 @@ import classnames from 'classnames'
 
 import SlideThumb from './SlideThumb'
 import ImageCaption from './ImageCaption'
+import SlideImage from './SlideImage'
 
 class Slideshow extends Component {
 
@@ -55,12 +56,7 @@ class Slideshow extends Component {
       const imgSrc = file.largeSrc.replace('#', '%23')
       // TODO: make this a component
       activeFileEl = (
-        <div className="grouped">
-          <div className="active-image">
-            <img src={imgSrc} onClick={this.handleClick} alt="art" />
-          </div>
-          <ImageCaption img={file} />
-        </div>
+        <div slideImage={slideImage} />
       )
     }
     if (type === 'embed') {
