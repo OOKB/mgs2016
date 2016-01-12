@@ -11,7 +11,7 @@ function Student({ name, program, locationName, photos, showDate, id, ...rest })
         </div>
       </Link>
       <ul className="list-reset">
-        <li className="name"><h4><Link to={`student/${id}`} >{name.display}</Link></h4></li>
+        <li className="name"><h4><Link to={`/student/${id}`} >{name.display}</Link></h4></li>
         { program && <li className="program">{program.label}</li> }
         { locationName && <li className="location">{locationName}</li> }
         { showDate && <li className="show-date">{showDate}</li> }
