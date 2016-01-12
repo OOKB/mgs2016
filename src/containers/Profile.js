@@ -10,17 +10,13 @@ function mapStateToProps(state, ownProps) {
   } = state
   const { id } = ownProps.params
   const profileInfo = (profile && profile[id]) || {}
-  const { programId, art, social, ...profileFields } = profileInfo
+  const { programId, art, website, ...profileFields } = profileInfo
   // Create new object.
   const userProfile = {
     ...profileFields,
     program: program[programId],
     art: art ? art.map(({ work, ...rest }) => ({ ...rest, work: url[work] })) : null,
-    social,
-  }
-
-  if (social && social.website) {
-    userProfile.social.website = url[social.website]
+    website: website ? url[website] : null,
   }
 
   console.log(userProfile)
