@@ -6,9 +6,9 @@ function mapStateToProps(state, ownProps) {
   const {
     entities: { profile },
   } = state
-  // const { } = ownProps.location
+  const { id } = ownProps.params
   return {
-    profile
+    profile: profile[id],
   }
 }
 

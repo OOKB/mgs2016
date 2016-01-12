@@ -1,6 +1,6 @@
 import React, { Component, PropTypes } from 'react'
 
-class logo extends Component {
+class Logo extends Component {
   shouldComponentUpdate() {
     return false
   }
