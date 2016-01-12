@@ -15,9 +15,7 @@ import sampleLocations from './sampleLocations'
 // Updates an entity cache in response to any action with response.entities.
 // Define our default entities collection database.
 const defaultEntityState = {
-  forms: {},
-  repos: {},
-  users: {},
+  profile: {},
   locations: sampleLocations,
 }
 function entities(state = defaultEntityState, action) {

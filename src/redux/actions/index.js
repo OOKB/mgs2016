@@ -1,4 +1,4 @@
-import { CALL_API } from '../middleware/api'
+import { CALL_API, Schemas } from '../middleware/api'
 import isEmpty from 'lodash/lang/isEmpty'
 
 export const PROFILE_REQUEST = 'PROFILE_REQUEST'
@@ -13,6 +13,7 @@ function fetchProfile(id) {
       types: [ PROFILE_REQUEST, PROFILE_SUCCESS, PROFILE_FAILURE ],
       api: 'cape',
       endpoint: `mica/profile/${id}`,
+      schema: Schemas.PROFILE,
     },
   }
 }
