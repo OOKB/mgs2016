@@ -31,26 +31,21 @@
 }
 
 #student-overlay .close {
-  /** hides the text inside **/
-  text-indent: 500%; /* this shouldn't need to be this big, but there is some mobile chrome bug that is demanding it.*/
-  white-space: nowrap;
-  overflow: hidden;
-  /**/
-  background: transparent url("images/X.svg") 0 0 no-repeat;
-  background-size: 50px 25px !important;
+  background: transparent;
   border: none;
   display: block;
-  height: 25px !important;
-  width: 25px !important;
+  height: 2rem !important;
+  width: 2rem !important;
   /**/
   position: fixed;
-  top: 15px;
-  right: 15px;
+  top: 1rem;
+  right: 1rem;
   z-index: 1111;
+  transition: all 400ms;
 }
 
 #student-overlay .close:hover {
-  background-position: -25px 0px;
+  color: rgba(242,103,070,1);
 }
 
 /**** / END OVERLAY.LESS ****/

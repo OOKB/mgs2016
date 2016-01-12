@@ -14,7 +14,7 @@ class Profile extends Component {
       <article id="student-overlay" className={className}>
         <div className="wrapper">
           <button role="button" className="close">
-            x
+            <i className="fa fa-times fa-2x"></i>
           </button>
           <div className="container">
             <Info user={profile} />
