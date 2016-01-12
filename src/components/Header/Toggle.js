@@ -11,11 +11,11 @@ class Toggle extends Component {
     )
   }
 }
-Header.propTypes = {
+Toggle.propTypes = {
   handleToggle: PropTypes.func,
   innerText: PropTypes.string.isRequired,
   menuOpen: PropTypes.bool,
 }
-Header.defaultProps = {
+Toggle.defaultProps = {
   innerText: 'Menu',
 }

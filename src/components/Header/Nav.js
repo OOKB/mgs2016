@@ -1,166 +1,28 @@
 import React, { Component, PropTypes } from 'react'
-import className from 'className'
-import _ from 'lodash'
+import classNames from 'classnames'
 
 import Search from './Search'
-import Toggle from './toggle'
+// import Toggle from './toggle'
 
-const LARGE_SCREEN_SIZE = 767
+// const LARGE_SCREEN_SIZE = 767
 
-module.exports = React.createClass
-  getInitialState: ->
-    {nav} = @props.data
-    snap: true
-    activeSection: nav[0].link
-    menuOpen: true
-    innerWidth: 900
-    programsActive: false
-
-  handleScroll: ->
-    y = window.pageYOffset
-    h = window.innerHeight
-    activeSection = @state.activeSection
-    # What section are we in?
-    @sectionCoords.forEach (section) ->
-      if y > section.offset
-        activeSection = section.link
-    newState = {}
-    changeState = false
-
-    # Change the active section.
-    if activeSection != @state.activeSection
-      newState.activeSection = activeSection
-      changeState = true
-
-    if changeState
-      @setState newState
-
-    return
-
-  handleResize: ->
-    {navOffsetDefault, nav} = @props.data
-    {menuOpen} = @state
-
-    # Calculate what section we are in.
-    sectionCoords = []
-    # Loop through every nav item.
-    _.each nav, (item) ->
-      {href, link, offset} = item
-      # Easy way to skip a nav item is to set the href value to anything.
-      # Also check to see if the link val is found as an html el id.
-      if _.isUndefined(href) and el = document.getElementById(link)
-        # Calculate where the section starts.
-        pos = offset or navOffsetDefault
-        pos = parseInt(pos) + window.pageYOffset
-        pos += el.getBoundingClientRect().top
-        sectionCoords.push
-          link: link
-          offset: pos
-    @sectionCoords = sectionCoords
-
-    # When smallScreen is true menuOpen should be false.
-    if menuOpen is (window.innerWidth < LARGE_SCREEN_SIZE)
-      @setState
-        innerWidth: window.innerWidth
-        menuOpen: !menuOpen
-
-  sectionCoords: []
-
-  handleToggle: ->
-    @setState menuOpen: !@state.menuOpen
-
-  componentDidMount: ->
-    handleScroll = _.throttle @handleScroll, 250
-    handleScroll()
-    window.onscroll = handleScroll
-
-    window.addEventListener 'resize', @handleResize
-    @handleResize()
-
-  componentWillUnmount: ->
-    window.onscroll = undefined
-    window.removeEventListener 'resize', @handleResize
-
-  handleProgramsClick: (e) ->
-    if e and e.preventDefault
-      e.preventDefault()
-    @setState programsActive: !@state.programsActive
-
-  handleSectionClick: ->
-    _.delay @handleScroll, 200
-
-  linkEl: (props) ->
-    {activeSection, programsActive} = @state
-    {programs} = @props
-    {link, first, last, href, title, onClick} = props
-    key = link or title
-    href = href or '#'+link
-    classNames =
-      'nav-item': true
-      first: first
-      last: last
-      active: activeSection and activeSection == link
-    if link
-      classNames[link] = true
-    onClickFunc = (e) =>
-      if onClick
-        onClick(e)
-      if window.innerWidth < LARGE_SCREEN_SIZE
-        @setState menuOpen: false
-
-    if props.link is 'filter-programs'
-      # Configure onClick event for programs filter click.
-      onClick =  @handleProgramsClick
-      if programsActive
-        # Establish if menu item has dropdown.
-        Dropdown = <ProgramList onClick={@handleProgramsClick} programs={programs} />
-
-    <li key={key} className={cx(classNames)}>
-      <a href={href} onClick={onClickFunc} title={title}>{title}</a>
-      {Dropdown}
-    </li>
-
-  render: ->
-    {snap, menuOpen, activeSection, innerWidth, menuOpen} = @state
-    {nav} = @props.data
-    last_i = nav.length - 1
-
-    # Calculate if window is small.
-    if innerWidth < LARGE_SCREEN_SIZE
-      smallScreen = true
-      # The toggle is added to the DOM when the screen is small.
-      ToggleEl = <Toggle handleToggle={@handleToggle} menuOpen={menuOpen} />
-    else
-      smallScreen = false
-      # Large window always shows menu.
-      menuOpen = true
-      # Large window hides toggle.
-      ToggleEl = false
-
-    # Build NavList element.
-    if menuOpen
-      # Build array of links.
-      Links = nav.map (link, i) =>
-        link.first = i == 0
-        link.last = i == last_i
-        @linkEl link
-      # Throw in the search input element.
-      Links.push <li key="search" className="student-search"><Search activeSection={activeSection} /></li>
-      NavList = <ul className="nav">{Links}</ul>
-    else
-      NavList = false
-
-    # Calculate the class names for the nav element.
-    navClasses =
-      'main-nav': true
-      'show-menu': menuOpen
-      'fixed': snap
-    if activeSection
-      navClasses[activeSection] = true
-
-    # Navigation template.
-    <nav className={cx(navClasses)}>
-      <div className="nav-logo"></div>
-      {ToggleEl}
-      {NavList}
-    </nav>
+class Nav extends Component {
+  render() {
+    const { searchInfo } = this.props
+    const navClasses = classNames('main-nav', 'pull-right')
+    return (
+      <nav className={ navClasses }>
+        <div className="nav-logo"></div>
+        <ul className="nav">
+          <li key="search" className="student-search">
+            <Search {...searchInfo} />
+          </li>
+        </ul>
+      </nav>
+    )
+  }
+}
+Nav.propTypes = {
+  searchInfo: PropTypes.object.isRequired,
+}
+export default Nav

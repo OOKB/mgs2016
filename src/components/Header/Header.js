@@ -1,6 +1,6 @@
 import React, { Component, PropTypes } from 'react'
 
-// import Nav from './Nav'
+import Nav from './Nav'
 
 class Header extends Component {
   constructor(props) {
@@ -8,14 +8,14 @@ class Header extends Component {
   }
 
   render() {
-    const { title } = this.props
+    const { title, ...rest } = this.props
 
     // <Nav data={data} programs={programs} />
     return (
       <header className="">
         <div className="container clearfix">
           <h1 className="pull-left">{title}</h1>
-          <nav className="pull-right">{'navigation temp placeholder'}</nav>
+          <Nav {...rest} />
         </div>
       </header>
     )
