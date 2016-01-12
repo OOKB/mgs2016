@@ -3,9 +3,8 @@ import React, { PropTypes } from 'react'
 import Contact from './Contact'
 
 function Details({ user }) {
-  const { name, locationName, program, showDates } = user
+  const { name, locationName, program, showDates, website, contactEmail } = user
   const programName = program.label
-  console.log(user)
   return (
     <div className="student-details">
       <h2>{ name.display }</h2>
@@ -15,8 +14,9 @@ function Details({ user }) {
         <li className="show-dates">{showDates}</li>
       </ul>
       <Contact
-        website={user.website}
-        {...user}
+        contactEmail={contactEmail}
+        website={website}
+        {...user.social}
       />
     </div>
   )
