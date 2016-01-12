@@ -4,10 +4,12 @@ import { Link } from 'react-router'
 function Student({ name, program, locationName, photos, showDate, id, ...rest }) {
   return (
     <li {...rest} id={id} className="student three columns">
-      <div className="student-photo">
-        <img className="photo-inactive" src={photos.inactive.url} alt={name.display} />
-        <img className="photo-active" src={photos.active.url} alt={name.display} />
-      </div>
+      <Link to={`student/${id}`} >
+        <div className="student-photo">
+          <img className="photo-inactive" src={photos.inactive.url} alt={name.display} />
+          <img className="photo-active" src={photos.active.url} alt={name.display} />
+        </div>
+      </Link>
       <ul className="list-reset">
         <li className="name"><h4><Link to={`student/${id}`} >{name.display}</Link></h4></li>
         { program && <li className="program">{program.label}</li> }
