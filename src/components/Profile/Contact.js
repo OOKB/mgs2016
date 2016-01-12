@@ -1,21 +1,33 @@
 import React, { PropTypes } from 'react'
 
 import ContactEmail from './ContactEmail'
+import ContactSocial from './ContactSocial'
 import ContactWebsite from './ContactWebsite'
 
-function Contact({ contactEmail, website, twitter, email }) {
-  console.log(website)
+function Contact({ contactEmail, instagram, twitter, website }) {
   return (
     <ul className="contact-info">
-      { website ?
+      { website &&
           <ContactWebsite website={website} />
-        :
-          false
       }
-      { contactEmail ?
+      { contactEmail &&
           <ContactEmail mailto={contactEmail} />
-        :
-          false
+      }
+      { twitter &&
+          <ContactSocial
+            href="https://www.twitter.com"
+            hrefText="Twitter"
+            service="twitter"
+            username={twitter}
+          />
+      }
+      { instagram &&
+          <ContactSocial
+            href="https://www.instagram.com"
+            hrefText="Instagram"
+            service="instagram"
+            username={instagram}
+          />
       }
     </ul>
   )
