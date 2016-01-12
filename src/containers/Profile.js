@@ -15,8 +15,8 @@ function mapStateToProps(state, ownProps) {
   const userProfile = {
     ...profileFields,
     program: program[programId],
-    art: art ? art.map(({ work, ...rest }) => ({ ...rest, work: url[work] })) : null,
-    website: website ? url[website] : null,
+    art: art ? art.map(({ work, ...rest }) => ({ ...rest, work: url[work] })) : undefined,
+    website: website ? url[website] : undefined,
   }
 
   console.log(userProfile)
