@@ -13,7 +13,7 @@ function fetchProfile(id) {
       types: [ PROFILE_REQUEST, PROFILE_SUCCESS, PROFILE_FAILURE ],
       api: 'cape',
       endpoint: `mica/profile/${id}`,
-      schema: Schemas.PROFILE,
+      // schema: Schemas.PROFILE,
     },
   }
 }
