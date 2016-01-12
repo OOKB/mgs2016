@@ -1,7 +1,7 @@
 import React, { Component, PropTypes } from 'react'
 
 import Logo from './Logo'
-import Header from './Header/Header'
+import Header from '../containers/Header'
 import Intro from './Intro/Intro'
 import Schedule from './Schedule/Schedule'
 import Galleries from '../containers/Galleries'

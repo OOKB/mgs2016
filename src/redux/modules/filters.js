@@ -1,6 +1,5 @@
 import immutable from 'seamless-immutable'
 import get from 'lodash/object/get'
-import set from 'lodash/object/set'
 
 const UPDATE = 'filter/UPDATE'
 
@@ -32,4 +31,8 @@ export function toggle(groupId, filterType) {
     const value = !get(getState().filters, [ groupId, filterType, 'active' ])
     return dispatch(update(groupId, filterType, 'active', value))
   }
+}
+
+export function handleSearch(groupId, filterType, newTxt) {
+  return update(groupId, filterType, 'value', newTxt.toLowerCase())
 }
