@@ -57,7 +57,6 @@ class Slideshow extends Component {
       previousSlides.shift()
       previousSlides.shift()
       nextSlides.pop()
-      nextSlides.pop()
     }
     return {
       previousSlides,
