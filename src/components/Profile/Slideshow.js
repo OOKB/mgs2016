@@ -97,6 +97,7 @@ class Slideshow extends Component {
         classNames={{
           first: slideIndex === 0,
           last: slideIndex === lastPosition,
+          active: slideIndex === currentPosition,
         }}
       />
     )
