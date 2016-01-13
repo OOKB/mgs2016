@@ -4,7 +4,7 @@ import ContactEmail from './ContactEmail'
 import ContactSocial from './ContactSocial'
 import ContactWebsite from './ContactWebsite'
 
-function Contact({ social, contactEmail }) {
+function Contact({ contactEmail, social, website }) {
   const socialLinks = []
   const socialServices = {
     twitter: {
@@ -30,6 +30,9 @@ function Contact({ social, contactEmail }) {
   }
   return (
     <ul className="contact-info">
+      { website &&
+        <ContactWebsite {...website} />
+      }
       { contactEmail &&
           <ContactEmail mailto={contactEmail} />
       }
@@ -44,6 +47,7 @@ Contact.propTypes = {
   locationName: PropTypes.string,
   showDates: PropTypes.string,
   social: PropTypes.object,
+  website: PropTypes.object,
 }
 Contact.defaultProps = {
 }
