@@ -44,6 +44,7 @@ class Slideshow extends Component {
         } else if (index > currentPosition) {
           handleClick = this.slideAdvance
         }
+        console.log(`Adding ${index}`)
         itemElement.push(
           <SlideThumb
             key={imgSrc}
@@ -72,7 +73,6 @@ class Slideshow extends Component {
 
   slideAdvance() {
     const { currentPosition } = this.state
-    console.log("yo")
     this.setState({
       currentPosition: currentPosition + 1,
     })
@@ -80,8 +80,12 @@ class Slideshow extends Component {
 
   slideRewind() {
     const { currentPosition } = this.state
+    let newPosition = currentPosition - 1
+    if (newPosition === -1) {
+      newPosition = this.props.collection.length - 1
+    }
     this.setState({
-      currentPosition: currentPosition - 1,
+      currentPosition: newPosition,
     })
   }
 
