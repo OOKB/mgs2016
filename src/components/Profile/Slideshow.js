@@ -16,6 +16,11 @@ class Slideshow extends Component {
     this.slideRewind = this.slideRewind.bind(this)
   }
 
+  getSlideIndices(activeIndex) {
+    const collectionSize = this.props.collection.length - 1
+    previousSlides =
+  }
+
   getThumbs(collection) {
     const lastPosition = collection.length - 1
     const { currentPosition } = this.state
@@ -35,8 +40,8 @@ class Slideshow extends Component {
       // Include currentPosition index, plus or minus 1, and wrap end and
       // beginning
       if (index === currentPosition ||
-          Math.abs(index - currentPosition) === 1 ||
-          (currentPosition === 0 && (index === lastPosition)) ||
+          Math.abs(index - currentPosition) === 2 ||
+          (currentPosition === 0 && (Math.abs(index === lastPosition)) ||
           (currentPosition === lastPosition && (index === 0))) {
         let handleClick
         // If we are on the last slide, the 0th slide needs to advance
@@ -84,11 +89,8 @@ class Slideshow extends Component {
 
   slideAdvance() {
     const { currentPosition } = this.state
-    let newPosition = currentPosition + 1
-    if (newPosition === this.props.collection.length) {
-      console.log("yo")
-      newPosition = 0
-    }
+    const { collection } = this.props
+    let newPosition = currentPosition + 1 % (collection - 1)
     this.setState({
       currentPosition: newPosition,
     })
@@ -96,10 +98,8 @@ class Slideshow extends Component {
 
   slideRewind() {
     const { currentPosition } = this.state
-    let newPosition = currentPosition - 1
-    if (newPosition === -1) {
-      newPosition = this.props.collection.length - 1
-    }
+    const { collection } = this.props
+    let newPosition = Math.abs(currentPosition - 1 % (collection - 1))
     this.setState({
       currentPosition: newPosition,
     })
