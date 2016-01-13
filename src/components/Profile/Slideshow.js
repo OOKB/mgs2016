@@ -19,8 +19,8 @@ class Slideshow extends Component {
   getSlideIndices(activeIndex) {
     const collectionSize = this.props.collection.length - 1
     const previousSlides = [
-      activeIndex - 1,
       activeIndex - 2,
+      activeIndex - 1,
     ].map((item) => {
       let indexVal = item
       if (item < 0) {
@@ -48,10 +48,10 @@ class Slideshow extends Component {
     const lastPosition = collection.length - 1
     const { currentPosition } = this.state
     const viewableSlides = this.getSlideIndices(currentPosition)
-    const slides = collection.map((item, index) => {
+    // Add the slides that should appear before the active slide
+    let slides = viewableSlides.previousSlides.map((slideIndex) => {
+      const item = collection[slideIndex]
       const { work } = item
-      const itemElement = []
-
       let imgSrc = ''
       // work is sometimes undefined. check for info in work.url and set the
       // image source.
@@ -60,25 +60,55 @@ class Slideshow extends Component {
           imgSrc = work.url.href
         }
       }
-
-      if (viewableSlides.previousSlides.indexOf(index) !== -1) {
-        itemElement.push(
-          <SlideThumb
-            key={imgSrc}
-            src={imgSrc}
-            title={item.title}
-            currentPosition={currentPosition}
-            handleClick={this.slideRewind}
-            classNames={{
-              first: index === 0,
-              last: index === lastPosition,
-              active: index === currentPosition,
-            }}
-          />
-        )
+      return (
+        <SlideThumb
+          key={imgSrc}
+          src={imgSrc}
+          title={item.title}
+          currentPosition={currentPosition}
+          handleClick={this.slideRewind}
+          classNames={{
+            first: slideIndex === 0,
+            last: slideIndex === lastPosition,
+          }}
+        />
+      )
+    })
+    // Add the active slide
+    const currentItem = collection[currentPosition]
+    let imgSrc = ''
+    if (currentItem.work) {
+      if (currentItem.work.url) {
+        imgSrc = currentItem.work.url.href
       }
-      if (viewableSlides.nextSlides.indexOf(index) !== -1) {
-        itemElement.push(
+    }
+    slides.push(
+      <SlideThumb
+        key={imgSrc}
+        src={imgSrc}
+        title={currentItem.title}
+        currentPosition={currentPosition}
+        classNames={{
+          first: currentPosition === 0,
+          last: currentPosition === lastPosition,
+          active: true,
+        }}
+      />
+    )
+    // Add the slides that should appear before the active slide
+    slides = slides.concat(
+      viewableSlides.nextSlides.map((slideIndex) => {
+        const item = collection[slideIndex]
+        const { work } = item
+        let imgSrc = ''
+        // work is sometimes undefined. check for info in work.url and set the
+        // image source.
+        if (work) {
+          if (work.url) {
+            imgSrc = work.url.href
+          }
+        }
+        return (
           <SlideThumb
             key={imgSrc}
             src={imgSrc}
@@ -86,39 +116,13 @@ class Slideshow extends Component {
             currentPosition={currentPosition}
             handleClick={this.slideAdvance}
             classNames={{
-              first: index === 0,
-              last: index === lastPosition,
-              active: index === currentPosition,
+              first: slideIndex === 0,
+              last: slideIndex === lastPosition,
             }}
           />
         )
-      }
-      if (index === currentPosition) {
-        <SlideThumb
-          key={imgSrc}
-          src={imgSrc}
-          title={item.title}
-          currentPosition={currentPosition}
-          classNames={{
-            first: index === 0,
-            last: index === lastPosition,
-            active: index === currentPosition,
-          }}
-        />
-      }
-      return itemElement
-    })
-    // If our current position is the 0th slide, we need to move the last
-    // element to the front of the array
-    if (currentPosition === 0) {
-      const lastSlide = slides.pop()
-      slides.unshift(lastSlide)
-    }
-    // If we're on the last slide, the 0th slide needs to be moved to the end
-    if (currentPosition === lastPosition) {
-      const firstSlide = slides.shift()
-      slides.push(firstSlide)
-    }
+      })
+    )
     return slides
   }
 
