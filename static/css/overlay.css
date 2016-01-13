@@ -48,6 +48,46 @@
   color: rgba(242,103,070,1);
 }
 
+/** slideshow strip buttons **/
+ul.thumbs-navigation {
+    padding: 0;
+    list-style: none;
+    text-align: center;
+}
+
+ul.thumbs-navigation li,
+ul.thumbs-navigation li button {
+  border: none;
+  background: rgba(242,103,070,.5);
+  display: block;
+  height: 4rem;
+  width: 4rem;
+  border-radius: 2rem;
+}
+
+/*** ********* ***/
+/*** SLIDESHOW ***/
+/*** ********* ***/
+
+#slideshow .thumbs {
+    padding: 0;
+    list-style: none;
+    text-align: center;
+}
+
+/** slideshow strip indicators **/
+ul.thumbs-indicator {
+    margin: 0 0 2rem;
+    padding: 0;
+    list-style: none;
+    text-align: center;
+}
+
+ul.thumbs-indicator li {
+    display: inline-block;
+    padding: .25rem;
+}
+
 /**** / END OVERLAY.LESS ****/
 /**** / END OVERLAY.LESS ****/
 /**** / END OVERLAY.LESS ****/
