@@ -19,21 +19,25 @@ class Slideshow extends Component {
   // Returns arrays of indices for viewable slides before and after the active slide
   getSlideIndices(activeIndex) {
     const collectionSize = this.props.collection.length - 1
+    // Slides that should appear before our active slide
     const previousSlides = [
       activeIndex - 2,
       activeIndex - 1,
     ].map((item) => {
       let indexVal = item
+      // If slide index is negative, wrap
       if (item < 0) {
         indexVal = collectionSize + item + 1
       }
       return indexVal
     })
+    // Slides that should appear after the active slide
     const nextSlides = [
       activeIndex + 1,
       activeIndex + 2,
     ].map((item) => {
       let indexVal = item
+      // If index is beyond the end of the collection
       if (item > collectionSize) {
         indexVal = item % (collectionSize + 1)
       }
@@ -51,80 +55,51 @@ class Slideshow extends Component {
     const viewableSlides = this.getSlideIndices(currentPosition)
     // Add the slides that should appear before the active slide
     let slides = viewableSlides.previousSlides.map((slideIndex) => {
-      const item = collection[slideIndex]
-      const { work } = item
-      let imgSrc = ''
-      // work is sometimes undefined. check for info in work.url and set the
-      // image source.
-      if (work) {
-        if (work.url) {
-          imgSrc = work.url.href
-        }
-      }
-      return (
-        <SlideThumb
-          key={imgSrc}
-          src={imgSrc}
-          title={item.title}
-          currentPosition={currentPosition}
-          handleClick={this.slideRewind}
-          classNames={{
-            first: slideIndex === 0,
-            last: slideIndex === lastPosition,
-          }}
-        />
+      return this.generateSlide(
+        collection[slideIndex], slideIndex, lastPosition, this.slideRewind
       )
     })
     // Add the active slide
-    const currentItem = collection[currentPosition]
-    let imgSrc = ''
-    if (currentItem.work) {
-      if (currentItem.work.url) {
-        imgSrc = currentItem.work.url.href
-      }
-    }
     slides.push(
-      <SlideThumb
-        key={imgSrc}
-        src={imgSrc}
-        title={currentItem.title}
-        currentPosition={currentPosition}
-        classNames={{
-          first: currentPosition === 0,
-          last: currentPosition === lastPosition,
-          active: true,
-        }}
-      />
+      this.generateSlide(
+        collection[currentPosition], currentPosition, lastPosition, null
+      )
     )
     // Add the slides that should appear before the active slide
     slides = slides.concat(
       viewableSlides.nextSlides.map((slideIndex) => {
-        const item = collection[slideIndex]
-        const { work } = item
-        let imgSrc = ''
-        // work is sometimes undefined. check for info in work.url and set the
-        // image source.
-        if (work) {
-          if (work.url) {
-            imgSrc = work.url.href
-          }
-        }
-        return (
-          <SlideThumb
-            key={imgSrc}
-            src={imgSrc}
-            title={item.title}
-            currentPosition={currentPosition}
-            handleClick={this.slideAdvance}
-            classNames={{
-              first: slideIndex === 0,
-              last: slideIndex === lastPosition,
-            }}
-          />
+        return this.generateSlide(
+          collection[slideIndex], slideIndex, lastPosition, this.slideAdvance
         )
       })
     )
     return slides
+  }
+
+  generateSlide(slideItem, slideIndex, lastPosition, handleClick) {
+    const { work } = slideItem
+    const { currentPosition } = this.state
+    let imgSrc = ''
+    // work is sometimes undefined. check for info in work.url and set the
+    // image source.
+    if (work) {
+      if (work.url) {
+        imgSrc = work.url.href
+      }
+    }
+    return (
+      <SlideThumb
+        key={imgSrc}
+        src={imgSrc}
+        title={slideItem.title}
+        currentPosition={currentPosition}
+        handleClick={handleClick}
+        classNames={{
+          first: slideIndex === 0,
+          last: slideIndex === lastPosition,
+        }}
+      />
+    )
   }
 
   slideAdvance() {
