@@ -23,12 +23,11 @@ function Student({ name, program, locationName, photos, showDate, id, ...rest })
 Student.propTypes = {
   name: PropTypes.object.isRequired,
   program: PropTypes.object.isRequired,
-  locationName: PropTypes.string.isRequired,
-  onClick: PropTypes.func.isRequired,
+  locationName: PropTypes.string,
   onMouseEnter: PropTypes.func,
   onMouseLeave: PropTypes.func,
   photos: PropTypes.object.isRequired,
-  showDate: PropTypes.string.isRequired,
+  showDate: PropTypes.string,
   id: PropTypes.string.isRequired,
 }
 Student.defaultProps = {

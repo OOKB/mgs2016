@@ -1,4 +1,6 @@
 import { connect } from 'react-redux'
+import filter from 'lodash/collection/filter'
+
 import Galleries from '../components/Galleries/Galleries'
 
 import { togglePin } from '../redux/modules/map'
@@ -7,15 +9,16 @@ import { togglePin } from '../redux/modules/map'
 // Which part of the Redux global state does our component want to receive as props?
 function mapStateToProps(state) {
   const {
-    entities: { locations },
+    entities: { location },
     map,
   } = state
 
   return {
-    locations: locations.filter(loc => loc.geoData).map((location) => {
-      location.active = map.activePin === location.value
-      return location
-    }),
+    locations: filter(location, (loc) => loc.geoData)
+      .map(loc => {
+        loc.active = map.activePin === loc.value
+        return loc
+      }),
   }
 }
 

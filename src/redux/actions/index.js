@@ -39,7 +39,7 @@ function fetchProfiles() {
     [CALL_API]: {
       types: [ PROFILES_REQUEST, PROFILES_SUCCESS, PROFILES_FAILURE ],
       api: 'cape',
-      endpoint: `mica/profile`,
+      endpoint: `mica`,
     },
   }
 }

@@ -9,14 +9,11 @@ import display from './modules/display'
 import filters from './modules/filters'
 import map from './modules/map'
 
-// Used only for development!
-import sampleLocations from './sampleLocations'
-
 // Updates an entity cache in response to any action with response.entities.
 // Define our default entities collection database.
 const defaultEntityState = {
   profile: {},
-  locations: sampleLocations,
+  location: {},
 }
 function entities(state = defaultEntityState, action) {
   if (action.response && action.response.entities) {

@@ -47,7 +47,6 @@ StudentsSection.propTypes = {
 // Which part of the Redux global state does our component want to receive as props?
 function mapStateToProps(state) {
   const {
-    display,
     entities: { profile, url, program },
     filters: { students },
   } = state
@@ -55,26 +54,26 @@ function mapStateToProps(state) {
   // Get the query parms we care about.
   const filterValues = students
   const noFilters = isEmpty(filterValues) || !some(filterValues, 'option')
-  const programIdFilter = get(filterValues, [ 'programId', 'option' ])
+  const programIdFilter = get(filterValues, [ 'program', 'option' ])
   // Program filters.
   const programFilterOpts = mapValues(program, ({ label, value }) => ({
     // Figure out if the filter option is enabled.
-    active: filterValues.programId && filterValues.programId.option === value,
+    active: filterValues.program && filterValues.program.option === value,
     label,
     itemCount: 0,
     value,
   }))
   // Filter programs first.
   const profiles = filter(profile, (item) => {
-    // Increment programId counter.
-    programFilterOpts[item.programId].itemCount++
+    // Increment program counter.
+    programFilterOpts[item.program].itemCount++
     if (noFilters) return true
     return every(filterValues, (info, key) => (
       !info || item[key] && item[key] === info.option
     ))
   })
   // Merge graph nodes and stuff.
-  .map(({ photo, programId, id, ...rest }) => {
+  .map(({ photo, id, ...rest }) => {
     // Does this profile have an active hover? Converting `undefined` to `false` with double bang.
     // const active = !!get(display, [ 'profile', id, 'hover' ])
     // Add useful student info to profiles array.
@@ -83,17 +82,17 @@ function mapStateToProps(state) {
       id,
       // active,
       photos: { active: photoDisplay(url[photo], true), inactive: photoDisplay(url[photo], false) },
-      program: program[programId],
+      program: program[rest.program],
     }
   })
 
   const filterTypes = [
     // { value: 'galleries', label: 'Gallery', options: locations },
     {
-      value: 'programId',
+      value: 'program',
       label: 'Programs',
       options: values(programFilterOpts),
-      active: get(state.filters, [ 'students', 'programId', 'active' ]),
+      active: get(state.filters, [ 'students', 'program', 'active' ]),
     },
   ]
 
