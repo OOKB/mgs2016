@@ -16,13 +16,11 @@ class Profile extends Component {
           <button role="button" className="close">
             <i className="fa fa-times fa-2x"></i>
           </button>
-          <div className="container">
-            <Info user={profile} />
-            <Main
-              user={profile}
-              collection={profile.art}
-            />
-          </div>
+          <Info user={profile} />
+          <Main
+            user={profile}
+            collection={profile.art}
+          />
         </div>
       </article>
     )

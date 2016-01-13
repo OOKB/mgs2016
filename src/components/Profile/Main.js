@@ -15,14 +15,16 @@ function Main({ collection, user }) {
         :
           <NoImages />
       }
-      { statement &&
-          <div
-            className="statement"
-            dangerouslySetInnerHTML = {{
-              __html: statement,
-            }}
-          />
-      }
+      <div className="container">
+        { statement &&
+            <div
+              className="statement"
+              dangerouslySetInnerHTML = {{
+                __html: statement,
+              }}
+            />
+        }
+      </div>
     </div>
   )
 }

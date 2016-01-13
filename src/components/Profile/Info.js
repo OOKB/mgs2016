@@ -6,7 +6,7 @@ import ProgramList from './ProgramList'
 
 function Info({ user }) {
   return (
-    <div className="student-info">
+    <div className="student-info container">
       {/* <StudentNav user={user} /> */}
       <Details user={user} />
       <ProgramList user={user} />
