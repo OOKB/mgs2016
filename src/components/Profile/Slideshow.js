@@ -93,7 +93,6 @@ class Slideshow extends Component {
 
   generateSlide(slideItem, slideIndex, lastPosition, handleClick) {
     const { work } = slideItem
-    const { data } = work
     const { currentPosition } = this.state
     let unprotectedHtml
     let imgSrc
@@ -105,13 +104,12 @@ class Slideshow extends Component {
       }
     }
     // If it's an embeddable thing with html and the active slide
-    if (data && currentPosition === slideIndex) {
-      if (data.html) {
-        unprotectedHtml = data.html
+    if (work && work.data && currentPosition === slideIndex) {
+      if (work.data.html) {
+        unprotectedHtml = work.data.html
       }
-    // If we have html data, but it's not the active slide, show preview image
-    } else if (data && currentPosition !== slideIndex) {
-      if (data.html) {
+    } else if (work && work.data && currentPosition !== slideIndex) {
+      if (work.data.html) {
         imgSrc = work.preview.image.url
       }
     }
@@ -190,26 +188,33 @@ class Slideshow extends Component {
 
   render() {
     const { collection } = this.props
-    const thumbEl = this.getThumbs(collection)
-    const slideIndicators = this.generateIndicators()
+    const collectionExists = collection && collection.length > 0
+    let thumbEl
+    let slideIndicators
+    if (collectionExists) {
+      thumbEl = this.getThumbs(collection)
+      slideIndicators = this.generateIndicators()
+    }
 
     return (
       <div id="slideshow">
         <ul className="thumbs">
           {thumbEl}
         </ul>
-        <ul className="thumbs-navigation">
-          <li>
-            <button onClick={this.slideRewind}>
-              Previous button!
-            </button>
-          </li>
-          <li>
-            <button onClick={this.slideAdvance}>
-              Next button!
-            </button>
-          </li>
-        </ul>
+        { collectionExists &&
+            <ul className="thumbs-navigation">
+              <li>
+                <button onClick={this.slideRewind}>
+                  Previous button!
+                </button>
+              </li>
+              <li>
+                <button onClick={this.slideAdvance}>
+                  Next button!
+                </button>
+              </li>
+            </ul>
+        }
         {slideIndicators}
       </div>
     )
