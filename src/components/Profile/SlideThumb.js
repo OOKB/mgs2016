@@ -1,7 +1,7 @@
 import React, { PropTypes } from 'react'
 import classnames from 'classnames'
 
-function SlideThumb({ classNames, pos, src, title }) {
+function SlideThumb({ classNames, currentPosition, src, title }) {
   return (
     <li
       className={classnames(classNames)}
@@ -18,7 +18,7 @@ function SlideThumb({ classNames, pos, src, title }) {
 SlideThumb.propTypes = {
   src: PropTypes.string,
   title: PropTypes.string,
-  pos: PropTypes.number,
+  currentPosition: PropTypes.number,
   classNames: PropTypes.object,
 }
 

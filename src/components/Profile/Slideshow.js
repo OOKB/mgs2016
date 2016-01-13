@@ -7,10 +7,19 @@ import SlideImage from './SlideImage'
 
 class Slideshow extends Component {
 
+  constructor(props) {
+    super(props)
+    this.state = {
+      currentPosition: 0,
+    }
+  }
+
   getThumbs(collection) {
     const lastPosition = collection.length - 1
     return collection.map((item, index) => {
       const { work } = item
+      const { currentPosition } = this.state
+
       let imgSrc = ''
       // work is sometimes undefined. check for info in work.url and set the
       // image source.
@@ -24,11 +33,11 @@ class Slideshow extends Component {
           key={imgSrc}
           src={imgSrc}
           title={item.title}
-          pos={index}
+          currentPosition={currentPosition}
           classNames={classnames({
             first: index === 0,
             last: index === lastPosition,
-            active: true,
+            active: index === currentPosition,
           })}
         />
       )
@@ -37,10 +46,6 @@ class Slideshow extends Component {
 
   handleClick(evt) {
     console.log(evt)
-    // const { pos, usr } = this.props
-    // const position = !pos ? 0 : pos
-    // const nextPosition = (position + 1 === usr.files.length) ? 0 : position + 1
-    // @replaceWith mixin b.s.
   }
 
   render() {
@@ -48,31 +53,6 @@ class Slideshow extends Component {
 
     const thumbEl = this.getThumbs(collection)
     let activeFileEl = ''
-
-    // if (type === 'img') {
-    //   const imgSrc = file.largeSrc.replace('#', '%23')
-    //   // TODO: make this a component
-    //   activeFileEl = (
-    //     <SlideImage
-    //       imgSrc={imgSrc}
-    //       handleClick={this.handleClick}
-    //       file={file}
-    //     />
-    //   )
-    // }
-    // if (type === 'embed') {
-    //   const { html, title, description } = file.oembed
-    //   TODO: make this a component
-    //   activeFileEl = (
-    //     <div className="active-embed">
-    //       <div className="slideshow-iframe" dangerouslySetInnerHTML={{ __html: html }} />
-    //       <ul className="caption">
-    //         <li className="title"><h3>{title}</h3></li>
-    //         <li className="description">{description}</li>
-    //       </ul>
-    //     </div>
-    //   )
-    // }
 
     return (
       <div id="slideshow">
