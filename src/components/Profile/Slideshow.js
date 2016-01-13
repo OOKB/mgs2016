@@ -1,9 +1,9 @@
 import React, { Component, PropTypes } from 'react'
-import { Link, Navigation } from 'react-router'
-import classnames from 'classnames'
+// import { Link, Navigation } from 'react-router'
+// import classnames from 'classnames'
 
 import SlideThumb from './SlideThumb'
-import SlideImage from './SlideImage'
+// import SlideImage from './SlideImage'
 
 class Slideshow extends Component {
 
@@ -127,14 +127,11 @@ class Slideshow extends Component {
   }
 
   render() {
-    const { user, collection } = this.props
-
+    const { collection } = this.props
     const thumbEl = this.getThumbs(collection)
-    let activeFileEl = ''
 
     return (
       <div id="slideshow">
-        {activeFileEl}
         <ul className="thumbs">
           {thumbEl}
         </ul>
