@@ -104,9 +104,15 @@ class Slideshow extends Component {
         imgSrc = work.url.href
       }
     }
-    if (data) {
+    // If it's an embeddable thing with html and the active slide
+    if (data && currentPosition === slideIndex) {
       if (data.html) {
         unprotectedHtml = data.html
+      }
+    // If we have html data, but it's not the active slide, show preview image
+    } else if (data && currentPosition !== slideIndex) {
+      if (data.html) {
+        imgSrc = work.preview.image.url
       }
     }
     return (

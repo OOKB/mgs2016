@@ -2,7 +2,6 @@ import React, { PropTypes } from 'react'
 import classnames from 'classnames'
 
 function SlideThumb({ classNames, src, title, handleClick, unprotectedHtml }) {
-  console.log(unprotectedHtml)
   return (
     <li
       className={classnames(classNames)}
