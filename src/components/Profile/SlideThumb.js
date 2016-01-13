@@ -5,33 +5,16 @@ function SlideThumb({ classNames, src, title, handleClick, unprotectedHtml }) {
   return (
     <li
       className={classnames(classNames)}
-      style={
-        /* Remove these inline styles. Mockup only */
-        {
-          display: 'inline-block',
-        }
-      }
     >
       { unprotectedHtml ?
           <div
             dangerouslySetInnerHTML={{ __html: unprotectedHtml }}
-            style={{
-              maxWidth: '200px',
-              height: 'auto',
-            }}
           />
         :
           <img
-            src={src + '?w=300'}
+            src={src + '?w=400'}
             title={title}
             alt={title}
-            style={
-              /* Remove these inline styles. Mockup only */
-              {
-                maxWidth: '200px',
-                height: 'auto',
-              }
-            }
             onClick={handleClick}
           />
       }

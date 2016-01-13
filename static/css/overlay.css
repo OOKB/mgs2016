@@ -57,11 +57,27 @@
 /*** ********* ***/
 
 #slideshow .thumbs {
-    padding: 0;
-    list-style: none;
-    text-align: center;
+  padding: 0;
+  list-style: none;
+  text-align: center;
+  width: 5000%;
+  left: 50%;
+  -webkit-transform: translate(-50%,0);
+  -moz-transform: translate(-50%,0);
+  transform: translate(-50%,0);
 }
-
+#slideshow .thumbs li {
+  opacity: .5;
+  transition: all 300ms;
+  display: inline-block;
+}
+#slideshow .thumbs li.active{
+  opacity: 1;
+}
+#slideshow .thumbs li img {
+  height: 500px;
+  width: auto;
+}
 /** slideshow strip buttons **/
 ul.thumbs-navigation {
     padding: 0;

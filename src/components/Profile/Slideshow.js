@@ -217,7 +217,7 @@ class Slideshow extends Component {
 
     return (
       <div id="slideshow">
-        <ul className="thumbs">
+        <ul className="thumbs clearfix">
           {thumbEl}
         </ul>
         { collectionExists &&
