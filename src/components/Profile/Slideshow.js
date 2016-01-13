@@ -39,12 +39,18 @@ class Slideshow extends Component {
           (currentPosition === 0 && (index === lastPosition)) ||
           (currentPosition === lastPosition && (index === 0))) {
         let handleClick
-        if (index < currentPosition || (currentPosition === 0 && index === lastPosition)) {
+        // If we are on the last slide, the 0th slide needs to advance
+        if (currentPosition === lastPosition && index === 0) {
+          handleClick = this.slideAdvance
+        // If the slide index is less than the position or we're on position
+        // 0 the last slide should rewind
+        } else if (index < currentPosition || (currentPosition === 0 && index === lastPosition)) {
           handleClick = this.slideRewind
-        } else if (index > currentPosition) {
+        // If the index is greater than the current position or it's the 0th
+        // element when last element is active, we should advance
+        } else if (index > currentPosition || (currentPosition === lastPosition && index === 0)) {
           handleClick = this.slideAdvance
         }
-        console.log(`Adding ${index}`)
         itemElement.push(
           <SlideThumb
             key={imgSrc}
@@ -68,13 +74,23 @@ class Slideshow extends Component {
       const lastSlide = slides.pop()
       slides.unshift(lastSlide)
     }
+    // If we're on the last slide, the 0th slide needs to be moved to the end
+    if (currentPosition === lastPosition) {
+      const firstSlide = slides.shift()
+      slides.push(firstSlide)
+    }
     return slides
   }
 
   slideAdvance() {
     const { currentPosition } = this.state
+    let newPosition = currentPosition + 1
+    if (newPosition === this.props.collection.length) {
+      console.log("yo")
+      newPosition = 0
+    }
     this.setState({
-      currentPosition: currentPosition + 1,
+      currentPosition: newPosition,
     })
   }
 
