@@ -16,6 +16,7 @@ class Slideshow extends Component {
     this.slideRewind = this.slideRewind.bind(this)
   }
 
+  // Returns arrays of indices for viewable slides before and after the active slide
   getSlideIndices(activeIndex) {
     const collectionSize = this.props.collection.length - 1
     const previousSlides = [
@@ -34,7 +35,7 @@ class Slideshow extends Component {
     ].map((item) => {
       let indexVal = item
       if (item > collectionSize) {
-        indexVal = item % collectionSize
+        indexVal = item % (collectionSize + 1)
       }
       return indexVal
     })
