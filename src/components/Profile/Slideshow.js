@@ -190,8 +190,12 @@ class Slideshow extends Component {
 
   render() {
     const { collection } = this.props
-    const thumbEl = this.getThumbs(collection)
-    const slideIndicators = this.generateIndicators()
+    let thumbEl
+    let slideIndicators
+    if (collection && collection.length > 0) {
+      thumbEl = this.getThumbs(collection)
+      slideIndicators = this.generateIndicators()
+    }
 
     return (
       <div id="slideshow">
