@@ -31,7 +31,7 @@ function Contact({ contactEmail, social, website }) {
   return (
     <ul className="contact-info">
       { website &&
-        <ContactWebsite {...website} />
+          <ContactWebsite {...website} />
       }
       { contactEmail &&
           <ContactEmail mailto={contactEmail} />
