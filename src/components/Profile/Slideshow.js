@@ -93,13 +93,20 @@ class Slideshow extends Component {
 
   generateSlide(slideItem, slideIndex, lastPosition, handleClick) {
     const { work } = slideItem
+    const { data } = work
     const { currentPosition } = this.state
-    let imgSrc = ''
+    let unprotectedHtml
+    let imgSrc
     // work is sometimes undefined. check for info in work.url and set the
     // image source.
     if (work) {
       if (work.url) {
         imgSrc = work.url.href
+      }
+    }
+    if (data) {
+      if (data.html) {
+        unprotectedHtml = data.html
       }
     }
     return (
@@ -108,6 +115,7 @@ class Slideshow extends Component {
         src={imgSrc}
         title={slideItem.title}
         currentPosition={currentPosition}
+        unprotectedHtml={unprotectedHtml}
         handleClick={handleClick}
         classNames={{
           first: slideIndex === 0,
