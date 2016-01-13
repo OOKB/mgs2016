@@ -10,7 +10,6 @@ class Profile extends Component {
     const { profile } = this.props
     const uid = 'foo'
     const className = `student-${uid}`
-    console.log(profile.art)
     return (
       <article id="student-overlay" className={className}>
         <div className="wrapper">

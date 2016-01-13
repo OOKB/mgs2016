@@ -118,6 +118,40 @@ class Slideshow extends Component {
     )
   }
 
+  generateIndicators() {
+    const { collection } = this.props
+    const { currentPosition } = this.state
+    const slideIndicators = []
+    for (let index = 0; index < collection.length; index++) {
+      const activeSlide = index === currentPosition
+      slideIndicators.push(
+        <li key={index}>
+          { activeSlide ?
+              <span
+                style={{
+                  fontSize: '3em',
+                  fontWeight: '700',
+                }}
+              >
+                {index}
+              </span>
+            :
+              <span>
+                {index}
+              </span>
+          }
+        </li>
+      )
+    }
+
+
+    return (
+      <ul className="thumbs-indicator">
+        {slideIndicators}
+      </ul>
+    )
+  }
+
   slideAdvance() {
     const { currentPosition } = this.state
     const { collection } = this.props
@@ -145,12 +179,14 @@ class Slideshow extends Component {
   render() {
     const { collection } = this.props
     const thumbEl = this.getThumbs(collection)
+    const slideIndicators = this.generateIndicators()
 
     return (
       <div id="slideshow">
         <ul className="thumbs">
           {thumbEl}
         </ul>
+        {slideIndicators}
       </div>
     )
   }
