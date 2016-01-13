@@ -143,8 +143,6 @@ class Slideshow extends Component {
         </li>
       )
     }
-
-
     return (
       <ul className="thumbs-indicator">
         {slideIndicators}
@@ -185,6 +183,18 @@ class Slideshow extends Component {
       <div id="slideshow">
         <ul className="thumbs">
           {thumbEl}
+        </ul>
+        <ul className="thumbs-navigation">
+          <li>
+            <button onClick={this.slideRewind}>
+              Previous button!
+            </button>
+          </li>
+          <li>
+            <button onClick={this.slideAdvance}>
+              Next button!
+            </button>
+          </li>
         </ul>
         {slideIndicators}
       </div>
