@@ -9,12 +9,12 @@ function mapStateToProps(state, ownProps) {
     entities: { profile, program, url },
   } = state
   const { id } = ownProps.params
-  const profileInfo = (profile && profile[id]) || {}
+  const profileInfo = (profile && profile[id]) || { id, name: {} }
   const { programId, art, website, ...profileFields } = profileInfo
   // Create new object.
   const userProfile = {
     ...profileFields,
-    program: program[programId],
+    program: programId ? program[programId] : undefined,
     art: art ? art.map(({ work, ...rest }) => ({ ...rest, work: url[work] })) : undefined,
     website: website ? url[website] : undefined,
   }
