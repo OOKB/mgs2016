@@ -14,7 +14,7 @@ export default function createRoutes() {
   return (
     <Route path="/" component={App}>
       <IndexRoute component={Main} />
-      <Route path="student/:id" component={ Profile } />
+      <Route path=":id" component={ Profile } />
     </Route>
   )
 }
