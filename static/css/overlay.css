@@ -120,15 +120,28 @@ ul.thumbs-navigation li:last-child button {
 
 /** slideshow strip indicators **/
 ul.thumbs-indicator {
-    margin: 0 0 2rem;
-    padding: 0;
-    list-style: none;
-    text-align: center;
+  margin: 0 0 2rem;
+  padding: 0;
+  list-style: none;
+  text-align: center;
 }
 
 ul.thumbs-indicator li {
-    display: inline-block;
-    padding: .25rem;
+  display: inline-block;
+  margin: 0 .25rem;
+  width: .75rem;
+  height: .75rem;
+  border: 2px solid #333;
+  border-radius: .75rem;
+  transition: all 1s ease;
+  /**/
+  text-indent: 200%;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+ul.thumbs-indicator li.active {
+  background-color: #333;
 }
 
 /**** / END OVERLAY.LESS ****/

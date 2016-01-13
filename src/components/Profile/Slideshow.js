@@ -149,13 +149,7 @@ class Slideshow extends Component {
         <li key={index}>
           { activeSlide ?
               <span
-                style={
-                  /* Remove mockup styling please */
-                  {
-                    fontSize: '3em',
-                    fontWeight: '700',
-                  }
-                }
+                className="active"
                 onClick={() => this.moveToSlide(index)}
               >
                 {index}
