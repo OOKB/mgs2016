@@ -6,15 +6,16 @@ import { loadProfile } from '../redux/actions'
 
 function mapStateToProps(state, ownProps) {
   const {
-    entities: { profile, program, url },
+    entities: { profile, url, program },
   } = state
+
   const { id } = ownProps.params
   const profileInfo = (profile && profile[id]) || { id, name: {} }
-  const { programId, art, website, ...profileFields } = profileInfo
+  const { art, website, ...profileFields } = profileInfo
   // Create new object.
   const userProfile = {
     ...profileFields,
-    program: programId ? program[programId] : undefined,
+    program: profileFields.program ? program[profileFields.program] : undefined,
     art: art ? art.map(({ work, ...rest }) => ({ ...rest, work: url[work] })) : undefined,
     website: website ? url[website] : undefined,
   }
