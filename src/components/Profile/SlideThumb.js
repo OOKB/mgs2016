@@ -1,7 +1,7 @@
 import React, { PropTypes } from 'react'
 import classnames from 'classnames'
 
-function SlideThumb({ classNames, currentPosition, src, title }) {
+function SlideThumb({ classNames, currentPosition, src, title, handleClick }) {
   return (
     <li
       className={classnames(classNames)}
@@ -22,7 +22,8 @@ function SlideThumb({ classNames, currentPosition, src, title }) {
             maxWidth: '200px',
             height: 'auto',
           }
-      }
+        }
+        onClick={handleClick}
       />
     </li>
   )
@@ -33,6 +34,7 @@ SlideThumb.propTypes = {
   title: PropTypes.string,
   currentPosition: PropTypes.number,
   classNames: PropTypes.object,
+  handleClick: PropTypes.func,
 }
 
 export default SlideThumb

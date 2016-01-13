@@ -12,13 +12,15 @@ class Slideshow extends Component {
     this.state = {
       currentPosition: 0,
     }
+    this.slideAdvance = this.slideAdvance.bind(this)
+    this.slideRewind = this.slideRewind.bind(this)
   }
 
   getThumbs(collection) {
     const lastPosition = collection.length - 1
-    return collection.map((item, index) => {
+    const { currentPosition } = this.state
+    const slides = collection.map((item, index) => {
       const { work } = item
-      const { currentPosition } = this.state
       const itemElement = []
 
       let imgSrc = ''
@@ -42,20 +44,39 @@ class Slideshow extends Component {
             src={imgSrc}
             title={item.title}
             currentPosition={currentPosition}
-            classNames={classnames({
+            handleClick={this.slideAdvance}
+            classNames={{
               first: index === 0,
               last: index === lastPosition,
               active: index === currentPosition,
-            })}
+            }}
           />
         )
       }
       return itemElement
     })
+    // If our current position is the 0th slide, we need to move the last
+    // element to the front of the array
+    if (currentPosition === 0) {
+      const lastSlide = slides.pop()
+      slides.unshift(lastSlide)
+    }
+    return slides
   }
 
-  handleClick(evt) {
-    console.log(evt)
+  slideAdvance() {
+    const { currentPosition } = this.state
+    console.log("yo")
+    this.setState({
+      currentPosition: currentPosition + 1,
+    })
+  }
+
+  slideRewind() {
+    const { currentPosition } = this.state
+    this.setState({
+      currentPosition: currentPosition - 1,
+    })
   }
 
   render() {
