@@ -1,9 +1,7 @@
 import React, { Component, PropTypes } from 'react'
 // import { Link, Navigation } from 'react-router'
-// import classnames from 'classnames'
 
 import SlideThumb from './SlideThumb'
-// import SlideImage from './SlideImage'
 
 class Slideshow extends Component {
 
@@ -14,6 +12,7 @@ class Slideshow extends Component {
     }
     this.slideAdvance = this.slideAdvance.bind(this)
     this.slideRewind = this.slideRewind.bind(this)
+    this.moveToSlide = this.moveToSlide.bind(this)
   }
 
   // Returns arrays of indices for viewable slides before and after the active slide
@@ -64,6 +63,7 @@ class Slideshow extends Component {
     }
   }
 
+  // Get the active slides for a given collection based on position
   getThumbs(collection) {
     const lastPosition = collection.length - 1
     const { currentPosition } = this.state
@@ -91,6 +91,7 @@ class Slideshow extends Component {
     return slides
   }
 
+  // Process work data to generate slide
   generateSlide(slideItem, slideIndex, lastPosition, handleClick) {
     const { work } = slideItem
     const { currentPosition } = this.state
@@ -130,6 +131,14 @@ class Slideshow extends Component {
     )
   }
 
+  // Set active slide to parameter value
+  moveToSlide(currentPosition) {
+    this.setState({
+      currentPosition,
+    })
+  }
+
+  // Generate slide indicators based on the size of the collection
   generateIndicators() {
     const { collection } = this.props
     const { currentPosition } = this.state
@@ -140,15 +149,19 @@ class Slideshow extends Component {
         <li key={index}>
           { activeSlide ?
               <span
-                style={{
-                  fontSize: '3em',
-                  fontWeight: '700',
-                }}
+                style={
+                  /* Remove mockup styling please */
+                  {
+                    fontSize: '3em',
+                    fontWeight: '700',
+                  }
+                }
+                onClick={() => this.moveToSlide(index)}
               >
                 {index}
               </span>
             :
-              <span>
+              <span onClick={() => this.moveToSlide(index)}>
                 {index}
               </span>
           }
@@ -162,10 +175,12 @@ class Slideshow extends Component {
     )
   }
 
+  // Move film strip forward
   slideAdvance() {
     const { currentPosition } = this.state
     const { collection } = this.props
     let newPosition = currentPosition + 1
+    // If we're beyond the last index, set to 0
     if (newPosition > collection.length - 1) {
       newPosition = 0
     }
@@ -174,10 +189,12 @@ class Slideshow extends Component {
     })
   }
 
+  // Move film strip backwards
   slideRewind() {
     const { currentPosition } = this.state
     const { collection } = this.props
     let newPosition = currentPosition - 1
+    // If we're beyond the 0th element, move to the end
     if (newPosition < 0) {
       newPosition = collection.length - 1
     }
@@ -191,6 +208,8 @@ class Slideshow extends Component {
     const collectionExists = collection && collection.length > 0
     let thumbEl
     let slideIndicators
+    // Only generate thumbs and slide indicators if we have a collection that
+    // is both defined and has length greater than zero
     if (collectionExists) {
       thumbEl = this.getThumbs(collection)
       slideIndicators = this.generateIndicators()
