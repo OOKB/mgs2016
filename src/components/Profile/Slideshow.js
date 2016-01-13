@@ -38,13 +38,19 @@ class Slideshow extends Component {
           Math.abs(index - currentPosition) === 1 ||
           (currentPosition === 0 && (index === lastPosition)) ||
           (currentPosition === lastPosition && (index === 0))) {
+        let handleClick
+        if (index < currentPosition || (currentPosition === 0 && index === lastPosition)) {
+          handleClick = this.slideRewind
+        } else if (index > currentPosition) {
+          handleClick = this.slideAdvance
+        }
         itemElement.push(
           <SlideThumb
             key={imgSrc}
             src={imgSrc}
             title={item.title}
             currentPosition={currentPosition}
-            handleClick={this.slideAdvance}
+            handleClick={handleClick}
             classNames={{
               first: index === 0,
               last: index === lastPosition,
