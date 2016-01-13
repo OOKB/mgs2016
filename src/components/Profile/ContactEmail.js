@@ -7,7 +7,7 @@ function ContactEmail({ mailto }) {
   }
   return (
     <li key="email" className="email">
-      <button href="#" onClick={onClick}>
+      <button title={mailto} onClick={onClick}>
         Contact via Email
       </button>
     </li>
