@@ -43,6 +43,9 @@ class Slideshow extends Component {
       }
       return indexVal
     })
+    // When we don't have at least 5 pieces of art, shift and pop our way to
+    // success
+    // TODO: something better
     if (collectionSize === 3) {
       previousSlides.shift()
     }
