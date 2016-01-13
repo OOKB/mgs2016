@@ -42,12 +42,12 @@ class Slideshow extends Component {
         // If we are on the last slide, the 0th slide needs to advance
         if (currentPosition === lastPosition && index === 0) {
           handleClick = this.slideAdvance
-        // If the slide index is less than the position or we're on position
-        // 0 the last slide should rewind
+        // If the slide index is less than the position slide should rewind
+        // OR if we're on the 0th slide, the last indexed slide should rewind
         } else if (index < currentPosition || (currentPosition === 0 && index === lastPosition)) {
           handleClick = this.slideRewind
-        // If the index is greater than the current position or it's the 0th
-        // element when last element is active, we should advance
+        // If the index is greater than the current position should advance
+        // Or when the last slide is displayed, the 0th element should advance
         } else if (index > currentPosition || (currentPosition === lastPosition && index === 0)) {
           handleClick = this.slideAdvance
         }
