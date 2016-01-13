@@ -19,6 +19,7 @@ class Slideshow extends Component {
     return collection.map((item, index) => {
       const { work } = item
       const { currentPosition } = this.state
+      const itemElement = []
 
       let imgSrc = ''
       // work is sometimes undefined. check for info in work.url and set the
@@ -28,19 +29,28 @@ class Slideshow extends Component {
           imgSrc = work.url.href
         }
       }
-      return (
-        <SlideThumb
-          key={imgSrc}
-          src={imgSrc}
-          title={item.title}
-          currentPosition={currentPosition}
-          classNames={classnames({
-            first: index === 0,
-            last: index === lastPosition,
-            active: index === currentPosition,
-          })}
-        />
-      )
+
+      // Include currentPosition index, plus or minus 1, and wrap end and
+      // beginning
+      if (index === currentPosition ||
+          Math.abs(index - currentPosition) === 1 ||
+          (currentPosition === 0 && (index === lastPosition)) ||
+          (currentPosition === lastPosition && (index === 0))) {
+        itemElement.push(
+          <SlideThumb
+            key={imgSrc}
+            src={imgSrc}
+            title={item.title}
+            currentPosition={currentPosition}
+            classNames={classnames({
+              first: index === 0,
+              last: index === lastPosition,
+              active: index === currentPosition,
+            })}
+          />
+        )
+      }
+      return itemElement
     })
   }
 
