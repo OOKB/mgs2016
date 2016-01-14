@@ -3,7 +3,7 @@ import map from 'lodash/collection/map'
 
 function ScheduleFilters({ filters }) {
   return (
-    <ul>
+    <ul className="list-reset inline schedule-filters">
       {
         map(filters, filter => (
           <li><button>{filter.label}</button></li>

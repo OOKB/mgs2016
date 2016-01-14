@@ -114,6 +114,17 @@ body {
   padding: 0;
 }
 
+ul.inline::after {
+  content: '';
+  display: table;
+  clear: both;
+}
+
+ul.inline li {
+  display:block;
+  float:left;
+}
+
 .m0           { margin: 0; }
 .m1           { margin: 1rem; }
 .m2           { margin: 2rem; }
@@ -225,6 +236,24 @@ header h1 {
 
 
 /** schedule stuff **/
+.schedule-filters {
+  margin-bottom: 2rem;
+}
+
+.schedule-filters li {
+  margin-right: 1rem;
+}
+
+.schedule-filters li::after {
+  content: "/";
+  display: inline-block;
+  margin-left: 1rem;
+}
+
+.schedule-event {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
 
 .schedule-event.active {
   background-image: url("../images/background.png");
@@ -254,7 +283,8 @@ header h1 {
   text-transform: uppercase;
 }
 
-#schedule ul li button,
+.schedule-filters li::after,
+.schedule-filters button,
 button.filter{
   border: none;
   background: none;
@@ -265,7 +295,7 @@ button.filter{
   text-transform: uppercase;
 }
 
-#schedule ul li button:hover,
+.schedule-filters button:hover,
 button.filter:hover{
   color: #f37743;
 }
