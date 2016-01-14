@@ -19,6 +19,7 @@ function Schedule({ shows }) {
                       key={index}
                       dateStr={dateStr}
                       locations={dateInfo.items}
+                      {...dateInfo}
                     />
                   )
                 })
