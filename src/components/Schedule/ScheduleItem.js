@@ -5,9 +5,10 @@ import moment from 'moment'
 function ScheduleItem({ active, dateStr, images, locations }) {
   let openingReception
   if (active) {
+    console.log(locations)
     const receptionStart = moment(locations[0].receptionStart)
-      .format('dddd, MMMM Do, h')
-    const receptionEnd = moment(locations[0].receptionEnd).format('hA')
+      .zone('-0400').format('dddd, MMMM Do, h')
+    const receptionEnd = moment(locations[0].receptionEnd).zone('-0400').format('hA')
     openingReception = `${receptionStart}-${receptionEnd}`
   }
   return (
