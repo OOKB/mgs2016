@@ -1,6 +1,6 @@
 import React, { PropTypes } from 'react'
 
-function GalleryLocation({ togglePin, active, value }) {
+function GalleryLocation({ togglePin, active, building, value, name, street, zip }) {
   function handleClick() {
     togglePin(value)
   }
@@ -21,7 +21,14 @@ function GalleryLocation({ togglePin, active, value }) {
       <span>
         { active ?
             <div className="mapPopup">
-              Gallery info TK
+              <h3>{name}</h3>
+              <div>
+                {building}
+              </div>
+              <div>
+                {street}<br />
+                {zip}
+              </div>
             </div>
           :
             false
@@ -32,6 +39,7 @@ function GalleryLocation({ togglePin, active, value }) {
 }
 
 GalleryLocation.propTypes = {
+  building: PropTypes.string,
   name: PropTypes.string.isRequired,
   alias: PropTypes.array,
   value: PropTypes.string.isRequired,
