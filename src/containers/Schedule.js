@@ -9,11 +9,15 @@ import Component from '../components/Schedule/Schedule'
 // Which part of the Redux global state does our component want to receive as props?
 function mapStateToProps(state) {
   const {
-    entities: { show, showGroup },
+    entities: { show, showGroup, program, showLocation },
   } = state
   let shows = map(show, (item) => {
-    const itemShowGroup = showGroup[item.showGroup[0]]
-    return { ...item, showGroup: itemShowGroup }
+    return {
+      ...item,
+      showGroup: showGroup[item.showGroup[0]],
+      program: program[item.program[0]],
+      showLocation: item.showLocation && item.showLocation.map(showLoc => showLocation[showLoc]),
+    }
   })
   shows = filter(shows, (item) => item.showGroup.groupType === 'On Campus Exhibition')
   shows = groupBy(shows, (item) => item.startDate + '-' + item.endDate)
