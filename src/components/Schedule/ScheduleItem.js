@@ -1,7 +1,15 @@
 import React, { PropTypes } from 'react'
 import classnames from 'classnames'
+import moment from 'moment'
 
 function ScheduleItem({ active, dateStr, images, locations }) {
+  let openingReception
+  if (active) {
+    const receptionStart = moment(locations[0].receptionStart)
+      .format('dddd, MMMM Do, h')
+    const receptionEnd = moment(locations[0].receptionEnd).format('hA')
+    openingReception = `${receptionStart}-${receptionEnd}`
+  }
   return (
     <div
       className={classnames({
@@ -22,6 +30,11 @@ function ScheduleItem({ active, dateStr, images, locations }) {
           {
             images.map((imgInfo, index) => <img key={index} src={imgInfo.src} />)
           }
+        </div>
+      }
+      { openingReception &&
+        <div>
+          Opening Reception {openingReception}
         </div>
       }
     </div>
