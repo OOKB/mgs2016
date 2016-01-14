@@ -2,7 +2,7 @@ import React, { PropTypes } from 'react'
 
 import ListingItem from './ListingItem'
 
-function Galleries({ locations }) {
+function Galleries({ locations, togglePin }) {
   return (
     <aside
       id="gallerylisting"
@@ -12,7 +12,11 @@ function Galleries({ locations }) {
       <ul>
         {
           locations.map((location) =>
-            <ListingItem key={location.value} {...location} />
+            <ListingItem
+              key={location.value}
+              togglePin={togglePin}
+              {...location}
+            />
           )
         }
       </ul>
@@ -22,6 +26,7 @@ function Galleries({ locations }) {
 
 Galleries.propTypes = {
   locations: PropTypes.array.isRequired,
+  togglePin: PropTypes.func,
 }
 Galleries.defaultProps = {
 }

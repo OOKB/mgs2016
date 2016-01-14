@@ -12,7 +12,10 @@ function Galleries({ locations, settings, title, togglePin }) {
           settings={settings}
           togglePin={togglePin}
         />
-        <GalleryListing locations={locations} />
+        <GalleryListing
+          locations={locations}
+          togglePin={togglePin}
+        />
       </section>
     </article>
   )
