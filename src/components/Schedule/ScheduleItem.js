@@ -1,8 +1,14 @@
 import React, { PropTypes } from 'react'
+import classnames from 'classnames'
 
-function ScheduleItem({ dateStr, images, locations }) {
+function ScheduleItem({ active, dateStr, images, locations }) {
   return (
-    <div className="schedule-event">
+    <div
+      className={classnames({
+        'schedule-event': true,
+        active,
+      })}
+    >
       <div className="schedule-text">
         <h4>{ dateStr }</h4>
         { locations &&
@@ -23,6 +29,7 @@ function ScheduleItem({ dateStr, images, locations }) {
 }
 
 ScheduleItem.propTypes = {
+  active: PropTypes.bool,
   dateStr: PropTypes.string.isRequired,
   locations: PropTypes.array,
 }
