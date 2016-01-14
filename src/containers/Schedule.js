@@ -33,7 +33,10 @@ function mapStateToProps(state) {
     items,
     startDate: items[0].startDate,
     endDate: items[0].endDate,
-    opening: items[0].openingReception,
+    opening: {
+      start: items[0].receptionStart,
+      end: items[0].receptionEnd,
+    },
   }))
   // Hack to get the first thing to be "active".
   shows[0].active = true
