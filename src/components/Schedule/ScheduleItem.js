@@ -7,7 +7,7 @@ function ScheduleItem({ active, dateStr, images, locations }) {
   if (active) {
     console.log(locations)
     const receptionStart = moment(locations[0].receptionStart)
-      .utcOffset('-0400').format('dddd, MMMM Do, h')
+      .utcOffset('-0400').format('dddd, MMMM D, h')
     const receptionEnd = moment(locations[0].receptionEnd).utcOffset('-0400').format('hA')
     openingReception = `Opening Reception ${receptionStart}-${receptionEnd}`
   }
