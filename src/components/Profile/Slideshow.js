@@ -3,7 +3,7 @@ import ReactCSSTransitionGroup from 'react-addons-css-transition-group'
 // import { Link, Navigation } from 'react-router'
 import classnames from 'classnames'
 
-
+import SlideNavigation from './SlideNavigation'
 import SlideThumb from './SlideThumb'
 
 class Slideshow extends Component {
@@ -231,18 +231,10 @@ class Slideshow extends Component {
           </ReactCSSTransitionGroup>
         </ul>
         { collectionExists &&
-            <ul className="thumbs-navigation">
-              <li>
-                <button onClick={this.slideRewind}>
-                  Previous button!
-                </button>
-              </li>
-              <li>
-                <button onClick={this.slideAdvance}>
-                  Next button!
-                </button>
-              </li>
-            </ul>
+            <SlideNavigation
+              slideAdvance={this.slideAdvance}
+              slideRewind={this.slideRewind}
+            />
         }
         {slideIndicators}
       </div>
