@@ -1,13 +1,25 @@
 import React, { PropTypes } from 'react'
 import GoogleMap from 'google-map-react'
 import GalleryLocation from './GalleryLocation'
+import _ from 'lodash'
 
 function GalleryMap({ locations, settings, togglePin }) {
+  const activePin = _.find(locations, { 'active': true })
+  let centerMap
+  if (activePin) {
+    centerMap = {
+      lat: activePin.lat,
+      lng: activePin.lng,
+    }
+  }
   return (
     <div
       className="google-map-container pull-left"
     >
-      <GoogleMap {...settings}>
+      <GoogleMap
+        {...settings}
+        center={centerMap}
+      >
         {locations.map((location, index) => {
           // Quick hack to parse bad data
           const lat = typeof(location.geoData) === 'undefined' ?
