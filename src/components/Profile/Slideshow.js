@@ -1,6 +1,8 @@
 import React, { Component, PropTypes } from 'react'
+import ReactCSSTransitionGroup from 'react-addons-css-transition-group'
 // import { Link, Navigation } from 'react-router'
 import classnames from 'classnames'
+
 
 import SlideThumb from './SlideThumb'
 
@@ -10,6 +12,7 @@ class Slideshow extends Component {
     super(props)
     this.state = {
       currentPosition: 0,
+      animation: 'initial',
     }
     this.slideAdvance = this.slideAdvance.bind(this)
     this.slideRewind = this.slideRewind.bind(this)
@@ -203,6 +206,7 @@ class Slideshow extends Component {
 
   render() {
     const { collection } = this.props
+    const { animation } = this.state
     const collectionExists = collection && collection.length > 0
     let thumbEl
     let slideIndicators
@@ -216,7 +220,13 @@ class Slideshow extends Component {
     return (
       <div id="slideshow">
         <ul className="thumbs clearfix">
-          {thumbEl}
+          <ReactCSSTransitionGroup
+            transitionName={animation}
+            transitionEnterTimeout={500}
+            transitionLeaveTimeout={300}
+          >
+            {thumbEl}
+          </ReactCSSTransitionGroup>
         </ul>
         { collectionExists &&
             <ul className="thumbs-navigation">
