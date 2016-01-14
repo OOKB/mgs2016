@@ -1,5 +1,7 @@
 import { connect } from 'react-redux'
 import filter from 'lodash/collection/filter'
+import groupBy from 'lodash/collection/groupBy'
+import map from 'lodash/collection/map'
 
 import Component from '../components/Schedule/Schedule'
 
@@ -9,15 +11,27 @@ function mapStateToProps(state) {
   const {
     entities: { show, showGroup },
   } = state
-
+  let shows = map(show, (item) => {
+    const itemShowGroup = showGroup[item.showGroup[0]]
+    return { ...item, showGroup: itemShowGroup }
+  })
+  shows = filter(shows, (item) => item.showGroup.groupType === 'On Campus Exhibition')
+  shows = groupBy(shows, (item) => item.startDate + '-' + item.endDate)
+  // console.log(shows)
+  shows = map(shows, (items, dateRangeId) => ({
+    dateRangeId,
+    items,
+    startDate: items[0].startDate,
+    endDate: items[0].endDate,
+  }))
   return {
-    shows: filter(show, (item) => item.groupType === 'On Campus Exhibition')
+    shows,
   }
 }
 
 // Which action creators does it want to receive by props?
 // This gets merged into props too.
-const mapDispatchToProps = {
-}
+// const mapDispatchToProps = {
+// }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Component)
+export default connect(mapStateToProps)(Component)
