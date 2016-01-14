@@ -7,7 +7,7 @@ function ScheduleItem({ dateStr, images, locations }) {
         <h4>{ dateStr }</h4>
         { locations &&
           <div className="locations">
-            { locations.map((location, index) => <p key={index}>{location}</p>) }
+            { locations.map((location, index) => <p key={index}>{location.name}</p>) }
           </div>
         }
       </div>

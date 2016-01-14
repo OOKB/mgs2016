@@ -18,7 +18,7 @@ function Schedule({ shows }) {
                     <ScheduleItem
                       key={index}
                       dateStr={dateStr}
-                      {...dateInfo}
+                      locations={dateInfo.items}
                     />
                   )
                 })
