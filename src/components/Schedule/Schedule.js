@@ -1,15 +1,16 @@
 import React, { PropTypes } from 'react'
 import ScheduleItem from './ScheduleItem'
 
-function Schedule({ dates }) {
+function Schedule({ shows }) {
+  console.log(shows)
   return (
     <article id="schedule">
       <div className="container">
         <h2>Schedule of Events</h2>
-          { dates &&
+          { shows &&
             <div className="dates">
               {
-                dates.map((dateInfo, index) =>
+                shows.map((dateInfo, index) =>
                   <ScheduleItem key={index} {...dateInfo} />)
               }
             </div>
@@ -20,10 +21,10 @@ function Schedule({ dates }) {
 }
 
 Schedule.propTypes = {
-  dates: PropTypes.array.isRequired,
+  shows: PropTypes.array.isRequired,
 }
 Schedule.defaultProps = {
-  dates: [
+  shows: [
   ],
 }
 
