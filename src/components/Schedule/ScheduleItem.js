@@ -27,13 +27,6 @@ ScheduleItem.propTypes = {
   locations: PropTypes.array,
 }
 ScheduleItem.defaultProps = {
-  dateStr: 'April 15–May 1',
-  // images: [],
-  locations: [
-    'Community Arts, MFA',
-    'LeRoy E. Hoffberger School of Painting',
-    'Mount Royal School of Art',
-  ],
 }
 
 export default ScheduleItem
