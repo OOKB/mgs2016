@@ -9,7 +9,7 @@ function ScheduleItem({ active, dateStr, images, locations }) {
     const receptionStart = moment(locations[0].receptionStart)
       .zone('-0400').format('dddd, MMMM Do, h')
     const receptionEnd = moment(locations[0].receptionEnd).zone('-0400').format('hA')
-    openingReception = `${receptionStart}-${receptionEnd}`
+    openingReception = `Opening Reception ${receptionStart}-${receptionEnd}`
   }
   return (
     <div
@@ -35,7 +35,7 @@ function ScheduleItem({ active, dateStr, images, locations }) {
       }
       { openingReception &&
         <div>
-          Opening Reception {openingReception}
+          {openingReception}
         </div>
       }
     </div>
