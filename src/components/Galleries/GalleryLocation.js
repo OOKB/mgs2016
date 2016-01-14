@@ -1,6 +1,7 @@
 import React, { PropTypes } from 'react'
 
 function GalleryLocation({ togglePin, active, building, value, name, street, zip }) {
+  // onClick, we need to set the active pin to show on the map
   function handleClick() {
     togglePin(value)
   }
@@ -44,7 +45,7 @@ GalleryLocation.propTypes = {
   alias: PropTypes.array,
   value: PropTypes.string.isRequired,
   street: PropTypes.string.isRequired,
-  zip: PropTypes.number.isRequired,
+  zip: PropTypes.string.isRequired,
   geoData: PropTypes.object.isRequired,
   active: PropTypes.bool.isRequired,
   togglePin: PropTypes.func.isRequired,
