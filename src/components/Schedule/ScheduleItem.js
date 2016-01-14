@@ -18,26 +18,30 @@ function ScheduleItem({ active, dateStr, images, locations }) {
         active,
       })}
     >
-      <div className="schedule-text">
-        <h4>{ dateStr }</h4>
-        { locations &&
-          <div className="locations">
-            { locations.map((location, index) => <p key={index}>{location.name}</p>) }
+      <div className="container">
+        <div className="group">
+          <div className="schedule-text">
+            <h4>{ dateStr }</h4>
+            { locations &&
+              <div className="locations">
+                { locations.map((location, index) => <p key={index}>{location.name}</p>) }
+              </div>
+            }
           </div>
-        }
-      </div>
-      { images &&
-        <div className="schedule-images">
-          {
-            images.map((imgInfo, index) => <img key={index} src={imgInfo.src} />)
+          { images &&
+            <div className="schedule-images">
+              {
+                images.map((imgInfo, index) => <img key={index} src={imgInfo.src} />)
+              }
+            </div>
+          }
+          { openingReception &&
+            <div>
+              Opening Reception {openingReception}
+            </div>
           }
         </div>
-      }
-      { openingReception &&
-        <div>
-          {openingReception}
-        </div>
-      }
+      </div>
     </div>
   )
 }
