@@ -132,13 +132,6 @@ class Slideshow extends Component {
     )
   }
 
-  // Set active slide to parameter value
-  moveToSlide(currentPosition) {
-    this.setState({
-      currentPosition,
-    })
-  }
-
   // Generate slide indicators based on the size of the collection
   generateIndicators() {
     const { collection } = this.props
@@ -171,6 +164,13 @@ class Slideshow extends Component {
         {slideIndicators}
       </ul>
     )
+  }
+
+  // Set active slide to parameter value
+  moveToSlide(currentPosition) {
+    this.setState({
+      currentPosition,
+    })
   }
 
   // Move film strip forward

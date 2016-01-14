@@ -61,6 +61,7 @@
     "moment": "^2.10.6",
     "normalizr": "^1.4.0",
     "react": "0.14.x",
+    "react-addons-css-transition-group": "^0.14.6",
     "react-dom": "0.14.x",
     "react-json-inspector": "github:lapple/react-json-inspector",
     "react-redux": "4.x",
