@@ -241,18 +241,20 @@ header h1 {
   text-transform: uppercase;
 }
 
+#schedule ul li button,
 button.filter{
   border: none;
   background: none;
   color: #bcbec0;
+  cursor: pointer;
   font-size: 1.2em;
   letter-spacing: 2px;
   text-transform: uppercase;
 }
 
+#schedule ul li button:hover,
 button.filter:hover{
   color: #f37743;
-  cursor: pointer;
 }
 
 /***** Footer *****/
