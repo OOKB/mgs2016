@@ -67,7 +67,7 @@
   transform: translate(-50%,0);
 }
 #slideshow .thumbs li {
-  opacity: .2;
+  opacity: .3333333333;
   transition: all 300ms;
   display: inline-block;
   margin-left: .25rem;
