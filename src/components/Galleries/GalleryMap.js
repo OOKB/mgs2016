@@ -5,7 +5,7 @@ import _ from 'lodash'
 
 function GalleryMap({ locations, settings, togglePin }) {
   const activePin = _.find(locations, { 'active': true })
-  let centerMap
+  let centerMap = settings.defaultCenter
   if (activePin) {
     centerMap = {
       lat: activePin.lat,
