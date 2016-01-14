@@ -186,6 +186,7 @@ class Slideshow extends Component {
       newPosition = 0
     }
     this.setState({
+      animation: 'slide-advance',
       currentPosition: newPosition,
     })
   }
@@ -200,6 +201,7 @@ class Slideshow extends Component {
       newPosition = collection.length - 1
     }
     this.setState({
+      animation: 'slide-rewind',
       currentPosition: newPosition,
     })
   }
