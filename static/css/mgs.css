@@ -222,6 +222,19 @@ header h1 {
   height: 100%;
 }
 
+
+
+/** schedule stuff **/
+
+.schedule-event.active {
+  background-image: url("../images/background.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  /**/
+  color: white;
+}
+
+
 /***** Gallery *****/
 #gallerylisting ul {
     list-style: none;
@@ -256,6 +269,13 @@ button.filter{
 button.filter:hover{
   color: #f37743;
 }
+
+
+
+
+
+
+
 
 /***** Footer *****/
 footer {
