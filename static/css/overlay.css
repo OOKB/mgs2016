@@ -67,7 +67,7 @@
   transform: translate(-50%,0);
 }
 #slideshow .thumbs li {
-  opacity: .2;
+  opacity: .3333333333;
   transition: all 300ms;
   display: inline-block;
   margin-left: .25rem;
@@ -131,6 +131,12 @@ ul.thumbs-indicator li {
   margin: 0 .25rem;
   width: .75rem;
   height: .75rem;
+}
+ul.thumbs-indicator li span {
+  cursor: pointer;
+  display: block;
+  width: .75rem;
+  height: .75rem;
   border: 2px solid #333;
   border-radius: .75rem;
   transition: all 1s ease;
@@ -139,8 +145,7 @@ ul.thumbs-indicator li {
   overflow: hidden;
   white-space: nowrap;
 }
-
-ul.thumbs-indicator li.active {
+ul.thumbs-indicator li span.active {
   background-color: #333;
 }
 
