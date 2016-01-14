@@ -1,8 +1,8 @@
 import React, { PropTypes } from 'react'
+import moment from 'moment'
 import ScheduleItem from './ScheduleItem'
 
 function Schedule({ shows }) {
-  console.log(shows)
   return (
     <article id="schedule">
       <div className="container">
@@ -10,8 +10,18 @@ function Schedule({ shows }) {
           { shows &&
             <div className="dates">
               {
-                shows.map((dateInfo, index) =>
-                  <ScheduleItem key={index} {...dateInfo} />)
+                shows.map((dateInfo, index) => {
+                  const startDate = moment(dateInfo.startDate).format('MMMM Do')
+                  const endDate = moment(dateInfo.endDate).format('MMMM Do')
+                  const dateStr = `${startDate}-${endDate}`
+                  return (
+                    <ScheduleItem
+                      key={index}
+                      dateStr={dateStr}
+                      {...dateInfo}
+                    />
+                  )
+                })
               }
             </div>
           }
