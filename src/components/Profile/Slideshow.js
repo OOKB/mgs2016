@@ -1,5 +1,6 @@
 import React, { Component, PropTypes } from 'react'
 // import { Link, Navigation } from 'react-router'
+import classnames from 'classnames'
 
 import SlideThumb from './SlideThumb'
 
@@ -146,16 +147,19 @@ class Slideshow extends Component {
     for (let index = 0; index < collection.length; index++) {
       const activeSlide = index === currentPosition
       slideIndicators.push(
-        <li key={index}>
+        <li
+          key={index}
+          onClick={() => this.moveToSlide(index)}
+          className={classnames({
+            active: activeSlide,
+          })}
+        >
           { activeSlide ?
-              <span
-                className="active"
-                onClick={() => this.moveToSlide(index)}
-              >
+              <span className="active">
                 {index}
               </span>
             :
-              <span onClick={() => this.moveToSlide(index)}>
+              <span>
                 {index}
               </span>
           }
