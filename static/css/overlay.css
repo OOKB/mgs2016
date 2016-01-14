@@ -73,21 +73,29 @@
   margin-left: .25rem;
   margin-right: .25rem;
   box-shadow: 0 0 0 0 rgba(0,0,0,0);
+  z-index: 1;
 }
 #slideshow .thumbs li.active{
   opacity: 1;
-  box-shadow: 0 0 1rem 0 rgba(0,0,0,.33);
+  box-shadow: 0 0 1.25rem 0 rgba(0,0,0,.5);
+  left: 50%;
+  -webkit-transform: translate(-50%,0) scale(1.05,1.05);
+  -moz-transform: translate(-50%,0) scale(1.05,1.05);
+  transform: translate(-50%,0) scale(1.05,1.05);
+  z-index: 2;
+  position: absolute;
 }
 #slideshow .thumbs li img {
   height: 500px;
   width: auto;
   display: block;
 }
+
 /** slideshow strip buttons **/
 ul.thumbs-navigation {
-    padding: 0;
-    list-style: none;
-    text-align: center;
+  padding: 0;
+  list-style: none;
+  text-align: center;
 }
 ul.thumbs-navigation,
 ul.thumbs-navigation li {
@@ -120,7 +128,7 @@ ul.thumbs-navigation li:last-child button {
 
 /** slideshow strip indicators **/
 ul.thumbs-indicator {
-  margin: 0 0 2rem;
+  margin: 2rem 0;
   padding: 0;
   list-style: none;
   text-align: center;

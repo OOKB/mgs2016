@@ -16,17 +16,19 @@ function Main({ collection, user }) {
           <NoImages />
       }
       <div className="container">
-        <div className="three columns">
-          <p>please print the other program member list here</p>
+        <div className="group">
+          <div className="three columns">
+            <p>please print the other program member list here</p>
+          </div>
+          { statement &&
+              <div
+                className="statement six columns"
+                dangerouslySetInnerHTML = {{
+                  __html: statement,
+                }}
+              />
+          }
         </div>
-        { statement &&
-            <div
-              className="statement six columns"
-              dangerouslySetInnerHTML = {{
-                __html: statement,
-              }}
-            />
-        }
       </div>
     </div>
   )
