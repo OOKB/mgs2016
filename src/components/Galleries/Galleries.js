@@ -34,7 +34,7 @@ Galleries.defaultProps = {
       lat: 39.30902,
       lng: -76.62016,
     },
-    zoom: 12,
+    zoom: 15,
     options: {
       scrollwheel: false,
       mapTypeControl: false,
