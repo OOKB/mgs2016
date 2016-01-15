@@ -65,7 +65,7 @@ function ScheduleItem({ active, dateStr, images, locations, togglePin }) {
             }
           </div>
           { images &&
-            <div className="schedule-images">
+            <div className="schedule-images eight columns">
               {
                 images.map((imgInfo, index) => <img key={index} src={imgInfo.src} />)
               }
