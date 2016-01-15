@@ -251,6 +251,15 @@ header h1 {
   margin-left: 1rem;
 }
 
+.schedule-filters li:last-child {
+  margin-right: 0;
+}
+.schedule-filters li:last-child::after {
+  content: "";
+  display: none;
+  margin-left: 0;
+}
+
 .schedule-event {
   padding-top: 1rem;
   padding-bottom: 1rem;
@@ -308,6 +317,7 @@ button.filter{
   font-size: 1.2em;
   letter-spacing: 2px;
   text-transform: uppercase;
+  font-family: "Balto", "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
 .schedule-filters button:hover,
