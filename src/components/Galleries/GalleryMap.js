@@ -15,6 +15,7 @@ function GalleryMap({ locations, settings, togglePin }) {
   return (
     <div
       className="google-map-container pull-left"
+      id="gallery-map-locations"
     >
       <GoogleMap
         {...settings}
