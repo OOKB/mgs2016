@@ -5,8 +5,8 @@ function ScheduleFilters({ filters }) {
   return (
     <ul className="list-reset inline schedule-filters">
       {
-        map(filters, filter => (
-          <li><button>{filter.label}</button></li>
+        map(filters, (filter, index) => (
+          <li key={index}><button>{filter.label}</button></li>
         ))
       }
     </ul>
