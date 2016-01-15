@@ -6,6 +6,10 @@ class Profile extends Component {
   componentWillMount() {
     this.props.loadProfile([ 'art' ])
   }
+  componentWillReceiveProps(newProps) {
+    // console.log('new props')
+    newProps.loadProfile([ 'art' ])
+  }
   render() {
     const { profile } = this.props
     const uid = 'foo'
