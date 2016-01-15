@@ -20,7 +20,7 @@ function mapStateToProps(state, ownProps) {
     website: website ? url[website] : undefined,
   }
 
-  console.log(userProfile)
+  // console.log(userProfile)
   return {
     id,
     profile: userProfile,
