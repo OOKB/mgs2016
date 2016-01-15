@@ -6,8 +6,12 @@ import smoothScroll from 'smooth-scroll'
 
 function ScheduleItem({ active, dateStr, images, locations, togglePin }) {
   function handleClick(value) {
+    const scrollOptions = {
+      offset: 128, // Compensate for Header
+      updateURL: false,
+    }
     togglePin(value)
-    smoothScroll.animateScroll(null, '#gallery-map-locations', { offset: 128 })
+    smoothScroll.animateScroll(null, '#gallery-map-locations', scrollOptions)
   }
   let openingReception
   if (active) {
