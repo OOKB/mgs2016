@@ -41,9 +41,10 @@ function ScheduleItem({ active, dateStr, images, locations, togglePin }) {
                       <span key={index}>
                         <p>{location.name}</p>
                         <p>{ galleryLocations &&
-                              galleryLocations.map((galleryLocation) => {
+                              galleryLocations.map((galleryLocation, idx) => {
                                 return (
                                   <span
+                                    key={idx}
                                     onClick={() => handleClick(galleryLocation.location.value)}
                                   >
                                     {galleryLocation.location.name}
