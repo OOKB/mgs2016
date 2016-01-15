@@ -266,9 +266,9 @@ header h1 {
 }
 
 .schedule-event.active {
-  background-image: url("../images/background.png");
-  background-size: cover;
-  background-repeat: no-repeat;
+  background-image: url("../images/event-active.png");
+  background-repeat: repeat-y;
+  background-size: contain;
   background-position: center center;
   /**/
   color: white;
