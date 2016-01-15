@@ -68,112 +68,112 @@ const mapStyleOptions =
       'elementType': 'geometry',
       'stylers': [
         {
-          'color': '#ffffff'
+          'color': '#ffffff',
         },
         {
-          'lightness': 16
-        }
-      ]
+          'lightness': 16,
+        },
+      ],
     },
     {
       'featureType': 'poi',
       'elementType': 'geometry',
       'stylers': [
         {
-          'color': '#f5f5f5'
+          'color': '#f5f5f5',
         },
         {
-          'lightness': 21
-        }
-      ]
+          'lightness': 21,
+        },
+      ],
     },
     {
       'featureType': 'poi.park',
       'elementType': 'geometry',
       'stylers': [
         {
-          'color': '#dedede'
+          'color': '#dedede',
         },
         {
-          'lightness': 21
-        }
-      ]
+          'lightness': 21,
+        },
+      ],
     },
     {
       'elementType': 'labels.text.stroke',
       'stylers': [
         {
-          'visibility': 'on'
+          'visibility': 'on',
         },
         {
-          'color': '#ffffff'
+          'color': '#ffffff',
         },
         {
-          'lightness': 16
-        }
-      ]
+          'lightness': 16,
+        },
+      ],
     },
     {
       'elementType': 'labels.text.fill',
       'stylers': [
         {
-          'saturation': 36
+          'saturation': 36,
         },
         {
-          'color': '#333333'
+          'color': '#333333',
         },
         {
-          'lightness': 40
-        }
-      ]
+          'lightness': 40,
+        },
+      ],
     },
     {
       'elementType': 'labels.icon',
       'stylers': [
         {
-          'visibility': 'off'
-        }
-      ]
+          'visibility': 'off',
+        },
+      ],
     },
     {
       'featureType': 'transit',
       'elementType': 'geometry',
       'stylers': [
         {
-          'color': '#f2f2f2'
+          'color': '#f2f2f2',
         },
         {
-          'lightness': 19
-        }
-      ]
+          'lightness': 19,
+        },
+      ],
     },
     {
       'featureType': 'administrative',
       'elementType': 'geometry.fill',
       'stylers': [
         {
-          'color': '#fefefe'
+          'color': '#fefefe',
         },
         {
-          'lightness': 20
-        }
-      ]
+          'lightness': 20,
+        },
+      ],
     },
     {
       'featureType': 'administrative',
       'elementType': 'geometry.stroke',
       'stylers': [
         {
-          'color': '#fefefe'
+          'color': '#fefefe',
         },
         {
-          'lightness': 17
+          'lightness': 17,
         },
         {
-          'weight': 1.2
-        }
-      ]
-    }
+          'weight': 1.2,
+        },
+      ],
+    },
   ]
 
 export default mapStyleOptions
