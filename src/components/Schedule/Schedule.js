@@ -4,7 +4,6 @@ import ScheduleItem from './ScheduleItem'
 import ScheduleFilters from './ScheduleFilters'
 
 function Schedule({ shows, togglePin }) {
-  console.log(togglePin)
   return (
     <article id="schedule">
       <div className="container">
