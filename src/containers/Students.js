@@ -56,14 +56,14 @@ function mapStateToProps(state) {
   const noFilters = isEmpty(filterValues) || !some(filterValues, 'option')
   const programIdFilter = get(filterValues, [ 'program', 'option' ])
   // Program filters.
-  const programFilterOpts = mapValues(program, ({ label, value }) => ({
+  const programFilterOpts = mapValues(program, ({ id, name }) => ({
     // Figure out if the filter option is enabled.
-    active: filterValues.program && filterValues.program.option === value,
-    label,
+    active: filterValues.program && filterValues.program.option === id,
+    label: name,
     itemCount: 0,
-    value,
+    value: id,
   }))
-  // Filter programs first.
+  // Filter profiles.
   const profiles = filter(profile, (item) => {
     // Increment program counter.
     programFilterOpts[item.program].itemCount++

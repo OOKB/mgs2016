@@ -13,6 +13,17 @@
   position: relative;
 }
 
+#students .students-filters {
+  padding: .5rem;
+  /*  text-align: center;*/
+}
+
+/*
+#students .filters-students > li {
+  display: inline-block;
+}
+*/
+
 #students .filters-students > li button {
   z-index: 11;
 }
@@ -21,6 +32,10 @@
   background: white;
   position: absolute;
   z-index: 10;
+}
+
+.filters-students .item-count {
+  display: none;
 }
 
 /** toggle the gray/colored images nicely **/

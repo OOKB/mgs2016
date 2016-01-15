@@ -40,3 +40,10 @@
   z-index: 19;
   content: '';
 }
+
+.mapPin svg path {
+  fill: yellow;
+}
+.mapPin:nth-child(1) svg path {
+  fill: orange;
+}

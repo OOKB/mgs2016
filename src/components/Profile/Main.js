@@ -2,6 +2,7 @@ import React, { PropTypes } from 'react'
 
 import Slideshow from './Slideshow'
 import NoImages from './NoImages'
+import ProgramList from './ProgramList'
 
 function Main({ collection, user }) {
   const { statement } = user
@@ -17,9 +18,10 @@ function Main({ collection, user }) {
       }
       <div className="container">
         <div className="group">
+          <ProgramList {...user} />
           { statement &&
               <div
-                className="statement six columns offset-by-three"
+                className="statement six columns"
                 dangerouslySetInnerHTML = {{
                   __html: statement,
                 }}

@@ -4,7 +4,7 @@ import Contact from './Contact'
 
 function Details({ user }) {
   const { name, locationName, program, showDates } = user
-  const programName = program && program.label
+  const programName = program && program.name
   return (
     <div className="student-details">
       <h2>{ name.display }</h2>

@@ -14,7 +14,7 @@ function ScheduleItem({ active, dateStr, images, locations, togglePin }) {
     const receptionStart = moment(locations[0].receptionStart)
       .utcOffset('-0400').format('dddd, MMMM D, h')
     const receptionEnd = moment(locations[0].receptionEnd).utcOffset('-0400').format('hA')
-    openingReception = `${receptionStart}–${receptionEnd}`
+    openingReception = `Reception: ${receptionStart}–${receptionEnd}`
   }
   return (
     <div
@@ -66,7 +66,6 @@ function ScheduleItem({ active, dateStr, images, locations, togglePin }) {
             </div>
             { openingReception &&
               <div className="reception">
-                <p><strong>Reception</strong></p>
                 <p>{openingReception}</p>
               </div>
             }
