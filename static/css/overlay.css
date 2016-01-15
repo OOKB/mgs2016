@@ -10,6 +10,7 @@
 #student-overlay {
   background: transparent url(../images/background.png) center center no-repeat;
   background-size: cover;
+  background-position: center center;
   position: fixed;
   top:0;
   right:0;

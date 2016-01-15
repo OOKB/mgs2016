@@ -199,6 +199,7 @@ header h1 {
   background-image: url("../images/background.png");
   background-size: cover;
   background-repeat: no-repeat;
+  background-position: top center;
 }
 
 #intro .intro-text,
@@ -259,9 +260,16 @@ header h1 {
   background-image: url("../images/background.png");
   background-size: cover;
   background-repeat: no-repeat;
+  background-position: center center;
   /**/
   color: white;
 }
+
+.schedule-text h4,
+.schedule-text .locations p {
+  margin: 0;
+}
+
 
 
 /***** Gallery *****/
@@ -312,6 +320,7 @@ footer {
   background-image: url("../images/background.png");
   background-size: cover;
   background-repeat: no-repeat;
+  background-position: bottom center;
 }
 
 footer .archive h3 {
