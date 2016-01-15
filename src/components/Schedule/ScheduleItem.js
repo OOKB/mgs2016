@@ -27,6 +27,8 @@ function ScheduleItem({ active, dateStr, images, locations }) {
                 {
                   locations.map((location, index) => {
                     let galleryLocations
+                    // If gallery locations are available and section is active
+                    // then generate a list
                     if (location.showLocation && active) {
                       galleryLocations = _.uniq(location.showLocation.map((gallery) => {
                         return gallery.location.name
@@ -55,7 +57,7 @@ function ScheduleItem({ active, dateStr, images, locations }) {
           }
           { openingReception &&
             <div>
-              Opening Reception {openingReception}
+              {openingReception}
             </div>
           }
         </div>
