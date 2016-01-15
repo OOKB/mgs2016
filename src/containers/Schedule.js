@@ -16,7 +16,10 @@ function mapStateToProps(state) {
   let shows = map(show, (item) => {
     const showLocations = item.showLocation && item.showLocation.map(showLoc => {
       const value = showLocation[showLoc]
-      value.location = location[value.location[0]]
+      // This was causing problems if the value had already been swapped out
+      if (!value.location.id) {
+        value.location = location[value.location[0]]
+      }
       return value
     })
     return {
