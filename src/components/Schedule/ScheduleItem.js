@@ -1,11 +1,11 @@
 import React, { PropTypes } from 'react'
 import classnames from 'classnames'
 import moment from 'moment'
+import _ from 'lodash'
 
 function ScheduleItem({ active, dateStr, images, locations }) {
   let openingReception
   if (active) {
-    console.log(locations)
     const receptionStart = moment(locations[0].receptionStart)
       .utcOffset('-0400').format('dddd, MMMM D, h')
     const receptionEnd = moment(locations[0].receptionEnd).utcOffset('-0400').format('hA')
@@ -24,7 +24,25 @@ function ScheduleItem({ active, dateStr, images, locations }) {
             <h4>{ dateStr }</h4>
             { locations &&
               <div className="locations">
-                { locations.map((location, index) => <p key={index}>{location.name}</p>) }
+                {
+                  locations.map((location, index) => {
+                    let galleryLocations
+                    if (location.showLocation && active) {
+                      galleryLocations = _.uniq(location.showLocation.map((gallery) => {
+                        return gallery.location.name
+                      })).join(' and ')
+                      if (galleryLocations.length > 0) {
+                        galleryLocations = `Galleries: ${galleryLocations}`
+                      }
+                    }
+                    return (
+                      <span key={index}>
+                        <p>{location.name}</p>
+                        <p>{galleryLocations}</p>
+                      </span>
+                    )
+                  })
+                }
               </div>
             }
           </div>
