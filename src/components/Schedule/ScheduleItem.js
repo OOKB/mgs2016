@@ -72,7 +72,7 @@ function ScheduleItem({ active, dateStr, images, locations, togglePin }) {
             </div>
           }
           { openingReception &&
-            <div>
+            <div className="reception">
               {openingReception}
             </div>
           }

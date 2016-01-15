@@ -264,15 +264,18 @@ header h1 {
   /**/
   color: white;
 }
-
+.schedule-text h4 {
+  margin: 0;
+  margin-bottom: .5rem;
+}
 .schedule-text .locations p {
   margin: 0;
 }
 
 .schedule-event .reception {
   border-top: 1px solid;
-  margin-top: 1.5rem;
-  padding-top: .5rem;
+  margin-top: .75rem;
+  padding-top: .333rem;
 }
 
 
