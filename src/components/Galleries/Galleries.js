@@ -2,6 +2,7 @@ import React, { PropTypes } from 'react'
 
 import GalleryListing from './GalleryListing'
 import GalleryMap from './GalleryMap'
+import mapStyleOptions from './MapStyles'
 
 function Galleries({ locations, settings, title, togglePin }) {
   return (
@@ -40,6 +41,7 @@ Galleries.defaultProps = {
       mapTypeControl: false,
       streetViewControl: false,
       zoomControl: true,
+      styles: mapStyleOptions,
     },
   },
   title: 'Participating Galleries',
