@@ -5,6 +5,8 @@ import map from 'lodash/collection/map'
 
 import Component from '../components/Schedule/Schedule'
 
+import { togglePin } from '../redux/modules/map'
+
 // This is where we define computed fields (reselect module) or make other changes.
 // Which part of the Redux global state does our component want to receive as props?
 function mapStateToProps(state) {
@@ -47,7 +49,8 @@ function mapStateToProps(state) {
 
 // Which action creators does it want to receive by props?
 // This gets merged into props too.
-// const mapDispatchToProps = {
-// }
+const mapDispatchToProps = {
+  togglePin,
+}
 
 export default connect(mapStateToProps)(Component)
