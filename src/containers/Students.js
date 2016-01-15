@@ -81,7 +81,10 @@ function mapStateToProps(state) {
       ...rest,
       id,
       // active,
-      photos: { active: photoDisplay(url[photo], true), inactive: photoDisplay(url[photo], false) },
+      photos: {
+        active: url[photo] && photoDisplay(url[photo], true),
+        inactive: url[photo] && photoDisplay(url[photo], false),
+      },
       program: program[rest.program],
     }
   })
