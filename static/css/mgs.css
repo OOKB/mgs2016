@@ -274,10 +274,13 @@ header h1 {
   color: white;
 }
 .schedule-text h4 {
+  font-size: 1.1em;
   margin: 0;
   margin-bottom: .5rem;
+  text-transform: uppercase;
 }
-.schedule-text .locations p {
+.schedule-text .locations p,
+.reception p {
   margin: 0;
 }
 
@@ -287,6 +290,28 @@ header h1 {
   padding-top: .333rem;
 }
 
+.galleryLocation {
+  cursor: pointer;
+  display: inline-block;
+  margin-right: .5em;
+}
+
+.galleryLocation::after {
+  content: ', ';
+  display: inline-block;
+}
+
+.galleryLocation:last-child::after {
+  content: '';
+  display: none;
+}
+
+.galleryLocation:first-child::before {
+  content: 'Galleries: ';
+  display: inline-block;
+  font-weight: bold;
+  margin-right: .5em;
+}
 
 /***** Gallery *****/
 #gallerylisting ul {

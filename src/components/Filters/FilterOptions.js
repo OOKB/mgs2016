@@ -14,7 +14,7 @@ class Filters extends Component {
   render() {
     const { options, onClick } = this.props
     return (
-      <ul className="student-filters">
+      <ul className="student-filters list-reset">
         {
           options.map(({ value, label, itemCount }) => {
             function handleOptClick() {

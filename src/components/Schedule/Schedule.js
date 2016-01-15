@@ -15,7 +15,7 @@ function Schedule({ shows, togglePin }) {
             shows.map((dateInfo, index) => {
               const startDate = moment(dateInfo.startDate).format('MMMM Do')
               const endDate = moment(dateInfo.endDate).format('MMMM Do')
-              const dateStr = `${startDate}-${endDate}`
+              const dateStr = `${startDate}–${endDate}`
               return (
                 <ScheduleItem
                   key={index}

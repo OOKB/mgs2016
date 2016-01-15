@@ -15,7 +15,7 @@ function ScheduleItem({ active, dateStr, images, locations, togglePin }) {
     const receptionStart = moment(locations[0].receptionStart)
       .utcOffset('-0400').format('dddd, MMMM D, h')
     const receptionEnd = moment(locations[0].receptionEnd).utcOffset('-0400').format('hA')
-    openingReception = `Opening Reception ${receptionStart}-${receptionEnd}`
+    openingReception = `${receptionStart}–${receptionEnd}`
   }
   return (
     <div
@@ -48,6 +48,7 @@ function ScheduleItem({ active, dateStr, images, locations, togglePin }) {
                                 galleryLocations.map((galleryLocation, idx) => {
                                   return (
                                     <span
+                                      className="galleryLocation"
                                       key={idx}
                                       onClick={() => handleClick(galleryLocation.location.value)}
                                     >
@@ -66,7 +67,8 @@ function ScheduleItem({ active, dateStr, images, locations, togglePin }) {
             </div>
             { openingReception &&
               <div className="reception">
-                {openingReception}
+                <p><strong>Reception</strong></p>
+                <p>{openingReception}</p>
               </div>
             }
           </div>
