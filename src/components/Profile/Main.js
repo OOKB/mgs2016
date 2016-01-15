@@ -17,12 +17,9 @@ function Main({ collection, user }) {
       }
       <div className="container">
         <div className="group">
-          <div className="three columns">
-            <p>please print the other program member list here</p>
-          </div>
           { statement &&
               <div
-                className="statement six columns"
+                className="statement six columns offset-by-three"
                 dangerouslySetInnerHTML = {{
                   __html: statement,
                 }}
