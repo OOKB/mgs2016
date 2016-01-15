@@ -5,8 +5,6 @@ import _ from 'lodash'
 
 function ScheduleItem({ active, dateStr, images, locations, togglePin }) {
   function handleClick(value) {
-    console.log(value)
-    console.log("yo")
     togglePin(value)
   }
   let openingReception
