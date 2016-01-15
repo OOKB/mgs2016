@@ -1,13 +1,18 @@
 import React, { PropTypes } from 'react'
+import map from 'lodash/collection/map'
 
 import { Link } from 'react-router'
 
-function ProgramList({ peers, programName }) {
+function ProgramList({ program }) {
   return (
     <aside className="program-list">
-      <h3>{programName}</h3>
+      <h3>{program.name}</h3>
       <ul className="program-peers">
-        {/* TODO KAI: Insert new peers mixinless code here */}
+        {
+          map(program.student, (peer) => (
+            <li key={peer.id}><Link to={peer.id}>{peer.name.display}</Link></li>
+          ))
+        }
       </ul>
     </aside>
   )
@@ -15,7 +20,7 @@ function ProgramList({ peers, programName }) {
 
 ProgramList.propTypes = {
   peers: PropTypes.array,
-  programName: PropTypes.string,
+  program: PropTypes.object.isRequired,
 }
 ProgramList.defaultProps = {
 }

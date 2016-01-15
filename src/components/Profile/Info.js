@@ -9,7 +9,7 @@ function Info({ user }) {
     <div className="student-info container">
       {/* <StudentNav user={user} /> */}
       <Details user={user} />
-      <ProgramList user={user} />
+      <ProgramList {...user} />
     </div>
   )
 }
