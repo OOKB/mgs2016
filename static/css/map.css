@@ -18,9 +18,25 @@
   width: 200px;
   z-index: 20;
   text-align: center;
-  padding: .5em;
-  /**/
-  -webkit-transform: translate(-50%,0);
-  -moz-transform: translate(-50%,0);
-  transform: translate(-50%,0);
+  bottom: 3.5em;
+  left:-25px;
+  position: absolute;
+  box-sizing: border-box;
+  padding: .66rem;
+  box-shadow: 0 0 .8rem 0 rgba(0,0,0,.25);
+}
+
+.mapPopup::before {
+  background: white;
+  width: 1rem;
+  height: 1rem;
+  display: block;
+  position: absolute;
+  -webkit-transform: rotate(45deg);
+  -moz-transform: rotate(45deg);
+  transform: rotate(45deg);
+  bottom: -.5rem;
+  left: 29px;
+  z-index: 19;
+  content: '';
 }

@@ -6,7 +6,7 @@ function GalleryLocation({ togglePin, active, building, value, name, street, zip
     togglePin(value)
   }
   return (
-    <div>
+    <div className="mapPin">
       <svg
         xmlns="http://www.w3.org/2000/svg"
         width="24"
@@ -22,11 +22,11 @@ function GalleryLocation({ togglePin, active, building, value, name, street, zip
       <span>
         { active ?
             <div className="mapPopup">
-              <h3>{name}</h3>
-              <div>
+              <h3 className="m0">{name}</h3>
+              <div className="building">
                 {building}
               </div>
-              <div>
+              <div className="address">
                 {street}<br />
                 {zip}
               </div>
