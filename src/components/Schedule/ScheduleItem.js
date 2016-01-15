@@ -6,6 +6,9 @@ import _ from 'lodash'
 function ScheduleItem({ active, dateStr, images, locations, togglePin }) {
   function handleClick(value) {
     togglePin(value)
+    // Quick hack for proof of concept. Do something better here
+    window.location.hash = ''
+    window.location.hash = 'gallery-map-locations'
   }
   let openingReception
   if (active) {
@@ -34,10 +37,6 @@ function ScheduleItem({ active, dateStr, images, locations, togglePin }) {
                     // then generate a list
                     if (location.showLocation && active) {
                       galleryLocations = _.uniq(location.showLocation.map((gallery) => {
-                        // Kai FIX PLZ: this will have an object before togglePin,
-                        // but will not after togglePin...this is true whether you
-                        // activate togglePin here or on the map
-                        console.log(gallery.location)
                         return gallery
                       }))
                     }
