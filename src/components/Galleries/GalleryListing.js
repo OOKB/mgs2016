@@ -1,14 +1,14 @@
 import React, { PropTypes } from 'react'
 
 import ListingItem from './ListingItem'
-
+import GalleriesFilters from './GalleriesFilters'
 function Galleries({ locations, togglePin }) {
   return (
     <aside
       id="gallerylisting"
       className="pull-right"
     >
-      <h3>Gallery Listing</h3>
+      <GalleriesFilters />
       <ul>
         {
           locations.map((location) =>
