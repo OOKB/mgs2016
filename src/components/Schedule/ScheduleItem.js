@@ -2,13 +2,12 @@ import React, { PropTypes } from 'react'
 import classnames from 'classnames'
 import moment from 'moment'
 import _ from 'lodash'
+import smoothScroll from 'smooth-scroll'
 
 function ScheduleItem({ active, dateStr, images, locations, togglePin }) {
   function handleClick(value) {
     togglePin(value)
-    // Quick hack for proof of concept. Do something better here
-    window.location.hash = ''
-    window.location.hash = 'gallery-map-locations'
+    smoothScroll.animateScroll(null, '#gallery-map-locations', { offset: 128 })
   }
   let openingReception
   if (active) {
