@@ -67,6 +67,7 @@ function mapStateToProps(state) {
   const profiles = filter(profile, (item) => {
     // Increment program counter.
     programFilterOpts[item.program].itemCount++
+    if (!url[item.photo]) return false
     if (noFilters) return true
     return every(filterValues, (info, key) => (
       !info || item[key] && item[key] === info.option
