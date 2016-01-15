@@ -53,4 +53,4 @@ const mapDispatchToProps = {
   togglePin,
 }
 
-export default connect(mapStateToProps)(Component)
+export default connect(mapStateToProps, mapDispatchToProps)(Component)

@@ -3,7 +3,8 @@ import moment from 'moment'
 import ScheduleItem from './ScheduleItem'
 import ScheduleFilters from './ScheduleFilters'
 
-function Schedule({ shows }) {
+function Schedule({ shows, togglePin }) {
+  console.log(togglePin)
   return (
     <article id="schedule">
       <div className="container">
@@ -21,6 +22,7 @@ function Schedule({ shows }) {
                   key={index}
                   dateStr={dateStr}
                   locations={dateInfo.items}
+                  togglePin={togglePin}
                   {...dateInfo}
                 />
               )
@@ -34,6 +36,7 @@ function Schedule({ shows }) {
 
 Schedule.propTypes = {
   shows: PropTypes.array.isRequired,
+  togglePin: PropTypes.func.isRequired,
 }
 Schedule.defaultProps = {
   shows: [

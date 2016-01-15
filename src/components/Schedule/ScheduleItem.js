@@ -3,7 +3,12 @@ import classnames from 'classnames'
 import moment from 'moment'
 import _ from 'lodash'
 
-function ScheduleItem({ active, dateStr, images, locations }) {
+function ScheduleItem({ active, dateStr, images, locations, togglePin }) {
+  function handleClick(value) {
+    console.log(value)
+    console.log("yo")
+    togglePin(value)
+  }
   let openingReception
   if (active) {
     const receptionStart = moment(locations[0].receptionStart)
@@ -31,16 +36,24 @@ function ScheduleItem({ active, dateStr, images, locations }) {
                     // then generate a list
                     if (location.showLocation && active) {
                       galleryLocations = _.uniq(location.showLocation.map((gallery) => {
-                        return gallery.location.name
-                      })).join(' and ')
-                      if (galleryLocations.length > 0) {
-                        galleryLocations = `Galleries: ${galleryLocations}`
-                      }
+                        return gallery
+                      }))
                     }
                     return (
                       <span key={index}>
                         <p>{location.name}</p>
-                        <p>{galleryLocations}</p>
+                        <p>{ galleryLocations &&
+                              galleryLocations.map((galleryLocation) => {
+                                return (
+                                  <span
+                                    onClick={() => handleClick(galleryLocation.location.value)}
+                                  >
+                                    {galleryLocation.location.name}
+                                  </span>
+                                )
+                              })
+                            }
+                        </p>
                       </span>
                     )
                   })
@@ -70,6 +83,7 @@ ScheduleItem.propTypes = {
   active: PropTypes.bool,
   dateStr: PropTypes.string.isRequired,
   locations: PropTypes.array,
+  togglePin: PropTypes.func.isRequired,
 }
 ScheduleItem.defaultProps = {
 }
