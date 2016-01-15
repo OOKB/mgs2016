@@ -264,12 +264,19 @@ header h1 {
   /**/
   color: white;
 }
-
-.schedule-text h4,
+.schedule-text h4 {
+  margin: 0;
+  margin-bottom: .5rem;
+}
 .schedule-text .locations p {
   margin: 0;
 }
 
+.schedule-event .reception {
+  border-top: 1px solid;
+  margin-top: .75rem;
+  padding-top: .333rem;
+}
 
 
 /***** Gallery *****/

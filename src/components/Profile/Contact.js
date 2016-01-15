@@ -29,7 +29,7 @@ function Contact({ contactEmail, social, website }) {
     }
   }
   return (
-    <ul className="contact-info">
+    <ul className="contact-info list-reset">
       { website &&
           <ContactWebsite {...website} />
       }
