@@ -70,12 +70,12 @@
 /** control heights for now so that the grid stays a nice grid **/
 @media (min-width: 50em) {
   .student {
-    height: 280px;
+    height: 250px;
   }
 }
 
 @media (min-width: 65em) {
   .student {
-    height: 325px;
+    height: 275px;
   }
 }

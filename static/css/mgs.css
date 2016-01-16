@@ -131,11 +131,23 @@ ul.inline li {
 .m3           { margin: 3rem; }
 .m4           { margin: 4rem; }
 
+.mb0          { margin-bottom: 0; }
+.mb1          { margin-bottom: 1rem; }
+.mb2          { margin-bottom: 2rem; }
+.mb3          { margin-bottom: 3rem; }
+.mb4          { margin-bottom: 4rem; }
+
 .p0           { padding: 0; }
 .p1           { padding: 1rem; }
 .p2           { padding: 2rem; }
 .p3           { padding: 3rem; }
 .p4           { padding: 4rem; }
+
+.text-center {
+  text-align: center;
+}
+
+.text-left
 
 /***** General Styles for all "stripes" *****/
 
@@ -179,17 +191,17 @@ header h1 {
   background-repeat: no-repeat;
 }
 .rotating-text{
-    width: 350px;
-    position: absolute;
-    bottom: 10em;
-    right: 12em;
+  width: 350px;
+  position: absolute;
+  bottom: 10em;
+  right: 12em;
 }
 
 @media (max-width: 600px) {
   .rotating-text {
-      position: absolute;
-      bottom: 10em;
-      right: 4em;
+    position: absolute;
+    bottom: 10em;
+    right: 4em;
   }
 }
 
@@ -233,8 +245,6 @@ header h1 {
   width: 100%;
   height: 100%;
 }
-
-
 
 /** schedule stuff **/
 .schedule-filters {
@@ -360,6 +370,7 @@ li.program{
 
 .schedule-filters li::after,
 .schedule-filters button,
+.galleries-filters button,
 button.filter{
   border: none;
   background: none;
@@ -369,19 +380,27 @@ button.filter{
   letter-spacing: 2px;
   text-transform: uppercase;
   font-family: "Balto", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  transition: all 400ms;
+  outline: none;
 }
 
 .schedule-filters button:hover,
+.galleries-filters button:hover,
 button.filter:hover{
   color: #f37743;
 }
 
+.schedule-filters button:active,
+.galleries-filters button:active,
+button.filter:active {
+  color: rgba(255,128,169,1);
+}
 
-
-
-
-
-
+.schedule-filters button:focus,
+.galleries-filters button:focus,
+button.filter:focus {
+  outline:none;
+}
 
 /***** Footer *****/
 footer {
