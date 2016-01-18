@@ -4,7 +4,7 @@ import GalleryListing from './GalleryListing'
 import GalleryMap from './GalleryMap'
 import mapStyleOptions from './MapStyles'
 
-function Galleries({ locations, settings, title, togglePin }) {
+function Galleries({ locations, settings, title, togglePin, updateFilter }) {
   return (
     <article id="galleries" className="clearfix">
       <section className="map-wrapper">
@@ -16,6 +16,7 @@ function Galleries({ locations, settings, title, togglePin }) {
         <GalleryListing
           locations={locations}
           togglePin={togglePin}
+          updateFilter={updateFilter}
         />
       </section>
     </article>
@@ -27,6 +28,7 @@ Galleries.propTypes = {
   settings: PropTypes.object.isRequired,
   title: PropTypes.string.isRequired,
   togglePin: PropTypes.func.isRequired,
+  updateFilter: PropTypes.func.isRequired,
 }
 Galleries.defaultProps = {
   locations: [],

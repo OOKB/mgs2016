@@ -1,12 +1,17 @@
 import React, { PropTypes } from 'react'
 import map from 'lodash/collection/map'
+import partial from 'lodash/function/partial'
 
-function GalleriesFilters({ filters }) {
+function GalleriesFilters({ filters, update, groupId }) {
   return (
     <ul className="list-reset inline galleries-filters">
       {
         map(filters, (filter, index) => (
-          <li key={index}><button>{filter.label}</button></li>
+          <li key={index}>
+            <button onClick={partial(update, groupId, 'showCuratorial', 'option', filter.value)}>
+              {filter.label}
+            </button>
+          </li>
         ))
       }
     </ul>
@@ -14,12 +19,12 @@ function GalleriesFilters({ filters }) {
 }
 
 GalleriesFilters.propTypes = {
-  filters: PropTypes.array.isRequired,
+  update: PropTypes.func.isRequired,
 }
 GalleriesFilters.defaultProps = {
   filters: [
-    { label: 'Galleries', value: '' },
-    { label: 'Curatorial Practice Venues', value: '' },
+    { label: 'Galleries', value: false },
+    { label: 'Curatorial Practice Venues', value: true },
   ],
 }
 

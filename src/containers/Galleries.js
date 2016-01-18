@@ -2,7 +2,7 @@ import { connect } from 'react-redux'
 import filter from 'lodash/collection/filter'
 
 import Galleries from '../components/Galleries/Galleries'
-
+import { update as updateFilterAction } from '../redux/modules/filters'
 import { togglePin } from '../redux/modules/map'
 
 // This is where we define computed fields (reselect module) or make other changes.
@@ -15,10 +15,12 @@ function mapStateToProps(state) {
 
   return {
     locations: filter(location, (loc) => loc.geoData)
-      .map(loc => {
-        loc.active = map.activePin === loc.value
-        return loc
-      }),
+      .map(loc => (
+        {
+          ...loc,
+          active: map.activePin === loc.value,
+        }
+      )),
   }
 }
 
@@ -26,6 +28,7 @@ function mapStateToProps(state) {
 // This gets merged into props too.
 const mapDispatchToProps = {
   togglePin,
+  updateFilter: updateFilterAction,
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Galleries)
