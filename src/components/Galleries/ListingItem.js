@@ -1,14 +1,14 @@
 import React, { PropTypes } from 'react'
 import classnames from 'classnames'
 
-function ListingItem({ active, building, name, street, zip, value, togglePin }) {
+function ListingItem({ active, building, name, street, zip, id, togglePin }) {
   function handleClick() {
-    togglePin(value)
+    togglePin(id)
   }
-  const address = `${street}, ${zip}`
+  const address = street ? `${street}, ${zip}` : zip
   return (
     <li
-      className={classnames(value, { active })}
+      className={classnames({ active })}
       onClick={handleClick}
     >
       <h4 className="gallery">{ name }</h4>
@@ -23,8 +23,8 @@ function ListingItem({ active, building, name, street, zip, value, togglePin }) 
 ListingItem.propTypes = {
   name: PropTypes.string.isRequired,
   alias: PropTypes.array,
-  value: PropTypes.string.isRequired,
-  street: PropTypes.string.isRequired,
+  id: PropTypes.string.isRequired,
+  street: PropTypes.string,
   zip: PropTypes.string.isRequired,
   geoData: PropTypes.object.isRequired,
   active: PropTypes.bool.isRequired,
