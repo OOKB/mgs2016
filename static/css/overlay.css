@@ -167,6 +167,109 @@ ul.thumbs-indicator li span.active {
   background-color: #333;
 }
 
+
+
+
+/**** / BEGIN TEXT STYLING ****/
+div.student-details h2{
+    font-size: 16px;
+    text-transform: uppercase;
+    letter-spacing: .5px;
+    margin: 0;
+}
+
+li.program h3{
+    font-weight: 400;
+    font-size: 14px;
+    margin: 0;
+    line-height: 1;
+}
+
+li.location{
+    font-size: 14px;
+    line-height: 1;
+}
+
+li.website{
+    line-height: 1;
+}
+
+li.website a{
+    text-decoration: none;
+    color: #f37743;
+    font-size: 14px;
+}
+
+li.website a:hover{
+    text-decoration: underline;
+}
+
+li.email{
+    line-height: 1;
+}
+
+li.email button{
+    border: none;
+    background: none;
+    font-size: 13px;
+    padding: 0;
+    color: #f37743;
+}
+
+li.email button:hover{
+    text-decoration: underline;
+}
+
+li.instagram{
+    line-height: 1;
+}
+
+li.instagram a{
+    text-decoration: none;
+    color: #f37743;
+    font-size: 14px;
+}
+
+li.instagram a:hover{
+    text-decoration: underline;
+}
+
+li.twitter{
+    line-height: 1;
+}
+
+li.twitter a{
+    text-decoration: none;
+    color: #f37743;
+    font-size: 14px;
+}
+
+li.twitter a:hover{
+    text-decoration: underline;
+}
+
+
+div.statement.six.columns{
+    line-height: 1.5;
+}
+
+aside.program-list.three.columns h3{
+    text-transform: uppercase;
+    font-size: 14px;
+    margin: 3px 0 0 0;
+}
+
+ul.program-peers li a{
+    text-decoration: none;
+    color: #000;
+    font-size: 14px;
+}
+
+ul.program-peers li a:hover{
+    color: #f37743;
+
+}
+
 /**** / END OVERLAY.LESS ****/
 /**** / END OVERLAY.LESS ****/
 /**** / END OVERLAY.LESS ****/
