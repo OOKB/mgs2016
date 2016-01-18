@@ -2,15 +2,14 @@ import React, { PropTypes } from 'react'
 
 import GalleryListing from './GalleryListing'
 import GalleryMap from './GalleryMap'
-import mapStyleOptions from './MapStyles'
 
-function Galleries({ locations, settings, title, togglePin, updateFilter }) {
+function Galleries({ locations, centerMap, togglePin, updateFilter }) {
   return (
     <article id="galleries" className="clearfix">
       <section className="map-wrapper">
         <GalleryMap
           locations={locations}
-          settings={settings}
+          center={centerMap}
           togglePin={togglePin}
         />
         <GalleryListing
@@ -25,27 +24,13 @@ function Galleries({ locations, settings, title, togglePin, updateFilter }) {
 
 Galleries.propTypes = {
   locations: PropTypes.array.isRequired,
-  settings: PropTypes.object.isRequired,
-  title: PropTypes.string.isRequired,
+  centerMap: PropTypes.object.isRequired,
+  title: PropTypes.string,
   togglePin: PropTypes.func.isRequired,
   updateFilter: PropTypes.func.isRequired,
 }
 Galleries.defaultProps = {
   locations: [],
-  settings: {
-    defaultCenter: {
-      lat: 39.30902,
-      lng: -76.62016,
-    },
-    zoom: 15,
-    options: {
-      scrollwheel: false,
-      mapTypeControl: false,
-      streetViewControl: false,
-      zoomControl: true,
-      styles: mapStyleOptions,
-    },
-  },
   title: 'Participating Galleries',
 }
 

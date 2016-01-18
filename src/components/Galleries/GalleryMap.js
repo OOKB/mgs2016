@@ -1,52 +1,51 @@
 import React, { PropTypes } from 'react'
 import GoogleMap from 'google-map-react'
 import GalleryLocation from './GalleryLocation'
-import _ from 'lodash'
+import mapStyleOptions from './MapStyles'
 
-function GalleryMap({ locations, settings, togglePin }) {
-  const activePin = _.find(locations, { 'active': true })
-  let centerMap = settings.defaultCenter
-  if (activePin) {
-    centerMap = {
-      lat: activePin.lat,
-      lng: activePin.lng,
-    }
-  }
+function GalleryMap({ locations, togglePin, ...settings }) {
   return (
     <div
       className="google-map-container pull-left"
       id="gallery-map-locations"
     >
-      <GoogleMap
-        {...settings}
-        center={centerMap}
-      >
-        {locations.map((location, index) => {
-          // Quick hack to parse bad data
-          const lat = typeof(location.geoData) === 'undefined' ?
-            40 : location.geoData.location.lat
-          const lng = typeof(location.geoData) === 'undefined' ?
-            90 : location.geoData.location.lng
-          return (
+      <GoogleMap {...settings} >
+        {
+          locations.map(location => (
             <GalleryLocation
-              key={index}
-              lat={lat}
-              lng={lng}
+              key={location.id}
+              lat={location.geoData.location.lat}
+              lng={location.geoData.location.lng}
               togglePin={togglePin}
               {...location}
             />
-          )
-        })}
+          ))
+        }
       </GoogleMap>
     </div>
   )
 }
 
 GalleryMap.propTypes = {
+  center: PropTypes.object,
+  defaultCenter: PropTypes.object.isRequired,
   locations: PropTypes.array.isRequired,
-  settings: PropTypes.object.isRequired,
+  options: PropTypes.object.isRequired,
   togglePin: PropTypes.func.isRequired,
+  zoom: PropTypes.number.isRequired,
 }
 GalleryMap.defaultProps = {
+  defaultCenter: {
+    lat: 39.30902,
+    lng: -76.62016,
+  },
+  options: {
+    scrollwheel: false,
+    mapTypeControl: false,
+    streetViewControl: false,
+    zoomControl: true,
+    styles: mapStyleOptions,
+  },
+  zoom: 15,
 }
 export default GalleryMap

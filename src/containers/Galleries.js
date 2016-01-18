@@ -15,6 +15,7 @@ function mapStateToProps(state) {
     filters,
     map,
   } = state
+  let centerMap = undefined
   // Show active showGroup locations or curatorial locations.
   const showGroupId = get(filters, [ 'galleries', 'showGroup', 'option' ], false)
   const showGroupInfo = showGroupId ? showGroup[showGroupId] : find(showGroup, 'active')
@@ -25,16 +26,17 @@ function mapStateToProps(state) {
     forEach(show[showId].showLocation, showLocId => {
       // Array of location ids.
       forEach(showLocation[showLocId].location, locId => {
-        locations.push({
-          ...location[locId],
-          active: map.activePin === locId,
-        })
+        const active = map.activePin === locId
+        const loc = location[locId]
+        if (active) centerMap = loc.geoData.location
+        locations.push({ ...loc, active })
       })
     })
   })
   // console.log('locs', locations)
   return {
     locations,
+    centerMap,
   }
 }
 
