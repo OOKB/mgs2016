@@ -12,7 +12,7 @@ function SlideThumb({ classNames, src, title, handleClick, unprotectedHtml }) {
           />
         :
           <img
-            src={src + '?w=400'}
+            src={src + '?w=900'}
             title={title}
             alt={title}
             onClick={handleClick}
