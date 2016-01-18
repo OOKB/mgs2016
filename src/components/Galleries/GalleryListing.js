@@ -8,7 +8,7 @@ function Galleries({ locations, togglePin, updateFilter }) {
       id="gallerylisting"
       className="pull-right"
     >
-      <GalleriesFilters update={updateFilter} groupId="showGroup" />
+      <GalleriesFilters update={updateFilter} groupId="galleries" />
       <ul>
         {
           locations.map((location) =>

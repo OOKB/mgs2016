@@ -1,7 +1,9 @@
 import { connect } from 'react-redux'
+import clone from 'lodash/lang/clone'
 import filter from 'lodash/collection/filter'
 import groupBy from 'lodash/collection/groupBy'
 import map from 'lodash/collection/map'
+import sortBy from 'lodash/collection/sortBy'
 
 import Component from '../components/Schedule/Schedule'
 
@@ -15,10 +17,10 @@ function mapStateToProps(state) {
   } = state
   let shows = map(show, (item) => {
     const showLocations = item.showLocation && item.showLocation.map(showLoc => {
-      const value = showLocation[showLoc]
+      const value = { ...showLocation[showLoc] }
       // This was causing problems if the value had already been swapped out
       if (!value.location.id) {
-        value.location = location[value.location[0]]
+        value.location = clone(location[value.location[0]])
       }
       return value
     })
@@ -43,6 +45,8 @@ function mapStateToProps(state) {
       end: items[0].receptionEnd,
     },
   }))
+  // sort.
+  shows = sortBy(shows, 'dateRangeId')
   // Hack to get the first thing to be "active".
   shows[0].active = true
   return {
