@@ -8,7 +8,7 @@ function GalleriesFilters({ filters, update, groupId }) {
       {
         map(filters, (filter, index) => (
           <li key={index}>
-            <button onClick={partial(update, groupId, 'showCuratorial', 'option', filter.value)}>
+            <button onClick={partial(update, groupId, 'showGroup', 'option', filter.value)}>
               {filter.label}
             </button>
           </li>
@@ -24,7 +24,7 @@ GalleriesFilters.propTypes = {
 GalleriesFilters.defaultProps = {
   filters: [
     { label: 'Galleries', value: false },
-    { label: 'Curatorial Practice Venues', value: true },
+    { label: 'Curatorial Practice Venues', value: 'recVAvBdZWX79KCZo' },
   ],
 }
 
