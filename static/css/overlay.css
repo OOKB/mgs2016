@@ -190,24 +190,6 @@ li.location{
     line-height: 1;
 }
 
-li.website{
-    line-height: 1;
-}
-
-li.website a{
-    text-decoration: none;
-    color: #f37743;
-    font-size: 14px;
-}
-
-li.website a:hover{
-    text-decoration: underline;
-}
-
-li.email{
-    line-height: 1;
-}
-
 li.email button{
     border: none;
     background: none;
@@ -216,35 +198,18 @@ li.email button{
     color: #f37743;
 }
 
-li.email button:hover{
-    text-decoration: underline;
-}
-
-li.instagram{
-    line-height: 1;
-}
-
-li.instagram a{
+li.website a, li.instagram a, li.twitter a{
     text-decoration: none;
     color: #f37743;
     font-size: 14px;
 }
 
-li.instagram a:hover{
-    text-decoration: underline;
-}
-
-li.twitter{
+li.website, li.email, li.instagram, li.twitter{
     line-height: 1;
 }
 
-li.twitter a{
-    text-decoration: none;
-    color: #f37743;
-    font-size: 14px;
-}
 
-li.twitter a:hover{
+li.website a:hover, li.email button:hover, li.instagram a:hover, li.twitter a:hover{
     text-decoration: underline;
 }
 
