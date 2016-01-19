@@ -14,7 +14,7 @@ class Main extends Component {
     const hash = this.props.location.hash
     if (hash) {
       const scrollOptions = {
-        offset: 128,
+        offset: 0,
         speed: 0,
         updateURL: false,
       }
