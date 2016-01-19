@@ -1,23 +1,19 @@
 import React, { PropTypes } from 'react'
 import classnames from 'classnames'
 
-function SlideThumb({ classNames, src, title, handleClick, unprotectedHtml }) {
+import Video from './Video'
+
+function SlideThumb({ classNames, src, title, handleClick, videoInfo }) {
   return (
-    <li
-      className={classnames(classNames)}
-    >
-      { unprotectedHtml ?
-          <div
-            dangerouslySetInnerHTML={{ __html: unprotectedHtml }}
-          />
-        :
-          <img
-            src={src + '?w=1200'}
-            title={title}
-            alt={title}
-            onClick={handleClick}
-          />
-      }
+    <li className={classnames(classNames)}>
+      { videoInfo && videoInfo.videoId ? <Video {...videoInfo} /> : (
+        <img
+          src={src + '?w=1200'}
+          title={title}
+          alt={title}
+          onClick={handleClick}
+        />
+      )}
     </li>
   )
 }
@@ -27,7 +23,7 @@ SlideThumb.propTypes = {
   title: PropTypes.string,
   classNames: PropTypes.object,
   handleClick: PropTypes.func,
-  unprotectedHtml: PropTypes.string,
+  videoInfo: PropTypes.object,
 }
 
 export default SlideThumb

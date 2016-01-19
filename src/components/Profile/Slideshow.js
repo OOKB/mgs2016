@@ -99,7 +99,7 @@ class Slideshow extends Component {
   generateSlide(slideItem, slideIndex, lastPosition, handleClick) {
     const { work } = slideItem
     const { currentPosition } = this.state
-    let unprotectedHtml
+    const videoInfo = {}
     let imgSrc
     // work is sometimes undefined. check for info in work.url and set the
     // image source.
@@ -111,7 +111,8 @@ class Slideshow extends Component {
     // If it's an embeddable thing with html and the active slide
     if (work && work.data && currentPosition === slideIndex) {
       if (work.data.html) {
-        unprotectedHtml = work.data.html
+        videoInfo.provider = work.provider.name
+        videoInfo.videoId = work.url.pathname
       }
     } else if (work && work.data && currentPosition !== slideIndex) {
       if (work.data.html) {
@@ -124,7 +125,7 @@ class Slideshow extends Component {
         src={imgSrc}
         title={slideItem.title}
         currentPosition={currentPosition}
-        unprotectedHtml={unprotectedHtml}
+        videoInfo={videoInfo}
         handleClick={handleClick}
         classNames={{
           first: slideIndex === 0,
