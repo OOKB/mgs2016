@@ -1,15 +1,5 @@
 import React, { Component, PropTypes } from 'react'
-// import { Link } from 'react-router'
 
-// query={{ ['students.programId']: value }}
-//                 hash="students"
-// <Link
-//   activeClassName="active"
-//   to="/"
-//   query={{ ['students.programId']: value }}
-// >
-//   { label }
-// </Link>
 class Filters extends Component {
   render() {
     const { options, onClick } = this.props

@@ -1,12 +1,16 @@
 import React, { PropTypes } from 'react'
 import ScheduleItem from './ScheduleItem'
-import ScheduleFilters from './ScheduleFilters'
+import Filters from '../Filters/FilterOptionsBasic'
 
-function Schedule({ showGroups, togglePin, updateFilter }) {
+function Schedule({ showGroups, groupTypes, activateMapPin, activateShowGroup, activateShowType }) {
   return (
     <article id="schedule">
       <div className="container">
-        <ScheduleFilters update={updateFilter} />
+        <Filters
+          className="list-reset inline schedule-filters"
+          update={activateShowType}
+          filters={groupTypes}
+        />
       </div>
       { showGroups &&
         <div className="dates">
@@ -14,7 +18,8 @@ function Schedule({ showGroups, togglePin, updateFilter }) {
             showGroups.map(dateInfo => (
               <ScheduleItem
                 key={dateInfo.id}
-                togglePin={togglePin}
+                titleClick={activateShowGroup}
+                locationClick={activateMapPin}
                 {...dateInfo}
               />
             ))
@@ -26,9 +31,11 @@ function Schedule({ showGroups, togglePin, updateFilter }) {
 }
 
 Schedule.propTypes = {
+  activateMapPin: PropTypes.func.isRequired,
+  activateShowType: PropTypes.func.isRequired,
+  activateShowGroup: PropTypes.func.isRequired,
   showGroups: PropTypes.array.isRequired,
-  togglePin: PropTypes.func.isRequired,
-  updateFilter: PropTypes.func.isRequired,
+  groupTypes: PropTypes.array.isRequired,
 }
 Schedule.defaultProps = {
 }

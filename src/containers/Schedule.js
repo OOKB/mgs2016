@@ -2,7 +2,6 @@ import { connect } from 'react-redux'
 import filter from 'lodash/collection/filter'
 import get from 'lodash/object/get'
 import map from 'lodash/collection/map'
-import partial from 'lodash/function/partial'
 import pick from 'lodash/object/pick'
 import sortBy from 'lodash/collection/sortBy'
 import moment from 'moment'
@@ -36,7 +35,7 @@ function mapStateToProps(state) {
       locations: showLoc.map(showLocId => getShowLoc(showLocId)),
     }
   }
-  const groupType = get(filters, [ 'schedule', 'showGroup', 'option' ], 'On Campus Exhibition')
+  const groupType = get(filters, [ 'schedule', 'showGroup', 'groupType' ], 'On Campus Exhibition')
   // Get all showGroups with groupType.
   let showGroups = filter(showGroup, { groupType })
   showGroups = map(showGroups, (itemInfo) => {
@@ -57,8 +56,21 @@ function mapStateToProps(state) {
   })
   // sort.
   showGroups = sortBy(showGroups, 'dateRangeId')
-  console.log(showGroups)
+  // GroupTypes
+  function makeFilter(label, value) {
+    return {
+      active: value === groupType,
+      label,
+      value,
+    }
+  }
+  const groupTypes = [
+    makeFilter('Exhibitions', 'On Campus Exhibition'),
+    makeFilter('Single Day Events', 'Single Day'),
+    makeFilter('Curatorial Practice Programs', 'City Wide'),
+  ]
   return {
+    groupTypes,
     showGroups,
   }
 }
@@ -71,17 +83,30 @@ const mapDispatchToProps = {
 }
 function mergeProps(stateProps, { updateFilter, togglePin }, ownProps) {
   // Activate pin, scroll to map, center map on actived pin.
-  function handleLocationClick(value) {
-    const scrollOptions = {
-      offset: 128, // Compensate for Header
-      updateURL: false,
+  function activateMapPin(id) {
+    return function handleLocationClick() {
+      const scrollOptions = {
+        offset: 128, // Compensate for Header
+        updateURL: false,
+      }
+      togglePin(id)
+      smoothScroll.animateScroll(null, '#gallery-map-locations', scrollOptions)
     }
-    togglePin(value)
-    smoothScroll.animateScroll(null, '#gallery-map-locations', scrollOptions)
+  }
+  function activateShowGroup(id) {
+    return function handleDateClick() {
+      updateFilter('schedule', 'showGroup', 'active', id)
+    }
+  }
+  function activateShowType(id) {
+    return function handleDateClick() {
+      updateFilter('schedule', 'showGroup', 'groupType', id)
+    }
   }
   const props = {
-    togglePin: handleLocationClick,
-    updateFilter: partial(updateFilter, 'schedule', 'showGroup', 'option'),
+    activateMapPin,
+    activateShowType,
+    activateShowGroup,
   }
   return Object.assign(props, ownProps, stateProps)
 }

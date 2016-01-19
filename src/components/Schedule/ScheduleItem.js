@@ -1,11 +1,7 @@
 import React, { PropTypes } from 'react'
 import classnames from 'classnames'
 
-function ScheduleItem({ active, dateStr, images, show, togglePin, reception }) {
-  // Provide galleryLocation map function a named click handler with id.
-  function getLocationClickHandler(id) {
-    return function handleClick() { togglePin(id) }
-  }
+function ScheduleItem({ active, dateStr, id, images, show, reception, ...handler }) {
   return (
     <div
       className={classnames({
@@ -17,7 +13,7 @@ function ScheduleItem({ active, dateStr, images, show, togglePin, reception }) {
         <div className="group">
           <div className="four columns">
             <div className="schedule-text">
-              <h4>{ dateStr }</h4>
+              <h4 onClick={handler.titleClick(id)}>{ dateStr }</h4>
               { show &&
                 <div className="locations">
                   {
@@ -31,7 +27,7 @@ function ScheduleItem({ active, dateStr, images, show, togglePin, reception }) {
                                 <span
                                   className="galleryLocation"
                                   key={galleryLocation.id}
-                                  onClick={getLocationClickHandler(galleryLocation.id)}
+                                  onClick={handler.locationClick(galleryLocation.id)}
                                 >
                                   {galleryLocation.name}
                                 </span>
@@ -67,8 +63,9 @@ function ScheduleItem({ active, dateStr, images, show, togglePin, reception }) {
 ScheduleItem.propTypes = {
   active: PropTypes.bool,
   dateStr: PropTypes.string.isRequired,
+  titleClick: PropTypes.func.isRequired,
+  locationClick: PropTypes.func.isRequired,
   show: PropTypes.array,
-  togglePin: PropTypes.func.isRequired,
 }
 ScheduleItem.defaultProps = {
 }
