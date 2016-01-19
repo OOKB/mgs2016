@@ -8,7 +8,7 @@ function Main({ collection, user }) {
   const { statement } = user
   return (
     <div className="student-main">
-      { collection ?
+      { collection && collection.length ?
           <Slideshow
             user={user}
             collection={collection}
