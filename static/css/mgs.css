@@ -523,3 +523,11 @@ div.signup a{
 div.signup a:hover{
     text-decoration: underline;
 }
+
+div.three.columns.footer-contact ul{
+    color: white;
+    text-decoration: none;
+    font-size: 14px;
+    list-style: none;
+    margin-top: 1.2em;
+}
