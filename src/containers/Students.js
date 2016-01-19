@@ -7,7 +7,9 @@ import map from 'lodash/collection/map'
 
 import { loadProfiles } from '../redux/actions'
 import {
-  toggle as toggleFilterAction, update as updateFilterAction } from '../redux/modules/filters'
+  toggle as toggleFilterAction,
+  update as updateFilterAction,
+  updateAndClose as updateAndCloseAction } from '../redux/modules/filters'
 import { update as updateDisplayAction } from '../redux/modules/display'
 import Students from '../components/Students/Students'
 
@@ -19,11 +21,11 @@ class StudentsSection extends Component {
     this.props.loadProfiles()
   }
   render() {
-    const { toggleFilter, filterTypes, updateFilter, ...rest } = this.props
+    const { toggleFilter, filterTypes, updateFilter, updateAndClose, ...rest } = this.props
     const filterInfo = {
       toggle: toggleFilter,
       types: filterTypes,
-      update: updateFilter,
+      update: updateAndClose,
     }
     return <Students {...rest} filterInfo={filterInfo} />
   }
@@ -34,6 +36,7 @@ StudentsSection.propTypes = {
   loadProfiles: PropTypes.func.isRequired,
   profiles: PropTypes.array,
   students: PropTypes.array,
+  updateAndClose: PropTypes.func.isRequired,
   updateDisplay: PropTypes.func.isRequired,
   updateFilter: PropTypes.func.isRequired,
 }
@@ -111,6 +114,7 @@ const mapDispatchToProps = {
   loadProfiles,
   updateDisplay: updateDisplayAction,
   updateFilter: updateFilterAction,
+  updateAndClose: updateAndCloseAction,
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(StudentsSection)

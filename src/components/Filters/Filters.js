@@ -15,7 +15,7 @@ class Filters extends Component {
               toggle(groupId, value)
             }
             function handleCategoryClick(optId) {
-              return update(groupId, value, 'option', optId)
+              return update(groupId, value, optId)
             }
             return (
               <li key={value} className={value}>

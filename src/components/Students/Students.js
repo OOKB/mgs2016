@@ -6,7 +6,7 @@ import Filters from '../Filters/Filters'
 
 class Students extends Component {
   render() {
-    const { filterInfo, programInfo, students, updateDisplay } = this.props
+    const { filterInfo, programInfo, students } = this.props
 
     return (
       <article id="students">
