@@ -6,7 +6,7 @@ import Video from './Video'
 function SlideThumb({ classNames, src, title, handleClick, videoInfo }) {
   return (
     <li className={classnames(classNames)}>
-      { videoInfo && videoInfo.videoId ? <Video {...videoInfo} /> : (
+      { videoInfo && videoInfo.url ? <Video {...videoInfo} /> : (
         <img
           src={src + '?w=1200'}
           title={title}
