@@ -1,15 +1,9 @@
 import React, { Component, PropTypes } from 'react'
 import { connect } from 'react-redux'
 
-// import each from 'lodash/collection/each'
-import every from 'lodash/collection/every'
-import filter from 'lodash/collection/filter'
 import get from 'lodash/object/get'
 import isEmpty from 'lodash/lang/isEmpty'
-// import map from 'lodash/collection/map'
-import mapValues from 'lodash/object/mapValues'
-import some from 'lodash/collection/some'
-import values from 'lodash/object/values'
+import map from 'lodash/collection/map'
 
 import { loadProfiles } from '../redux/actions'
 import {
@@ -18,6 +12,7 @@ import { update as updateDisplayAction } from '../redux/modules/display'
 import Students from '../components/Students/Students'
 
 import photoDisplay from '../utils/studentPhoto'
+import { itemCount, filterCollection } from '../utils/filter'
 
 class StudentsSection extends Component {
   componentWillMount() {
@@ -48,35 +43,37 @@ StudentsSection.propTypes = {
 function mapStateToProps(state) {
   const {
     entities: { profile, url, program },
-    filters: { students },
+    filters,
   } = state
-  // const { query } = ownProps.location || {}
-  // Get the query parms we care about.
-  const filterValues = students
-  const noFilters = isEmpty(filterValues) || !some(filterValues, 'option')
-  const programIdFilter = get(filterValues, [ 'program', 'option' ])
+  // @see utils/filterItem.js
+  const filterParams = {}
+  const searchStr = get(filters, [ 'profile', 'name.display', 'value' ], false)
+  let programId = get(filters, [ 'students', 'program', 'option' ], false)
+  function setFilterParams(fieldId, compare, value) {
+    filterParams.fieldId = fieldId
+    filterParams.compare = compare
+    filterParams.value = value
+  }
+  // Only do one filter at a time. In order of priority.
+  if (searchStr) {
+    setFilterParams('name.display', 'includes', searchStr)
+    programId = false
+  } else if (programId) {
+    setFilterParams('program', 'is', programId)
+  }
+  const programCountIndex = itemCount(profile, 'program')
   // Program filters.
-  const programFilterOpts = mapValues(program, ({ id, name }) => ({
+  const programFilterOpts = map(program, ({ id, name }) => ({
     // Figure out if the filter option is enabled.
-    active: filterValues.program && filterValues.program.option === id,
+    active: programId === id,
     label: name,
-    itemCount: 0,
+    itemCount: programCountIndex[id] || 0,
     value: id,
   }))
   // Filter profiles.
-  const profiles = filter(profile, (item) => {
-    // Increment program counter.
-    programFilterOpts[item.program].itemCount++
-    if (!url[item.photo]) return false
-    if (noFilters) return true
-    return every(filterValues, (info, key) => (
-      !info || item[key] && item[key] === info.option
-    ))
-  })
+  let profiles = isEmpty(filterParams) ? profile : filterCollection(profile, filterParams)
   // Merge graph nodes and stuff.
-  .map(({ photo, id, ...rest }) => {
-    // Does this profile have an active hover? Converting `undefined` to `false` with double bang.
-    // const active = !!get(display, [ 'profile', id, 'hover' ])
+  profiles = map(profiles, ({ photo, id, ...rest }) => {
     // Add useful student info to profiles array.
     return {
       ...rest,
@@ -95,7 +92,7 @@ function mapStateToProps(state) {
     {
       value: 'program',
       label: 'Programs',
-      options: values(programFilterOpts),
+      options: programFilterOpts,
       active: get(state.filters, [ 'students', 'program', 'active' ]),
     },
   ]
@@ -103,7 +100,7 @@ function mapStateToProps(state) {
   return {
     filterTypes,
     students: profiles,
-    programInfo: programIdFilter && program[programIdFilter],
+    programInfo: programId && program[programId],
   }
 }
 
