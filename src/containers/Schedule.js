@@ -35,11 +35,14 @@ function mapStateToProps(state) {
       locations: showLoc.map(showLocId => getShowLoc(showLocId)),
     }
   }
+  // Filters we need.
   const groupType = get(filters, [ 'schedule', 'showGroup', 'groupType' ], 'On Campus Exhibition')
+  const activeGroupId = get(filters, [ 'schedule', 'showGroup', 'active' ], false)
+
   // Get all showGroups with groupType.
   let showGroups = filter(showGroup, { groupType })
   showGroups = map(showGroups, (itemInfo) => {
-    const { active, receptionStart, receptionEnd, startDate, endDate, ...item } = itemInfo
+    const { active, id, receptionStart, receptionEnd, startDate, endDate, ...item } = itemInfo
     const startStr = moment(startDate).format('MMMM Do')
     const endStr = moment(endDate).format('MMMM Do')
     const recStartStr = moment(receptionStart).utcOffset('-0400').format('dddd, MMMM D, h')
@@ -48,8 +51,9 @@ function mapStateToProps(state) {
     return {
       ...item,
       dateStr: `${startStr}–${endStr}`,
-      active,
+      active: activeGroupId ? activeGroupId === id : active,
       dateRangeId: startDate + '-' + endDate,
+      id,
       reception: `Reception: ${recStartStr}–${recEndStr}`,
       show: item.show.map(showId => getShow(showId)),
     }
