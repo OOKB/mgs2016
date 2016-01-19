@@ -3,7 +3,7 @@ import React, { PropTypes } from 'react'
 function Blurb({ label, value, blurb, infoLinkMsg, infoLinkSrc }) {
   return (
     <div className={`program-info clearfix mb2 ${value}`}>
-      <div className="six columns offset-by-three text-center">
+      <div className="six columns">
         <h3>{ label }</h3>
         { blurb && <p>{ blurb }</p> }
         { infoLinkMsg && infoLinkSrc && <p><a href={ infoLinkSrc }>{ infoLinkMsg }</a></p> }
