@@ -416,14 +416,16 @@ button.filter{
 }
 
 .schedule-filters button:hover,
+.schedule-filters li.active button,
 .galleries-filters button:hover,
+.galleries-filters li.active button,
 button.filter:hover{
   color: #f37743;
 }
 
 .schedule-filters button:active,
 .galleries-filters button:active,
-button.filter:active {
+button.active {
   color: rgba(255,128,169,1);
 }
 
