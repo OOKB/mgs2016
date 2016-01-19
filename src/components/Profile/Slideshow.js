@@ -112,7 +112,7 @@ class Slideshow extends Component {
     if (work && work.data && currentPosition === slideIndex) {
       if (work.data.html) {
         videoInfo.provider = work.provider.name
-        videoInfo.videoId = work.url.pathname
+        videoInfo.url = work.url
       }
     } else if (work && work.data && currentPosition !== slideIndex) {
       if (work.data.html) {

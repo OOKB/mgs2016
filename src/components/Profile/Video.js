@@ -1,22 +1,22 @@
 import React, { PropTypes } from 'react'
 
-function getSrc(provider, videoId) {
+function getSrc(provider, url) {
   let src = ''
   switch (provider) {
     case 'Vimeo':
-      src = 'https://player.vimeo.com/video'
+      src = 'https://player.vimeo.com/video' + url.pathname
       break
-    case 'Youtube':
-      src = 'https://www.youtube.com/embed'
+    case 'YouTube':
+      src = 'https://www.youtube.com/embed/' + url.query.v
       break
     default:
       break
   }
-  return src + videoId
+  return src
 }
 
-function Video({ provider, videoId, ...rest }) {
-  const src = getSrc(provider, videoId)
+function Video({ provider, url, ...rest }) {
+  const src = getSrc(provider, url)
   return (
     <iframe
       {...rest}
@@ -27,7 +27,7 @@ function Video({ provider, videoId, ...rest }) {
 
 Video.propTypes = {
   provider: PropTypes.string.isRequired,
-  videoId: PropTypes.string.isRequired,
+  url: PropTypes.object.isRequired,
 }
 Video.defaultProps = {
   frameBorder: '0',
