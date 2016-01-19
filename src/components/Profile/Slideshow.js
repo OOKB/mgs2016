@@ -61,6 +61,12 @@ class Slideshow extends Component {
       previousSlides.shift()
       nextSlides.pop()
     }
+    if (collectionSize === 0) {
+      previousSlides.shift()
+      previousSlides.shift()
+      nextSlides.pop()
+      nextSlides.pop()
+    }
     return {
       previousSlides,
       nextSlides,
