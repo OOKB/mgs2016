@@ -1,10 +1,6 @@
 import React, { PropTypes } from 'react'
 
 function GalleryLocation({ togglePin, active, building, id, name, street, zip }) {
-  // onClick, we need to set the active pin to show on the map
-  function handleClick() {
-    togglePin(id)
-  }
   return (
     <div className="mapPin">
       <svg
@@ -12,7 +8,7 @@ function GalleryLocation({ togglePin, active, building, id, name, street, zip })
         width="24"
         height="24"
         viewBox="0 0 24 24"
-        onClick={handleClick}
+        onClick={togglePin(id)}
         style={{
           cursor: 'pointer',
         }}

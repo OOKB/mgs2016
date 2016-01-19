@@ -2,14 +2,11 @@ import React, { PropTypes } from 'react'
 import classnames from 'classnames'
 
 function ListingItem({ active, building, name, street, zip, id, togglePin }) {
-  function handleClick() {
-    togglePin(id)
-  }
   const address = street ? `${street}, ${zip}` : zip
   return (
     <li
       className={classnames({ active })}
-      onClick={handleClick}
+      onClick={togglePin(id)}
     >
       <h4 className="gallery">{ name }</h4>
       <div className="building">{ building }</div>

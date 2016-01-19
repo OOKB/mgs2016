@@ -1,14 +1,19 @@
 import React, { PropTypes } from 'react'
 
 import ListingItem from './ListingItem'
-import GalleriesFilters from './GalleriesFilters'
-function Galleries({ locations, togglePin, updateFilter }) {
+import Filters from '../Filters/FilterOptionsBasic'
+
+function Galleries({ groupTypes, locations, togglePin, updateFilter }) {
   return (
     <aside
       id="gallerylisting"
       className="pull-right"
     >
-      <GalleriesFilters update={updateFilter} groupId="galleries" />
+      <Filters
+        className="list-reset inline galleries-filters"
+        filters={groupTypes}
+        update={updateFilter}
+      />
       <ul>
         {
           locations.map((location) =>

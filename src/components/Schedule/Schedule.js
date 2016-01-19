@@ -8,8 +8,8 @@ function Schedule({ showGroups, groupTypes, activateMapPin, activateShowGroup, a
       <div className="container">
         <Filters
           className="list-reset inline schedule-filters"
-          update={activateShowType}
           filters={groupTypes}
+          update={activateShowType}
         />
       </div>
       { showGroups &&
