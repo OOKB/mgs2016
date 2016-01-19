@@ -24,7 +24,7 @@ function Galleries({ locations, centerMap, togglePin, updateFilter }) {
 
 Galleries.propTypes = {
   locations: PropTypes.array.isRequired,
-  centerMap: PropTypes.object.isRequired,
+  centerMap: PropTypes.object,
   title: PropTypes.string,
   togglePin: PropTypes.func.isRequired,
   updateFilter: PropTypes.func.isRequired,

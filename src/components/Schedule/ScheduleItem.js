@@ -1,24 +1,10 @@
 import React, { PropTypes } from 'react'
 import classnames from 'classnames'
-import moment from 'moment'
-import _ from 'lodash'
-import smoothScroll from 'smooth-scroll'
 
-function ScheduleItem({ active, dateStr, images, locations, togglePin }) {
-  function handleClick(value) {
-    const scrollOptions = {
-      offset: 128, // Compensate for Header
-      updateURL: false,
-    }
-    togglePin(value)
-    smoothScroll.animateScroll(null, '#gallery-map-locations', scrollOptions)
-  }
-  let openingReception
-  if (active) {
-    const receptionStart = moment(locations[0].receptionStart)
-      .utcOffset('-0400').format('dddd, MMMM D, h')
-    const receptionEnd = moment(locations[0].receptionEnd).utcOffset('-0400').format('hA')
-    openingReception = `Reception: ${receptionStart}–${receptionEnd}`
+function ScheduleItem({ active, dateStr, images, show, togglePin, reception }) {
+  // Provide galleryLocation map function a named click handler with id.
+  function getLocationClickHandler(id) {
+    return function handleClick() { togglePin(id) }
   }
   return (
     <div
@@ -32,45 +18,36 @@ function ScheduleItem({ active, dateStr, images, locations, togglePin }) {
           <div className="four columns">
             <div className="schedule-text">
               <h4>{ dateStr }</h4>
-              { locations &&
+              { show &&
                 <div className="locations">
                   {
-                    locations.map((location, index) => {
-                      let galleryLocations
-                      // If gallery locations are available and section is active
-                      // then generate a list
-                      if (location.showLocation && active) {
-                        galleryLocations = _.uniq(location.showLocation.map((gallery) => {
-                          return gallery
-                        }))
-                      }
-                      return (
-                        <span key={index}>
-                          <p>{location.name}</p>
-                          <p>{ galleryLocations &&
-                                galleryLocations.map((galleryLocation, idx) => {
-                                  return (
-                                    <span
-                                      className="galleryLocation"
-                                      key={idx}
-                                      onClick={() => handleClick(galleryLocation.location.value)}
-                                    >
-                                      {galleryLocation.location.name}
-                                    </span>
-                                  )
-                                })
-                              }
+                    show.map(({ id, locations, program }) => (
+                      <span key={id}>
+                        { program && <p>{program.name}</p> }
+                        { locations && active &&
+                          <p>
+                            {
+                              locations.map(galleryLocation => (
+                                <span
+                                  className="galleryLocation"
+                                  key={galleryLocation.id}
+                                  onClick={getLocationClickHandler(galleryLocation.id)}
+                                >
+                                  {galleryLocation.name}
+                                </span>
+                              ))
+                            }
                           </p>
-                        </span>
-                      )
-                    })
+                        }
+                      </span>
+                    ))
                   }
                 </div>
               }
             </div>
-            { openingReception &&
+            { reception && active &&
               <div className="reception">
-                <p>{openingReception}</p>
+                <p>{reception}</p>
               </div>
             }
           </div>
@@ -90,7 +67,7 @@ function ScheduleItem({ active, dateStr, images, locations, togglePin }) {
 ScheduleItem.propTypes = {
   active: PropTypes.bool,
   dateStr: PropTypes.string.isRequired,
-  locations: PropTypes.array,
+  show: PropTypes.array,
   togglePin: PropTypes.func.isRequired,
 }
 ScheduleItem.defaultProps = {
