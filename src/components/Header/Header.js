@@ -12,7 +12,7 @@ class Header extends Component {
 
     // <Nav data={data} programs={programs} />
     return (
-      <header className="">
+      <header>
         <div className="container clearfix">
           <h1 className="pull-left">{title}</h1>
           <Nav {...rest} />

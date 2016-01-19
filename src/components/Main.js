@@ -7,9 +7,21 @@ import Schedule from '../containers/Schedule'
 import Galleries from '../containers/Galleries'
 import Students from '../containers/Students'
 import Footer from './Footer/Footer'
+import smoothScroll from 'smooth-scroll'
 
 class Main extends Component {
-
+  componentDidMount() {
+    const hash = this.props.location.hash
+    if (hash) {
+      const scrollOptions = {
+        offset: 128,
+        speed: 0,
+        updateURL: false,
+      }
+      console.log('smoothScroll')
+      smoothScroll.animateScroll(null, this.props.location.hash, scrollOptions)
+    }
+  }
   render() {
     const { title, location } = this.props
     return (

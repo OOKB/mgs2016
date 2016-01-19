@@ -2,8 +2,10 @@ import { connect } from 'react-redux'
 import partial from 'lodash/function/partial'
 import compact from 'lodash/array/compact'
 import clone from 'lodash/lang/clone'
+import { replacePath as replacePathAction } from 'redux-simple-router'
+
 import Component from '../components/Profile/Profile'
-import { loadProfile } from '../redux/actions'
+import { loadProfile as loadProfileAction } from '../redux/actions'
 
 function mapStateToProps(state, ownProps) {
   const {
@@ -38,11 +40,17 @@ function mapStateToProps(state, ownProps) {
 }
 
 const mapDispatchToProps = {
-  loadProfile,
+  loadProfile: loadProfileAction,
+  replacePath: replacePathAction,
 }
-function mergeProps({ id, ...stateProps }, dispatchProps, ownProps) {
+
+function mergeProps({ id, ...stateProps }, { loadProfile, replacePath }, ownProps) {
+  function closePopup() {
+    replacePath('/#students')
+  }
   const props = {
-    loadProfile: partial(dispatchProps.loadProfile, id),
+    closePopup,
+    loadProfile: partial(loadProfile, id),
   }
   return Object.assign(props, ownProps, stateProps)
 }

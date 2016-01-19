@@ -89,11 +89,11 @@ function mergeProps(stateProps, { updateFilter, togglePin }, ownProps) {
   // Activate pin, scroll to map, center map on actived pin.
   function activateMapPin(id) {
     return function handleLocationClick() {
+      togglePin(id)
       const scrollOptions = {
         offset: 128, // Compensate for Header
         updateURL: false,
       }
-      togglePin(id)
       smoothScroll.animateScroll(null, '#gallery-map-locations', scrollOptions)
     }
   }
