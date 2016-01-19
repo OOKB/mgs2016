@@ -183,6 +183,26 @@ header h1 {
   margin: .1rem 0;
 }
 
+ul.nav{
+    list-style: none;
+    text-transform: uppercase;
+}
+
+ul.nav li{
+    display: inline;
+    margin-right: 1em;
+}
+
+ul.nav li a{
+    text-decoration: none;
+    color: black;
+    font-size: 14px;
+}
+ul.nav li a:hover{
+    padding-bottom: .35em;
+    border-bottom: 2px solid #f37743;
+}
+
 /***** Landing Logo *****/
 .landing-logo {
   height: 100vh;
