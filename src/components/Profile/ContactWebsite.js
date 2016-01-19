@@ -3,7 +3,7 @@ import React, { PropTypes } from 'react'
 function ContactWebsite({ preview, url }) {
   return (
     <li key="website" className="website">
-      <img src={preview.image.url} />
+      { preview && preview.image && <img src={preview.image.url} /> }
       <a href={url.href}>
         {url.href}
       </a>

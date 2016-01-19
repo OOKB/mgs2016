@@ -1,6 +1,6 @@
 import React, { Component, PropTypes } from 'react'
 import { connect } from 'react-redux'
-
+import smoothScroll from 'smooth-scroll'
 import get from 'lodash/object/get'
 import isEmpty from 'lodash/lang/isEmpty'
 import map from 'lodash/collection/map'
@@ -20,8 +20,18 @@ class StudentsSection extends Component {
   componentWillMount() {
     this.props.loadProfiles()
   }
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.searchStr && !this.props.searchStr) {
+      const scrollOptions = {
+        offset: 0,
+        speed: 500,
+        updateURL: false,
+      }
+      smoothScroll.animateScroll(null, '#students', scrollOptions)
+    }
+  }
   render() {
-    const { toggleFilter, filterTypes, updateFilter, updateAndClose, ...rest } = this.props
+    const { toggleFilter, filterTypes, updateAndClose, ...rest } = this.props
     const filterInfo = {
       toggle: toggleFilter,
       types: filterTypes,
@@ -35,6 +45,7 @@ StudentsSection.propTypes = {
   toggleFilter: PropTypes.func.isRequired,
   loadProfiles: PropTypes.func.isRequired,
   profiles: PropTypes.array,
+  searchStr: PropTypes.string,
   students: PropTypes.array,
   updateAndClose: PropTypes.func.isRequired,
   updateDisplay: PropTypes.func.isRequired,
@@ -103,7 +114,8 @@ function mapStateToProps(state) {
   return {
     filterTypes,
     students: profiles,
-    programInfo: programId && program[programId],
+    programInfo: programId ? program[programId] : undefined,
+    searchStr,
   }
 }
 

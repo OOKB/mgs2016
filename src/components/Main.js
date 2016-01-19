@@ -1,4 +1,5 @@
 import React, { Component, PropTypes } from 'react'
+import smoothScroll from 'smooth-scroll'
 
 import Logo from './Logo'
 import Header from '../containers/Header'
@@ -7,7 +8,6 @@ import Schedule from '../containers/Schedule'
 import Galleries from '../containers/Galleries'
 import Students from '../containers/Students'
 import Footer from './Footer/Footer'
-import smoothScroll from 'smooth-scroll'
 
 class Main extends Component {
   componentDidMount() {
@@ -18,7 +18,6 @@ class Main extends Component {
         speed: 0,
         updateURL: false,
       }
-      console.log('smoothScroll')
       smoothScroll.animateScroll(null, this.props.location.hash, scrollOptions)
     }
   }
