@@ -31,6 +31,7 @@ function mapStateToProps(state) {
     const showLoc = showInfo.showLocation ? showInfo.showLocation : []
     return {
       id: showId,
+      name: showInfo.name,
       program: pick(programInfo, 'id', 'name'),
       locations: showLoc.map(showLocId => getShowLoc(showLocId)),
     }

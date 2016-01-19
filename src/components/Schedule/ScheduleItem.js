@@ -21,9 +21,9 @@ function ScheduleItem({ active, dateStr, images, show, togglePin, reception }) {
               { show &&
                 <div className="locations">
                   {
-                    show.map(({ id, locations, program }) => (
+                    show.map(({ id, locations, name }) => (
                       <span key={id}>
-                        { program && <p>{program.name}</p> }
+                        { name && <p>{name}</p> }
                         { locations && active &&
                           <p>
                             {
