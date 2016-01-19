@@ -186,6 +186,7 @@ header h1 {
 ul.nav{
     list-style: none;
     text-transform: uppercase;
+    padding-top: .6em;
 }
 
 ul.nav li{
@@ -203,6 +204,18 @@ ul.nav li a:hover{
     border-bottom: 2px solid #f37743;
 }
 
+li.student-search{
+    float: right;
+}
+
+div.form-group.search input.form-control{
+    border: none;
+    background: #f4f3f0;
+    text-transform: uppercase;
+    font-size: 12px;
+    margin-top: -.5em;
+    padding: 10px
+}
 /***** Landing Logo *****/
 .landing-logo {
   height: 100vh;
