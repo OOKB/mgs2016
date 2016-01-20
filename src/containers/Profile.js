@@ -22,16 +22,18 @@ function mapStateToProps(state, ownProps) {
     art: art ? art.map(({ work, ...rest }) => ({ ...rest, work: url[work] })) : undefined,
     website: website ? url[website] : undefined,
   }
-  userProfile.program.student = compact(userProfile.program.student.map(student => {
-    const peerId = profileId && profileId[student]
-    const peer = peerId && profile[peerId]
-    if (!peer || peerId === id) return null
-    // console.log('peer', id, peerId, peer)
-    return {
-      name: peer.name,
-      id: peer.id,
-    }
-  }))
+  if (userProfile.program) {
+    userProfile.program.student = compact(userProfile.program.student.map(student => {
+      const peerId = profileId && profileId[student]
+      const peer = peerId && profile[peerId]
+      if (!peer || peerId === id) return null
+      // console.log('peer', id, peerId, peer)
+      return {
+        name: peer.name,
+        id: peer.id,
+      }
+    }))
+  }
   console.log(userProfile)
   return {
     id,
