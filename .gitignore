@@ -5,3 +5,4 @@ dist
 src/redux/modules/email-old.js
 src/utils/filterItems.js
 src/components/Header/NavOld.js
+static/js
