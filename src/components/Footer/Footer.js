@@ -53,7 +53,7 @@ class Footer extends Component {
               </ul>
             </div>
             { builtDesigned &&
-              <div className="twelve columns footer-credits">
+              <div className="twelve columns footer-credits mt2">
                 <Credits builtDesigned={builtDesigned} />
               </div>
             }

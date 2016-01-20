@@ -41,6 +41,7 @@ Nav.defaultProps = {
     { id: 'galleries', href: '#galleries', text: 'Galleries' },
     { id: 'students', href: '#students', text: 'Students' },
     { id: 'updates', href: 'http://micagradstudies.tumblr.com/', text: 'Updates' },
+    { id: 'grad-admission', href: 'https://www.mica.edu/Admission_and_Financial_Aid/Graduate_Admission_and_Financial_Aid.html?utm_source=mica%20grad%20show', text: 'Graduate Admission' },
   ],
 }
 export default Nav
