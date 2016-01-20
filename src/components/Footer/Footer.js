@@ -92,5 +92,9 @@ Footer.defaultProps = {
     { title: 'OOKB', src: 'https://www.ookb.co'},
     { title: 'CAPE.io', src: 'https://www.cape.io'},
   ],
+  author: 'Office of Graduate Studies',
+  street: '131 West North Avenue',
+  address: 'Baltimore, MD 21201',
+  phone: '(410) 225-5274',
 }
 export default Footer

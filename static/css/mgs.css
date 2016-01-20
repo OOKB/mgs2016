@@ -320,11 +320,13 @@ div.form-group.search input.form-control{
   padding-bottom: 1.5rem;
   margin-bottom: 1rem;
 }
+
 .schedule-text h4 {
   font-size: 1em;
   letter-spacing: .5px;
   margin: 0;
   text-transform: uppercase;
+  cursor: pointer;
 }
 
 .schedule-text .locations p,
@@ -342,16 +344,15 @@ div.form-group.search input.form-control{
   margin-top: .75rem;
 }
 
-.schedule-event .reception p{
-    margin-bottom: 0;
-    margin-top: 1em;
+.schedule-event .reception p {
+  margin-bottom: 0;
+  margin-top: 1em;
 }
 
 .galleryLocation {
   cursor: pointer;
   display: inline-block;
   margin-right: .5em;
-  margin-top: .5em;
 }
 
 .galleryLocation::after {
