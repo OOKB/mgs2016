@@ -4,8 +4,8 @@ import Credits from './Credits'
 
 class Footer extends Component {
   render() {
-    const { archive, author, street, city, state, zip, phone, builtDesigned, nav, signup } = this.props
-    const address = `${city}, ${state} ${zip}`
+    const { address, archive, author, street, phone, builtDesigned, nav, signup } = this.props
+    // const address = `${city}, ${state} ${zip}`
 
     return (
       <footer>
@@ -64,6 +64,7 @@ class Footer extends Component {
   }
 }
 Footer.propTypes = {
+  address: PropTypes.string,
   archive: PropTypes.array.isRequired,
   author: PropTypes.string,
   street: PropTypes.string,
@@ -86,11 +87,11 @@ Footer.defaultProps = {
     src: 'http://eepurl.com/bciqMT',
   },
   builtDesigned: [
-    { title: 'David Dale', src: 'http://davidharleydale.com/'},
-    { title: 'Hitesh Singhal', src: 'http://www.hiteshsinghal.in/'},
-    { title: 'Ran Zheng', src: 'http://www.ranzhengdesign.com/'},
-    { title: 'OOKB', src: 'https://www.ookb.co'},
-    { title: 'CAPE.io', src: 'https://www.cape.io'},
+    { title: 'David Dale', src: 'http://davidharleydale.com/' },
+    { title: 'Hitesh Singhal', src: 'http://www.hiteshsinghal.in/' },
+    { title: 'Ran Zheng', src: 'http://www.ranzhengdesign.com/' },
+    { title: 'OOKB', src: 'https://www.ookb.co' },
+    { title: 'CAPE.io', src: 'https://www.cape.io' },
   ],
   author: 'Office of Graduate Studies',
   street: '131 West North Avenue',
