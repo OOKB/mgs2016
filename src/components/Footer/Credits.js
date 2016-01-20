@@ -5,21 +5,21 @@ export default class Credits extends Component {
   render() {
     const { builtDesigned } = this.props
     const length = builtDesigned.length
-    const lastI = length - 1
+    const lastIndex = length - 1
     const className = `credits count-${length}`
     const Links = builtDesigned.map((linkItem, index) => {
       const { title, src } = linkItem
-      const first = (index === 0)
-      const last = (index === lastI)
+      const isFirstEl = (index === 0)
+      const isLastEl = (index === lastIndex)
       const linkClasses = classNames({
         credit: true,
-        first,
-        last,
+        first: isFirstEl,
+        last: isLastEl,
       })
       let seperator
-      if (lastI > index > 0) {
+      if (!isFirstEl && !isLastEl) {
         seperator = ', '
-      } else if (lastI === index) {
+      } else if (isLastEl) {
         seperator = ', and '
       }
       return (
