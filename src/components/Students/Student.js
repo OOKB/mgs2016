@@ -4,7 +4,7 @@ import { Link } from 'react-router'
 function Student({ name, program, locationName, photos, showDate, id, ...rest }) {
   return (
     <li {...rest} id={id} className="student three columns">
-      <Link to={`${id}`} >
+      <Link to={id}>
         <div className="student-photo">
           <img className="photo-inactive" src={photos.inactive.url} alt={name.display} />
           <img className="photo-active" src={photos.active.url} alt={name.display} />
