@@ -62,7 +62,7 @@ function mapStateToProps(state) {
   } = state
   // @see utils/filterItem.js
   const filterParams = {}
-  const searchStr = get(filters, [ 'profile', 'name.display', 'value' ], false)
+  const searchStr = get(filters, [ 'profile', 'name.display', 'value' ], '')
   let programId = get(filters, [ 'students', 'program', 'option' ], false)
   function setFilterParams(fieldId, compare, value) {
     filterParams.fieldId = fieldId
