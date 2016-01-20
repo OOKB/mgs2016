@@ -1,6 +1,7 @@
 import React, { Component, PropTypes } from 'react'
 import { connect } from 'react-redux'
 import smoothScroll from 'smooth-scroll'
+import filter from 'lodash/collection/filter'
 import get from 'lodash/object/get'
 import isEmpty from 'lodash/lang/isEmpty'
 import map from 'lodash/collection/map'
@@ -100,7 +101,8 @@ function mapStateToProps(state) {
       program: program[rest.program],
     }
   })
-
+  // Hack for partial uploaded images.
+  profiles = filter(profiles, prof => prof.photos.active)
   const filterTypes = [
     // { value: 'galleries', label: 'Gallery', options: locations },
     {
