@@ -150,11 +150,15 @@ ul.inline li {
 .p3           { padding: 3rem; }
 .p4           { padding: 4rem; }
 
+.pt0          { padding-top: 0; }
+.pt1          { padding-top: 1rem; }
+.pt2          { padding-top: 2rem; }
+.pt3          { padding-top: 3rem; }
+.pt4          { padding-top: 4rem; }
+
 .text-center {
   text-align: center;
 }
-
-.text-left
 
 /***** General Styles for all "stripes" *****/
 
@@ -168,14 +172,23 @@ ul.inline li {
   padding-bottom: 6.25rem;
 }
 
+.loadingWrap img {
+  width: 200px;
+  margin-bottom: 4rem;
+}
 /***** Header & Nav *****/
 header {
   background: white;
-  position: fixed;
-  top:0;
-  left:0;
-  right:0;
-  z-index: 999999;
+}
+
+@media (min-width: 50em;) {
+  header {
+    position: fixed;
+    top:0;
+    left:0;
+    right:0;
+    z-index: 999999;
+  }
 }
 
 header h1 {
@@ -190,38 +203,42 @@ header h1 {
 }
 
 ul.nav{
-    list-style: none;
-    text-transform: uppercase;
-    padding-top: .6em;
+  list-style: none;
+  text-transform: uppercase;
+  padding: 0;
+  padding-top: .6em;
 }
 
-ul.nav li{
+@media (min-width: 50em) {
+  ul.nav li{
     display: inline;
     margin-right: 1em;
+  }
+  li.student-search{
+    float: right;
+  }
 }
 
 ul.nav li a{
-    text-decoration: none;
-    color: black;
-    font-size: 14px;
-}
-ul.nav li a:hover{
-    padding-bottom: .35em;
-    border-bottom: 2px solid #f37743;
+  text-decoration: none;
+  color: black;
+  font-size: 14px;
 }
 
-li.student-search{
-    float: right;
+ul.nav li a:hover{
+  padding-bottom: .35em;
+  border-bottom: 2px solid #f37743;
 }
 
 div.form-group.search input.form-control{
-    border: none;
-    background: #f4f3f0;
-    text-transform: uppercase;
-    font-size: 12px;
-    margin-top: -.5em;
-    padding: 10px
+  border: none;
+  background: #f4f3f0;
+  text-transform: uppercase;
+  font-size: 12px;
+  margin-top: -.5em;
+  padding: 10px
 }
+
 /***** Landing Logo *****/
 .landing-logo {
   height: 100vh;

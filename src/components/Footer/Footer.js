@@ -17,7 +17,7 @@ class Footer extends Component {
               </a>
             </div>
             <div className="three columns footer-contact">
-              <ul>
+              <ul className="list-reset">
                 {author && <li>{author}</li>}
                 {street && <li>{street}</li>}
                 {address && <li>{address}</li>}
