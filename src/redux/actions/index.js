@@ -5,13 +5,16 @@ export const PROFILE_REQUEST = 'PROFILE_REQUEST'
 export const PROFILE_SUCCESS = 'PROFILE_SUCCESS'
 export const PROFILE_FAILURE = 'PROFILE_FAILURE'
 
+const devEnv = process.env.NODE_ENV !== 'production'
+const API = devEnv ? 'cape' : 'api'
+
 // Fetches a single profile from CAPE API.
 // Relies on the custom API middleware defined in ../middleware/api.js.
 function fetchProfile(id) {
   return {
     [CALL_API]: {
       types: [ PROFILE_REQUEST, PROFILE_SUCCESS, PROFILE_FAILURE ],
-      api: 'api',
+      api: API,
       endpoint: `mica/profile/${id}`,
     },
   }
@@ -38,7 +41,7 @@ function fetchProfiles() {
   return {
     [CALL_API]: {
       types: [ PROFILES_REQUEST, PROFILES_SUCCESS, PROFILES_FAILURE ],
-      api: 'api',
+      api: API,
       endpoint: `mica`,
     },
   }

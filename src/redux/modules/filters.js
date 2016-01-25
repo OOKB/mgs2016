@@ -10,8 +10,12 @@ const defaultState = immutable({
     programId: false,
   },
 })
-
-export default function reducer(state = defaultState, action) {
+function wrapState(state, action) {
+  if (!action.type) return state
+  return state.asMutable ? state : immutable(state)
+}
+export default function reducer(_state = defaultState, action) {
+  const state = wrapState(_state, action)
   switch (action.type) {
     case UPDATE:
       return state.setIn(action.payload.path, action.payload.value)

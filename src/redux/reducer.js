@@ -8,6 +8,7 @@ import db from './modules/db'
 import display from './modules/display'
 import filters from './modules/filters'
 import map from './modules/map'
+import socket from './modules/socket'
 
 // Updates an entity cache in response to any action with response.entities.
 // Define our default entities collection database.
@@ -21,7 +22,10 @@ function entities(state = defaultEntityState, action) {
   }
   return state
 }
-
+// Do not f with the id. Use whatever the default is.
+function id(state = null) {
+  return state
+}
 // Updates error message to notify about the failed fetches.
 function errorMessage(state = null, action) {
   const { type, error } = action
@@ -42,9 +46,11 @@ const rootReducer = combineReducers({
   display,
   filters,
   form: formReducer,
+  id,
   map,
   // Special place to save url. { changeId, path }
   routing: routeReducer,
+  socket,
 })
 
 export default rootReducer
