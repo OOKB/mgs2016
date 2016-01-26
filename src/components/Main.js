@@ -18,7 +18,7 @@ class Main extends Component {
         speed: 0,
         updateURL: false,
       }
-      smoothScroll.animateScroll(null, this.props.location.hash, scrollOptions)
+      smoothScroll.animateScroll(this.props.location.hash, null, scrollOptions)
     }
   }
   render() {
