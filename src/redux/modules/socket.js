@@ -3,6 +3,7 @@ import immutable from 'seamless-immutable'
 export const CONNECT = 'socket/CONNECT'
 export const DISCONNECT = 'socket/DISCONNECT'
 export const CONNECTED = 'socket/CONNECTED'
+export const FEEDBACK = 'socket/FEEDBACK'
 export const JOINED = 'socket/JOINED'
 export const SUBSCRIBE = 'socket/SUBSCRIBE'
 export const GUEST_JOIN = 'socket/GUEST_JOIN'
@@ -71,6 +72,12 @@ export function disconnect() {
     type: DISCONNECT,
     payload: now.toString(),
     sendSocket: false,
+  }
+}
+export function feedback(message) {
+  return {
+    type: FEEDBACK,
+    payload: message,
   }
 }
 export function guestJoined(id) {
