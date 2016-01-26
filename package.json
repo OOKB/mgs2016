@@ -80,7 +80,7 @@
     "redux-thunk": "^1.0.0",
     "scroll-behavior": "^0.3.0",
     "seamless-immutable": "^5.0.1",
-    "smooth-scroll": "cferdinandi/smooth-scroll",
+    "smooth-scroll": "cferdinandi/smooth-scroll.git#v8.0.0",
     "socket.io": "^1.4.4",
     "validator": "^4.4.0",
     "webpack": "^1.12.11",
