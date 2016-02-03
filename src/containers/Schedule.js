@@ -94,7 +94,7 @@ function mergeProps(stateProps, { updateFilter, togglePin }, ownProps) {
         offset: 128, // Compensate for Header
         updateURL: false,
       }
-      smoothScroll.animateScroll(null, '#gallery-map-locations', scrollOptions)
+      smoothScroll.animateScroll('#gallery-map-locations', null, scrollOptions)
     }
   }
   function activateShowGroup(id) {

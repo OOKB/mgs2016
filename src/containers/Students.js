@@ -28,7 +28,7 @@ class StudentsSection extends Component {
         speed: 500,
         updateURL: false,
       }
-      smoothScroll.animateScroll(null, '#students', scrollOptions)
+      smoothScroll.animateScroll('#students', null, scrollOptions)
     }
   }
   render() {

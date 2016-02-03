@@ -3,7 +3,10 @@ import every from 'lodash/collection/every'
 import filter from 'lodash/collection/filter'
 import forEach from 'lodash/collection/forEach'
 import get from 'lodash/object/get'
-// import set from 'lodash/object/set'
+import isArray from 'lodash/lang/isArray'
+import isEmpty from 'lodash/lang/isEmpty'
+import isObject from 'lodash/lang/isObject'
+import values from 'lodash/object/values'
 
 export function filterItem(item, { fieldId, compare, value }) {
   if (!value) return true
@@ -21,9 +24,22 @@ export function filterItem(item, { fieldId, compare, value }) {
   }
 }
 
-// Filter collection against single filterParams.
 export function filterCollection(items, filterParams) {
-  return filter(items, item => filterItem(item, filterParams))
+  if (isEmpty(filterParams)) {
+    return values(items)
+  }
+  // Filter based on an array of params.
+  if (isArray(filterParams)) {
+    return filter(items, item =>
+      every(filterParams, (fParam) => filterItem(item, fParam))
+    )
+  }
+  // Filter collection against single filterParams.
+  if (isObject(filterParams)) {
+    return filter(items, item => filterItem(item, filterParams))
+  }
+  // Error filterParams are not object or array.
+  return items
 }
 
 // Create new index with quantity of each. Simple reduce like function.

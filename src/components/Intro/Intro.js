@@ -12,7 +12,7 @@ class Intro extends Component {
           <div className="creative-blank-video">
             <div className="embed-container">
               <iframe
-                src="http://player.vimeo.com/video/149053402"
+                src="https://player.vimeo.com/video/149053402"
                 frameBorder="0"
                 webkitAllowFullScreen
                 mozallowfullscreen
