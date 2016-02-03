@@ -7,12 +7,12 @@ import { replacePath as replacePathAction } from 'redux-simple-router'
 import Component from '../components/Profile/Profile'
 import { loadProfile as loadProfileAction } from '../redux/actions'
 
-function mapStateToProps(state, ownProps) {
+function mapStateToProps(state) {
   const {
     entities: { profile, url, program, profileId },
+    routing: { params: { id } },
   } = state
 
-  const { id } = ownProps.params
   const profileInfo = (profile && profile[id]) || { id, name: {} }
   const { art, website, ...profileFields } = profileInfo
   // Create new object.

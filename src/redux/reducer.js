@@ -1,6 +1,5 @@
 import * as ActionTypes from './actions'
 import merge from 'lodash/merge'
-import { routeReducer } from 'redux-simple-router'
 import { combineReducers } from 'redux'
 import { reducer as formReducer } from 'redux-form'
 
@@ -8,6 +7,7 @@ import db from './modules/db'
 import display from './modules/display'
 import filters from './modules/filters'
 import map from './modules/map'
+import routing from './modules/routing'
 import socket from './modules/socket'
 
 // Updates an entity cache in response to any action with response.entities.
@@ -49,7 +49,7 @@ const rootReducer = combineReducers({
   id,
   map,
   // Special place to save url. { changeId, path }
-  routing: routeReducer,
+  routing,
   socket,
 })
 

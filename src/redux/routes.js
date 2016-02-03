@@ -2,6 +2,7 @@
 import createRouter from 'location-info'
 
 const router = createRouter()
+router.makeRoute('home', '/')
 router.makeRoute('profile', '/student/:id')
 router.makeRoute('imgDownload', '/image-download')
 router.makeRoute('tryProfile', ':id')

@@ -1,10 +1,17 @@
 import React, { Component, PropTypes } from 'react'
 import { connect } from 'react-redux'
-import { pushPath } from 'redux-simple-router'
 import isEmpty from 'lodash/isEmpty'
 
 import { loadProfiles, resetErrorMessage } from '../redux/actions'
 import Loading from '../components/Loading'
+
+import Main from '../components/Main'
+import Profile from './Profile'
+
+const routeIndex = {
+  profile: Profile,
+  home: Main,
+}
 
 class App extends Component {
   constructor(props) {
@@ -41,11 +48,17 @@ class App extends Component {
   }
 
   render() {
-    const { children, hasProfile } = this.props
+    const { hash, hasProfile, routeId } = this.props
+    const MainElement = routeIndex[routeId] || Main
     return (
       <div className="mgs">
         { this.renderErrorMessage() }
-        { hasProfile ? children : <Loading message="Loading artist information..." /> }
+        { hasProfile &&
+          <MainElement hash={hash}/>
+        }
+        { !hasProfile &&
+          <Loading message="Loading artist information..." />
+        }
       </div>
     )
   }
@@ -55,27 +68,29 @@ App.propTypes = {
   // Injected by React Redux
   errorMessage: PropTypes.string,
   loadProfiles: PropTypes.func.isRequired,
+  hash: PropTypes.string,
   hasProfile: PropTypes.bool.isRequired,
   resetErrorMessage: PropTypes.func.isRequired,
-  pushPath: PropTypes.func.isRequired,
   // Injected by React Router
-  children: PropTypes.node,
+  routeId: PropTypes.string,
 }
 
 function mapStateToProps(state) {
   const {
     entities: { profile },
     errorMessage,
+    routing: { routeId, hash },
   } = state
   return {
     hasProfile: !!profile && !isEmpty(profile),
     errorMessage,
+    hash,
+    routeId,
   }
 }
 
 const mapDispatchToProps = {
   loadProfiles,
-  pushPath,
   resetErrorMessage,
 }
 
