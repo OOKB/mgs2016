@@ -1,10 +1,10 @@
 import React, { Component, PropTypes } from 'react'
 import { connect } from 'react-redux'
 import smoothScroll from 'smooth-scroll'
-import filter from 'lodash/collection/filter'
-import get from 'lodash/object/get'
-import isEmpty from 'lodash/lang/isEmpty'
-import map from 'lodash/collection/map'
+import filter from 'lodash/filter'
+import get from 'lodash/get'
+import isEmpty from 'lodash/isEmpty'
+import map from 'lodash/map'
 
 import { loadProfiles } from '../redux/actions'
 import {

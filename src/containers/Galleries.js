@@ -1,8 +1,8 @@
 import { connect } from 'react-redux'
-import filter from 'lodash/collection/filter'
-import forEach from 'lodash/collection/forEach'
-import get from 'lodash/object/get'
-import values from 'lodash/object/values'
+import filter from 'lodash/filter'
+import forEach from 'lodash/forEach'
+import get from 'lodash/get'
+import values from 'lodash/values'
 
 import Galleries from '../components/Galleries/Galleries'
 import { update as updateFilterAction } from '../redux/modules/filters'

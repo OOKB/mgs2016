@@ -1,7 +1,7 @@
 import { connect } from 'react-redux'
-import partial from 'lodash/function/partial'
-import compact from 'lodash/array/compact'
-import clone from 'lodash/lang/clone'
+import partial from 'lodash/partial'
+import compact from 'lodash/compact'
+import clone from 'lodash/clone'
 import { replacePath as replacePathAction } from 'redux-simple-router'
 
 import Component from '../components/Profile/Profile'

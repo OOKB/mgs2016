@@ -1,6 +1,6 @@
 import io from 'socket.io-client'
 import { parse } from 'query-string'
-import isString from 'lodash/lang/isString'
+import isString from 'lodash/isString'
 
 import { connect, disconnect, joined } from '../modules/socket'
 

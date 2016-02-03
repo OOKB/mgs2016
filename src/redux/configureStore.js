@@ -13,6 +13,10 @@ const socket = createSocketMiddleware()
 // Redux Reducers.
 // Our reducer index.
 import rootReducer from './reducer'
+
+import history from './history'
+import getRoutes from './routes'
+
 // Redux Dev stuff.
 // The redux state sidebar thing store enhancer.
 import DevTools from '../containers/DevTools'
@@ -28,6 +32,7 @@ const finalCreateStore = compose(
   applyMiddleware(...middleware),
   // Logger must be last middleware in chain(#20).
   // applyMiddleware(createLogger()),
+  history(getRoutes),
   DevTools.instrument()
 )(createStore)
 

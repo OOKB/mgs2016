@@ -1,5 +1,5 @@
 import React, { PropTypes } from 'react'
-import map from 'lodash/collection/map'
+import map from 'lodash/map'
 
 import { Link } from 'react-router'
 

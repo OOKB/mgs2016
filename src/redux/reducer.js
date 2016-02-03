@@ -1,5 +1,5 @@
 import * as ActionTypes from './actions'
-import merge from 'lodash/object/merge'
+import merge from 'lodash/merge'
 import { routeReducer } from 'redux-simple-router'
 import { combineReducers } from 'redux'
 import { reducer as formReducer } from 'redux-form'

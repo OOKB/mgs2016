@@ -1,8 +1,8 @@
 import { normalize } from 'normalizr'
 import { camelizeKeys } from 'humps'
-import forEach from 'lodash/collection/forEach'
+import forEach from 'lodash/forEach'
 // import merge from 'lodash/object/merge'
-import omit from 'lodash/object/omit'
+import omit from 'lodash/omit'
 import 'isomorphic-fetch'
 
 // Extracts the next page URL from Github API response.

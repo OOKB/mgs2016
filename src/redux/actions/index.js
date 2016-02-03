@@ -1,5 +1,5 @@
 import { CALL_API } from '../middleware/api'
-import isEmpty from 'lodash/lang/isEmpty'
+import isEmpty from 'lodash/isEmpty'
 
 export const PROFILE_REQUEST = 'PROFILE_REQUEST'
 export const PROFILE_SUCCESS = 'PROFILE_SUCCESS'

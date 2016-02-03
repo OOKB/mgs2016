@@ -1,5 +1,5 @@
 import immutable from 'seamless-immutable'
-import get from 'lodash/object/get'
+import get from 'lodash/get'
 
 const UPDATE = 'filter/UPDATE'
 const UPDATE_CLOSE = 'filter/UPDATE_CLOSE'

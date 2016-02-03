@@ -1,6 +1,6 @@
 import immutable from 'seamless-immutable'
-import get from 'lodash/object/get'
-import set from 'lodash/object/set'
+import get from 'lodash/get'
+import set from 'lodash/set'
 
 // This module is where we keep state information about specific entities.
 

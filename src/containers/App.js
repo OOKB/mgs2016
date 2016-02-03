@@ -1,7 +1,7 @@
 import React, { Component, PropTypes } from 'react'
 import { connect } from 'react-redux'
 import { pushPath } from 'redux-simple-router'
-import isEmpty from 'lodash/lang/isEmpty'
+import isEmpty from 'lodash/isEmpty'
 
 import { loadProfiles, resetErrorMessage } from '../redux/actions'
 import Loading from '../components/Loading'
