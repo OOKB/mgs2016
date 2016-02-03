@@ -2,7 +2,7 @@ import { connect } from 'react-redux'
 import partial from 'lodash/partial'
 import compact from 'lodash/compact'
 import clone from 'lodash/clone'
-import { replacePath as replacePathAction } from 'redux-simple-router'
+import { updateLocation } from '../redux/history'
 
 import Component from '../components/Profile/Profile'
 import { loadProfile as loadProfileAction } from '../redux/actions'
@@ -43,7 +43,7 @@ function mapStateToProps(state) {
 
 const mapDispatchToProps = {
   loadProfile: loadProfileAction,
-  replacePath: replacePathAction,
+  replacePath: updateLocation,
 }
 
 function mergeProps({ id, ...stateProps }, { loadProfile, replacePath }, ownProps) {

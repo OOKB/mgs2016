@@ -5,7 +5,15 @@ const router = createRouter()
 router.makeRoute('home', '/')
 router.makeRoute('profile', '/student/:id')
 router.makeRoute('imgDownload', '/image-download')
-router.makeRoute('tryProfile', ':id')
+
+router.makeRoute('tryProfile', '/:id', {
+  redirect: (info, route) => {
+    return {
+      ...info,
+      pathname: `/student/${route.params.id}`,
+    }
+  },
+})
 
 export default function getRoutes({ getState }) {
   // function validateStudent({ id }) {

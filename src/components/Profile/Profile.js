@@ -1,7 +1,6 @@
 import React, { Component, PropTypes } from 'react'
 import Info from './Info'
 import Main from './Main'
-import { Link } from 'react-router'
 
 class Profile extends Component {
   componentWillMount() {

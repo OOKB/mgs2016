@@ -31,7 +31,14 @@ export const goForward = transition('forward')
 export const routeActions = { push, replace, go, goBack, goForward }
 
 export function updateLocation(location) {
-  const payload = isString(location) ? { location } : location
+  let payload = location
+  if (isString(location)) {
+    const [ pathname, hash ] = location.split('#')
+    payload = {
+      pathname,
+      hash,
+    }
+  }
   // console.log(payload)
   return {
     type: UPDATE_LOCATION,
