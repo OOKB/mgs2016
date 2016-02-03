@@ -5,12 +5,14 @@ import isEmpty from 'lodash/isEmpty'
 import { loadProfiles, resetErrorMessage } from '../redux/actions'
 import Loading from '../components/Loading'
 
+import Downloader from './Downloader'
 import Main from '../components/Main'
 import Profile from './Profile'
 
 const routeIndex = {
-  profile: Profile,
+  downloader: Downloader,
   home: Main,
+  profile: Profile,
 }
 
 class App extends Component {
@@ -49,7 +51,7 @@ class App extends Component {
 
   render() {
     const { hash, hasProfile, routeId } = this.props
-    const MainElement = routeIndex[routeId] || Main
+    const MainElement = routeIndex[routeId]
     return (
       <div className="mgs">
         { this.renderErrorMessage() }
