@@ -584,6 +584,14 @@ div.three.columns.footer-contact ul{
 
 .downloader .info {
   margin-bottom: 1rem;
+}
+
+.downloader .info,
+.downloader .info li {
+  font-size: .9rem;
+}
+
+.downloader .info .name {
   font-weight: bold;
 }
 
