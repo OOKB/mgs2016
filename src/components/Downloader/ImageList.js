@@ -6,11 +6,6 @@ function ImageList({ }) {
   return (
     <ul className="image-list group">
       <ImageThumb />
-      <ImageThumb />
-      <ImageThumb />
-      <ImageThumb />
-      <ImageThumb />
-      <ImageThumb />
     </ul>
   )
 }

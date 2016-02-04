@@ -7,8 +7,10 @@ function Downloader({ title, students }) {
   return (
     <div className="container">
       <h1>{ title }</h1>
-      <Search type="profile" field="name.display" />
-      <div className="downloader mt2">
+      <div className="filters bt3 pt1">
+        <Search type="profile" field="name.display" />
+      </div>
+      <div className="downloader mt1">
         <ul className="students-list list-reset">
           {
             students.map(student => <Student key={student.id} {...student} />)

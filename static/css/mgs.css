@@ -155,6 +155,12 @@ ul.inline li {
 .pt3          { padding-top: 3rem; }
 .pt4          { padding-top: 4rem; }
 
+.bt1          { border-top: 1px solid currentColor; }
+.bt2          { border-top: 2px solid currentColor; }
+.bt3          { border-top: 3px solid currentColor; }
+.bt4          { border-top: 4px solid currentColor; }
+.bt5          { border-top: 5px solid currentColor; }
+
 .text-center {
   text-align: center;
 }
@@ -605,9 +611,11 @@ div.three.columns.footer-contact ul{
   position: absolute;
   background: white;
   box-shadow: 0 0 .3rem 0 rgba(0,0,0,.33);
-  width: 200%;
+  width: 100%;
   z-index: 9;
-  padding: .25rem;;
+  padding: .25rem;
+  top: 1.5rem;
+  left: 1.5rem;
 }
 
 .downloader .image:hover figcaption {
