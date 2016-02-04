@@ -9,11 +9,14 @@ function ImageThumb({ title, medium, size, year, work }) {
   return (
     <li className="image two columns">
       <figure className="block">
-        { imgSrc && <img src={imgSrc} /> }
-        { imgLink && <a href={imgLink}>{imgSize}</a> }
+        <div className="inner">
+          { imgLink && <a href={imgLink}>
+            { imgSrc && <img src={imgSrc} /> }
+          {imgSize}</a> }
+        </div>
         <figcaption>
           <ul className="list-reset">
-            { title && <li>{title}</li> }
+            { title && <li><em>{title}</em></li> }
             { medium && <li>{medium}</li> }
             { year && <li>{year}</li> }
             { size && <li>{size}</li> }

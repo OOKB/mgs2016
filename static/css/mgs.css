@@ -593,7 +593,8 @@ div.three.columns.footer-contact ul{
 }
 
 .downloader .info,
-.downloader .info li {
+.downloader .info li,
+.downloader .image * {
   font-size: .9rem;
 }
 
@@ -601,9 +602,22 @@ div.three.columns.footer-contact ul{
   font-weight: bold;
 }
 
-.downloader .image,
-.downloader .image figure {
-  position: relative
+.downloader figure.block .inner {
+  height: 180px;
+  margin-bottom: 1rem;
+  overflow: hidden;
+  position: relative;
+  display: block;
+}
+
+.downloader figure.block .inner a {
+  position: absolute;
+  right:0;
+  bottom: 0;
+  left:0;
+  display: block;
+  width: 100%;
+  background: white;
 }
 
 .downloader .image figcaption {
