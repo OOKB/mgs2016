@@ -13,8 +13,8 @@ function ImageThumb({ title, medium, size, year, work }) {
           <ul className="list-reset">
             { title && <li>{title}</li> }
             { medium && <li>{medium}</li> }
-            <li>year</li>
-            <li>size</li>
+            { year && <li>{year}</li> }
+            { size && <li>{size}</li> }
           </ul>
         </figcaption>
       </figure>
