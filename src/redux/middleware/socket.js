@@ -29,22 +29,23 @@ export default function createSocketIoMiddleware(options = {}) {
       // If an action comes from the server do not send it back to the server.
       act.sendSocket = false
       store.dispatch(act)
+      switch (action.type) {
+        // Joined. Server returns valid sessionId.
+        case JOINED:
+          setSessionId(action.payload)
+          break
+        default:
+      }
     })
     // When the connection is established. Before any events.
     socket.on('connect', () => {
       // Tell local state we are connected.
       store.dispatch(connect({
         // Send url query information.
-        ...parse(document.location.search),
-        pathname: document.location.pathname,
+        // page: store.getState().filter.page,
         // Tell server result of our local sessionId.
         sessionId: getSessionId(),
       }))
-    })
-    // Joined. Server returns valid sessionId.
-    socket.on('joined', ({ sessionId }) => {
-      setSessionId(sessionId)
-      store.dispatch(joined(sessionId))
     })
     // Tell redux we are no longer connected.
     socket.on('disconnect', () => {
