@@ -8,6 +8,8 @@ export const JOINED = 'socket/JOINED'
 export const SUBSCRIBE = 'socket/SUBSCRIBE'
 export const GUEST_JOIN = 'socket/GUEST_JOIN'
 export const GUEST_LEAVE = 'socket/GUEST_LEAVE'
+export const API_REQUEST = 'socket/API_REQUEST'
+export const API_SUCCESS = 'socket/API_SUCCESS'
 
 const defaultState = immutable({
   connected: false,
@@ -47,6 +49,13 @@ export default function reducer(_state = defaultState, action) {
     default:
       return state
   }
+}
+
+export function idReducer(state = null, action) {
+  if (action.type === CONNECTED && action.payload.socketId) {
+    return action.payload.socketId
+  }
+  return state
 }
 
 export function connect(payload) {
@@ -96,5 +105,17 @@ export function subscribe(presenter) {
   return {
     type: SUBSCRIBE,
     payload: presenter,
+  }
+}
+export function apiRequest(payload) {
+  return {
+    type: API_REQUEST,
+    payload,
+  }
+}
+export function apiSuccess(response) {
+  return {
+    type: API_SUCCESS,
+    response,
   }
 }

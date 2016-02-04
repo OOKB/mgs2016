@@ -17,10 +17,11 @@ export default function createSocketIoMiddleware(options = {}) {
   // Defaults.
   const opts = Object.assign({
     eventName: 'action',
+    location: '',
   }, options)
 
   // Socket.io
-  const socket = io('')
+  const socket = io(opts.location)
 
   return store => {
     // Wire socket.io to dispatch actions sent by the server.
