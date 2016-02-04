@@ -1,6 +1,7 @@
 import get from 'lodash/get'
 import createRouter from 'location-info'
 
+import { apiRequest } from './modules/socket'
 const router = createRouter()
 
 export default function getRoutes({ getState, dispatch }) {
@@ -9,9 +10,9 @@ export default function getRoutes({ getState, dispatch }) {
   router.makeRoute('downloader', '/image-download', {
     getState: () => {
       const downloading = get(getState(), 'routing.state.downloading', true)
-      // if (downloading) {
-      //   dispatch()
-      // }
+      if (downloading) {
+        dispatch(apiRequest('artwork'))
+      }
       return {
         downloading,
       }

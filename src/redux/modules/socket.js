@@ -8,6 +8,7 @@ export const JOINED = 'socket/JOINED'
 export const SUBSCRIBE = 'socket/SUBSCRIBE'
 export const GUEST_JOIN = 'socket/GUEST_JOIN'
 export const GUEST_LEAVE = 'socket/GUEST_LEAVE'
+export const API_FAILURE = 'socket/API_FAILURE'
 export const API_REQUEST = 'socket/API_REQUEST'
 export const API_SUCCESS = 'socket/API_SUCCESS'
 
@@ -107,15 +108,20 @@ export function subscribe(presenter) {
     payload: presenter,
   }
 }
+export function apiFailure() {
+  return {
+    type: API_FAILURE,
+  }
+}
 export function apiRequest(payload) {
   return {
     type: API_REQUEST,
     payload,
   }
 }
-export function apiSuccess(response) {
+export function apiSuccess(entities) {
   return {
     type: API_SUCCESS,
-    response,
+    response: { entities },
   }
 }

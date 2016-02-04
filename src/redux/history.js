@@ -96,7 +96,7 @@ export default function routerStoreEnhancer(getRoutes, options = {}) {
       history[method](...args)
     }
 
-    const router = getRoutes({ getState: store.getState, _dispatch })
+    const router = getRoutes({ getState: store.getState, dispatch: _dispatch })
 
     listenHistoryChange(location, _dispatch)
 

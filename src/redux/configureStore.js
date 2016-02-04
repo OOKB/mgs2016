@@ -29,10 +29,10 @@ const middleware = [
 ]
 
 const finalCreateStore = compose(
+  history(getRoutes),
   applyMiddleware(...middleware),
   // Logger must be last middleware in chain(#20).
   // applyMiddleware(createLogger()),
-  history(getRoutes),
   DevTools.instrument()
 )(createStore)
 
