@@ -8,7 +8,7 @@ import { handleFilter } from '../redux/modules/filters'
 function mapStateToProps(state, ownProps) {
   const { type, field } = ownProps
   return {
-    searchValue: get(state, [ 'filters', type, field, 'value' ]),
+    searchValue: get(state, [ 'filters', type, field, 'value' ], ''),
   }
 }
 
