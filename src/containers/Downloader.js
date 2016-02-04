@@ -1,8 +1,16 @@
 import { connect } from 'react-redux'
 import Component from '../components/Downloader/Downloader'
 
-function mapStateToProps() {
-  return {}
+import select from '../redux/select'
+
+function mapStateToProps(state) {
+  const students = select(state, 'profile', {
+    pick: [ 'id', 'name.display', 'program.name' ],
+  })
+
+  return {
+    students,
+  }
 }
 
 export default connect(mapStateToProps)(Component)
