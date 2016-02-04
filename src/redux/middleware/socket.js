@@ -1,14 +1,14 @@
 import io from 'socket.io-client'
-import { parse } from 'query-string'
 import isString from 'lodash/isString'
 
-import { connect, disconnect, joined } from '../modules/socket'
+import { connect, disconnect, JOINED } from '../modules/socket'
 
 function getSessionId() {
   return sessionStorage.sessionId || null
 }
 // Insert sessionId.
 function setSessionId(id) {
+  console.log('setSessionId', id)
   sessionStorage.sessionId = id
 }
 // Should save presenter to sessionStorage too.
