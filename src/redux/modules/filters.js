@@ -54,3 +54,10 @@ export function toggle(groupId, filterType) {
 export function handleSearch(groupId, filterType, newTxt) {
   return update(groupId, filterType, 'value', newTxt.toLowerCase())
 }
+
+export function handleFilter(type, field, compare, value) {
+  return {
+    type: UPDATE,
+    payload: { path: [ type, field ], value: { compare, value } },
+  }
+}

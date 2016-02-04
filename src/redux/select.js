@@ -5,6 +5,8 @@ import merge from 'lodash/merge'
 import set from 'lodash/set'
 import values from 'lodash/values'
 
+import { filterCollection } from '../utils/filter'
+
 const info = {
   profile: {
     selector: 'entities.profile',
@@ -59,6 +61,13 @@ function pick(source, fields) {
 
 export default function select(state, type, options = {}) {
   let items = getType(state, type)
+  const filter = get(state, [ 'filters', type ])
+  if (filter) {
+    const filterInfo = map(filter, ({ compare, value }, fieldId) =>
+      ({ compare, value, fieldId })
+    )
+    items = filterCollection(items, filterInfo)
+  }
   if (options.pick) {
     items = map(items, item => pick(item, options.pick))
   }
