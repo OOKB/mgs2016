@@ -5,7 +5,7 @@ import select from '../redux/select'
 
 function mapStateToProps(state) {
   const students = select(state, 'profile', {
-    pick: [ 'id', 'name.display', 'program.name' ],
+    pick: [ 'id', 'name.display', 'program.name', 'art.work' ],
   })
 
   return {
