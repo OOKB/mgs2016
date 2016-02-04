@@ -4,11 +4,13 @@ import get from 'lodash/get'
 function ImageThumb({ title, medium, size, year, work }) {
   const imgSrc = get(work, [ 'preview', 'image', 'url' ], false)
   const imgLink = get(work, [ 'url', 'href' ], false)
+  const { height, width } = get(work, 'size', {})
+  const imgSize = height && `Download (${width}x${height})`
   return (
     <li className="image two columns">
       <figure className="block">
         { imgSrc && <img src={imgSrc} /> }
-        { imgLink && <a href={imgLink}>Download</a> }
+        { imgLink && <a href={imgLink}>{imgSize}</a> }
         <figcaption>
           <ul className="list-reset">
             { title && <li>{title}</li> }
