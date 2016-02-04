@@ -2,20 +2,18 @@ import React, { PropTypes } from 'react'
 
 import ImageThumb from './ImageThumb'
 
-function ImageList({ }) {
+function ImageList({ art }) {
   return (
     <ul className="image-list group">
-      <ImageThumb />
-      <ImageThumb />
-      <ImageThumb />
-      <ImageThumb />
-      <ImageThumb />
-      <ImageThumb />
+      {
+        art.map(item => <ImageThumb {...item} />)
+      }
     </ul>
   )
 }
 
 ImageList.propTypes = {
+  art: PropTypes.array.isRequired,
 }
 ImageList.defaultProps = {
 }

@@ -3,7 +3,7 @@ const info = {
     selector: 'entities.profile',
     children: {
       photo: 'url',
-      'art.work': 'url',
+      'art[].work': 'url',
       program: 'program',
     },
   },
