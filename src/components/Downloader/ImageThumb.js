@@ -1,4 +1,4 @@
-import React, { Component, PropTypes } from 'react'
+import React, { PropTypes } from 'react'
 
 function ImageThumb({ }) {
   return (
@@ -13,7 +13,7 @@ function ImageThumb({ }) {
             <li>year</li>
             <li>size</li>
           </ul>
-        </figcaption
+        </figcaption>
       </figure>
     </li>
   )

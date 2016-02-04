@@ -1,5 +1,5 @@
 import React, { PropTypes } from 'react'
-import map from 'lodash/collection/map'
+import map from 'lodash/map'
 import classnames from 'classnames'
 
 function ScheduleFilters({ className, filters, update }) {

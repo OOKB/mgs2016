@@ -1,18 +1,18 @@
 import { connect } from 'react-redux'
-import partial from 'lodash/function/partial'
-import compact from 'lodash/array/compact'
-import clone from 'lodash/lang/clone'
-import { replacePath as replacePathAction } from 'redux-simple-router'
+import partial from 'lodash/partial'
+import compact from 'lodash/compact'
+import clone from 'lodash/clone'
+import { updateLocation } from '../redux/history'
 
 import Component from '../components/Profile/Profile'
 import { loadProfile as loadProfileAction } from '../redux/actions'
 
-function mapStateToProps(state, ownProps) {
+function mapStateToProps(state) {
   const {
     entities: { profile, url, program, profileId },
+    routing: { params: { id } },
   } = state
 
-  const { id } = ownProps.params
   const profileInfo = (profile && profile[id]) || { id, name: {} }
   const { art, website, ...profileFields } = profileInfo
   // Create new object.
@@ -43,7 +43,7 @@ function mapStateToProps(state, ownProps) {
 
 const mapDispatchToProps = {
   loadProfile: loadProfileAction,
-  replacePath: replacePathAction,
+  replacePath: updateLocation,
 }
 
 function mergeProps({ id, ...stateProps }, { loadProfile, replacePath }, ownProps) {

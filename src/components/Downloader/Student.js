@@ -1,9 +1,8 @@
-import React, { Component, PropTypes } from 'react'
+import React, { PropTypes } from 'react'
 
 import ImageList from './ImageList'
 
-function Student({ user }) {
-  const { name, program } = user
+function Student({ name, program }) {
   const programName = program && program.name
   return (
     <li className="student">
@@ -20,10 +19,10 @@ function Student({ user }) {
 }
 
 Student.propTypes = {
-  user: PropTypes.shape({
-    fullName: PropTypes.string,
-    program: PropTypes.object,
+  name: PropTypes.shape({
+    display: PropTypes.string.isRequired,
   }),
+  program: PropTypes.object,
 }
 Student.defaultProps = {
 }

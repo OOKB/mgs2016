@@ -11,18 +11,18 @@ import Footer from './Footer/Footer'
 
 class Main extends Component {
   componentDidMount() {
-    const hash = this.props.location.hash
+    const { hash } = this.props
     if (hash) {
       const scrollOptions = {
         offset: 0,
         speed: 0,
         updateURL: false,
       }
-      smoothScroll.animateScroll(this.props.location.hash, null, scrollOptions)
+      smoothScroll.animateScroll(`#${hash}`, null, scrollOptions)
     }
   }
   render() {
-    const { title, location } = this.props
+    const { title } = this.props
     return (
       <div>
         <Header title={title} />
@@ -30,14 +30,14 @@ class Main extends Component {
         <Intro />
         <Schedule />
         <Galleries />
-        <Students location={location} />
+        <Students />
         <Footer />
       </div>
     )
   }
 }
 Main.propTypes = {
-  location: PropTypes.object.isRequired,
+  hash: PropTypes.string,
   title: PropTypes.string.isRequired,
 }
 Main.defaultProps = {

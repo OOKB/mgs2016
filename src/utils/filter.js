@@ -1,12 +1,12 @@
-import compact from 'lodash/array/compact'
-import every from 'lodash/collection/every'
-import filter from 'lodash/collection/filter'
-import forEach from 'lodash/collection/forEach'
-import get from 'lodash/object/get'
-import isArray from 'lodash/lang/isArray'
-import isEmpty from 'lodash/lang/isEmpty'
-import isObject from 'lodash/lang/isObject'
-import values from 'lodash/object/values'
+import compact from 'lodash/compact'
+import every from 'lodash/every'
+import filter from 'lodash/filter'
+import forEach from 'lodash/forEach'
+import get from 'lodash/get'
+import isArray from 'lodash/isArray'
+import isEmpty from 'lodash/isEmpty'
+import isObject from 'lodash/isObject'
+import values from 'lodash/values'
 
 export function filterItem(item, { fieldId, compare, value }) {
   if (!value) return true

@@ -1,6 +1,6 @@
 import { connect } from 'react-redux'
-import get from 'lodash/object/get'
-import partial from 'lodash/function/partial'
+import get from 'lodash/get'
+import partial from 'lodash/partial'
 
 import Component from '../components/Header/Header'
 

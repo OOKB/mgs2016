@@ -1,14 +1,16 @@
-import React, { Component, PropTypes } from 'react'
+import React, { PropTypes } from 'react'
 
 import Student from './Student'
 
-function Downloader({ title }) {
+function Downloader({ title, students }) {
   return (
     <div className="container ">
       <h1>{ title }</h1>
       <div className="group">
         <ul className="students-list list-reset">
-          <Student />
+          {
+            students.map(student => <Student key={student.id} {...student} />)
+          }
         </ul>
       </div>
     </div>
@@ -17,9 +19,10 @@ function Downloader({ title }) {
 
 Downloader.propTypes = {
   title: PropTypes.string,
+  students: PropTypes.array.isRequired,
 }
 Downloader.defaultProps = {
-  title: "MICA Grad Show — Image Downloader"
+  title: 'MICA Grad Show — Image Downloader',
 }
 
 export default Downloader

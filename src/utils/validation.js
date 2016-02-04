@@ -1,5 +1,5 @@
 import { isURL } from 'validator'
-import isEmpty from 'lodash/lang/isEmpty'
+import isEmpty from 'lodash/isEmpty'
 import emailValidate from './emailValidate'
 // Functions should return error message string.
 
