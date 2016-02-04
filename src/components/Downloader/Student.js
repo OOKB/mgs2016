@@ -4,12 +4,13 @@ import ImageList from './ImageList'
 
 function Student({ art, name, program, id }) {
   const programName = program && program.name
+  const email = `${id}@mica.edu`
   return (
     <li className="student">
       <ul className="info group">
         <li className="name four columns">{ name.display }</li>
         { programName && <li className="program four columns">{programName}</li> }
-        <li className="email four columns">{ id }@mica.edu</li>
+        <li className="email four columns">{ email }</li>
       </ul>
       { art && art.length &&
         <ImageList art={art} />
