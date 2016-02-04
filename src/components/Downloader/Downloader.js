@@ -1,11 +1,13 @@
 import React, { PropTypes } from 'react'
 
 import Student from './Student'
+import Search from '../../containers/Search'
 
 function Downloader({ title, students }) {
   return (
     <div className="container ">
       <h1>{ title }</h1>
+      <Search type="profile" field="name.display" />
       <div className="group">
         <ul className="students-list list-reset">
           {
