@@ -6,14 +6,12 @@ function Student({ name, program }) {
   const programName = program && program.name
   return (
     <li className="student">
-      <ul className="info clearfix">
-        <li className="name">{ name.display }</li>
-        { programName && <li className="program">{programName}</li> }
-        <li className="email">UID@mica.edu</li>
-        <li className="images">
-          <ImageList />
-        </li>
+      <ul className="info group">
+        <li className="name four columns">{ name.display }</li>
+        { programName && <li className="program four columns">{programName}</li> }
+        <li className="email four columns">UID@mica.edu</li>
       </ul>
+      <ImageList />
     </li>
   )
 }

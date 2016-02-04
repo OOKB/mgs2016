@@ -4,9 +4,9 @@ import Student from './Student'
 
 function Downloader({ title, students }) {
   return (
-    <div className="container ">
+    <div className="container">
       <h1>{ title }</h1>
-      <div className="group">
+      <div className="downloader">
         <ul className="students-list list-reset">
           {
             students.map(student => <Student key={student.id} {...student} />)

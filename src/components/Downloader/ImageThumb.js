@@ -4,10 +4,10 @@ function ImageThumb({ }) {
   return (
     <li className="image two columns">
       <figure className="block">
-        <img src="" />
+        <img src="https://source.unsplash.com/random/200x200" />
         <a href="">Download</a>
         <figcaption>
-          <ul>
+          <ul className="list-reset">
             <li>Title</li>
             <li>medium...</li>
             <li>year</li>

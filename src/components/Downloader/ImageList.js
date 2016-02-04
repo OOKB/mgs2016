@@ -4,7 +4,12 @@ import ImageThumb from './ImageThumb'
 
 function ImageList({ }) {
   return (
-    <ul className="image-list clearfix">
+    <ul className="image-list group">
+      <ImageThumb />
+      <ImageThumb />
+      <ImageThumb />
+      <ImageThumb />
+      <ImageThumb />
       <ImageThumb />
     </ul>
   )
