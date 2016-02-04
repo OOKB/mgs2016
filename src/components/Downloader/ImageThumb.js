@@ -1,15 +1,18 @@
 import React, { PropTypes } from 'react'
+import get from 'lodash/get'
 
-function ImageThumb({ }) {
+function ImageThumb({ title, medium, size, year, work }) {
+  const imgSrc = get(work, [ 'preview', 'image', 'url' ], false)
+  const imgLink = get(work, [ 'url', 'href' ], false)
   return (
     <li className="image two columns">
       <figure className="block">
-        <img src="https://source.unsplash.com/random/200x200" />
-        <a href="">Download</a>
+        { imgSrc && <img src={imgSrc} /> }
+        { imgLink && <a href={imgLink}>Download</a> }
         <figcaption>
           <ul className="list-reset">
-            <li>Title</li>
-            <li>medium...</li>
+            { title && <li>{title}</li> }
+            { medium && <li>{medium}</li> }
             <li>year</li>
             <li>size</li>
           </ul>
@@ -20,6 +23,11 @@ function ImageThumb({ }) {
 }
 
 ImageThumb.propTypes = {
+  title: PropTypes.string,
+  medium: PropTypes.string,
+  size: PropTypes.string,
+  year: PropTypes.string,
+  work: PropTypes.object,
 }
 ImageThumb.defaultProps = {
 }
