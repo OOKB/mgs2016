@@ -1,4 +1,4 @@
-import React, { Component, PropTypes } from 'react'
+import React, { PropTypes } from 'react'
 
 import Student from './Student'
 
@@ -19,7 +19,7 @@ Downloader.propTypes = {
   title: PropTypes.string,
 }
 Downloader.defaultProps = {
-  title: "MICA Grad Show — Image Downloader"
+  title: 'MICA Grad Show — Image Downloader',
 }
 
 export default Downloader
