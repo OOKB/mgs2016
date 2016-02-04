@@ -15,4 +15,4 @@ ImageList.propTypes = {
 ImageList.defaultProps = {
 }
 
-export default Student
+export default ImageList
