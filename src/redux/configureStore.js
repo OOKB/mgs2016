@@ -9,7 +9,7 @@ import thunk from 'redux-thunk'
 import api from './middleware/api'
 // Socket.io linking
 import createSocketMiddleware from './middleware/socket'
-const location = (location.protocol === 'https:') ? '' : 'http://mica.cape.io'
+const location = (window.location.protocol === 'https:') ? '' : 'http://mica.cape.io'
 const socket = createSocketMiddleware({ location })
 // Redux Reducers.
 // Our reducer index.
