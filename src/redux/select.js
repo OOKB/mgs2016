@@ -1,5 +1,6 @@
 import each from 'lodash/each'
 import get from 'lodash/get'
+import isArray from 'lodash/isArray'
 import map from 'lodash/map'
 import merge from 'lodash/merge'
 import set from 'lodash/set'
@@ -21,6 +22,18 @@ function getItem(state, type, id) {
 function getItemChildren(state, item, children) {
   const refs = {}
   each(children, (type, selector) => {
+    if (selector.includes('[].')) {
+      const [ prePath, postPath ] = selector.split('[].')
+      const selection = get(item, prePath)
+      if (isArray(selection)) {
+        each(selection, (itemChild, index) => {
+          const childId = get(itemChild, postPath)
+          const childRef = getItem(state, type, childId)
+          set(refs, `${prePath}[${index}].${postPath}`, childRef)
+        })
+        return
+      }
+    }
     const id = get(item, selector)
     set(refs, selector, getItem(state, type, id))
   })

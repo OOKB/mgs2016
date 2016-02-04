@@ -9,7 +9,7 @@ import thunk from 'redux-thunk'
 import api from './middleware/api'
 // Socket.io linking
 import createSocketMiddleware from './middleware/socket'
-const socket = createSocketMiddleware()
+const socket = createSocketMiddleware({ location: 'http://mica.cape.io' })
 // Redux Reducers.
 // Our reducer index.
 import rootReducer from './reducer'
@@ -29,10 +29,10 @@ const middleware = [
 ]
 
 const finalCreateStore = compose(
+  history(getRoutes),
   applyMiddleware(...middleware),
   // Logger must be last middleware in chain(#20).
   // applyMiddleware(createLogger()),
-  history(getRoutes),
   DevTools.instrument()
 )(createStore)
 

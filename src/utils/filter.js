@@ -17,7 +17,7 @@ export function filterItem(item, { fieldId, compare, value }) {
       return itemValue === value
     case 'includes':
       return every(compact(value.split(' ')), searchTxt =>
-        itemValue.toLowerCase().includes(searchTxt)
+        itemValue && itemValue.toLowerCase().includes(searchTxt)
       )
     default:
       return true
