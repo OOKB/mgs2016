@@ -13,7 +13,7 @@ function ImageThumb({ }) {
             <li>year</li>
             <li>size</li>
           </ul>
-        </figcaption
+        </figcaption>
       </figure>
     </li>
   )
