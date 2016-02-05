@@ -5,12 +5,12 @@ function slideNavigation({ slideAdvance, slideRewind }) {
     <ul className="thumbs-navigation">
       <li>
         <button onClick={slideRewind}>
-          Previous button!
+          <i className="fa fa-chevron-circle-left fa-5x"></i>
         </button>
       </li>
       <li>
         <button onClick={slideAdvance}>
-          Next button!
+          <i className="fa fa-chevron-circle-right fa-5x"></i>
         </button>
       </li>
     </ul>
