@@ -122,11 +122,11 @@ ul.thumbs-navigation li {
 
 ul.thumbs-navigation li button {
   border: none;
-  background: rgba(0,0,0,.33);
+  background: transparent;
+  color: rgba(0,0,0,.33);
   display: block;
   height: 5rem;
   width: 5rem;
-  border-radius: 5rem;
   position: absolute;
   top:200px;
   transition: all 222ms;
@@ -134,7 +134,7 @@ ul.thumbs-navigation li button {
 
 ul.thumbs-navigation li:hover button,
 ul.thumbs-navigation li button:hover {
-  background: rgba(242,103,070,.8);
+  color: rgba(242,103,070,.8);
 }
 
 ul.thumbs-navigation li:first-child button {

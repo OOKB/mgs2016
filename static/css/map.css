@@ -42,8 +42,9 @@
 }
 
 .mapPin svg path {
-  fill: yellow;
+  fill: rgba(242,103,070,1);
 }
-.mapPin:nth-child(1) svg path {
-  fill: orange;
+
+.mapPin:hover svg path {
+  fill: rgba(192,132,180,1);
 }
