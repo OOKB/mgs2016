@@ -51,6 +51,7 @@
     "babel-eslint": "^5.0.0-beta6",
     "babel-plugin-react-transform": "^2.0.0-beta1",
     "babel-polyfill": "^6.2.0",
+    "cape-redux-socket": "^1.0.1",
     "classnames": "^2.2.0",
     "eslint-plugin-react": "^3.15.0",
     "google-map-react": "^0.9.3",
