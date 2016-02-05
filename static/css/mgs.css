@@ -357,6 +357,10 @@ div.form-group.search input.form-control{
   cursor: pointer;
 }
 
+.schedule-text h4:hover {
+  color: rgba(242,103,070,1);
+}
+
 .schedule-text .locations p,
 .reception p {
   margin: 0;
