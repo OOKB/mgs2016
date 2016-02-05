@@ -4,7 +4,7 @@ function ContactWebsite({ preview, url }) {
   return (
     <li key="website" className="website">
       { preview && preview.image && <img src={preview.image.url} /> }
-      <a href={url.href}>
+      <a href={url.href} target="_blank">
         {url.href}
       </a>
     </li>
