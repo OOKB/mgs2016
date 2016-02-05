@@ -18,14 +18,17 @@ function Contact({ contactEmail, social, website }) {
   }
   if (social) {
     for (const key of Object.keys(social)) {
-      socialLinks.push(
-        <ContactSocial
-          key={key}
-          {...socialServices[key]}
-          service={key}
-          username={social[key]}
-        />
-      )
+      const username = social[key]
+      if (username) {
+        socialLinks.push(
+          <ContactSocial
+            key={key}
+            {...socialServices[key]}
+            service={key}
+            username={username}
+          />
+        )
+      }
     }
   }
   return (

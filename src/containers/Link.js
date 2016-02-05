@@ -16,6 +16,7 @@ function mapDispatchToProps(dispatch, ownProps) {
     }))
   }
   return {
+    href: href || to,
     onClick: handleClick,
   }
 }

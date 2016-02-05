@@ -1,7 +1,7 @@
 import React, { PropTypes } from 'react'
 import map from 'lodash/map'
 
-import { Link } from 'react-router'
+import Link from '../../containers/Link'
 
 function ProgramList({ program }) {
   return (
@@ -10,7 +10,9 @@ function ProgramList({ program }) {
       <ul className="program-peers list-reset">
         {
           map(program.student, (peer) => (
-            <li key={peer.id}><Link to={peer.id}>{peer.name.display}</Link></li>
+            <li key={peer.id}>
+              <Link to={`/student/${peer.id}`}>{peer.name.display}</Link>
+            </li>
           ))
         }
       </ul>
