@@ -369,6 +369,16 @@ div.form-group.search input.form-control{
   color: rgba(242,103,070,1);
 }
 
+.active .schedule-text h4:hover {
+  color: white;
+}
+
+/** trying to fix some schedule things **/
+.locations > span {
+  margin: .33rem 0;
+  display:block;
+}
+
 .schedule-text .locations p,
 .reception p {
   margin: 0;
