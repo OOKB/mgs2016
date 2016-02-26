@@ -45,8 +45,8 @@ function mapStateToProps(state) {
     const { active, id, receptionStart, receptionEnd, startDate, endDate, ...item } = itemInfo
     const startStr = moment(startDate).format('MMMM Do')
     const endStr = moment(endDate).format('MMMM Do')
-    const recStartStr = moment(receptionStart).format('dddd, MMMM D, h')
-    const recEndStr = moment(receptionEnd).format('hA')
+    const recStartStr = moment(receptionStart).utc().format('dddd, MMMM D, h')
+    const recEndStr = moment(receptionEnd).utc().format('hA')
 
     return {
       ...item,
