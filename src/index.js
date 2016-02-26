@@ -14,6 +14,7 @@ const initialState = window.__data || {
     currentYear: new Date().getFullYear(),
   },
 }
+console.log('Date Issues')
 // Configure and create our Redux store.
 const store = configureStore(initialState)
 
