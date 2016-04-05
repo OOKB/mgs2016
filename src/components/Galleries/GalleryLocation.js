@@ -22,13 +22,14 @@ function GalleryLocation({ togglePin, active, building, id, name, street, zip, g
               <div className="building">
                 {building}
               </div>
-              <div className="openHours">
-                {galleryHours}
-              </div>
               <div className="address">
                 {street}
                 <br />
                 {zip}
+              </div>
+              <div className="openHours">
+                <strong>Gallery Hours:</strong>
+                {galleryHours}
               </div>
             </div>
           :

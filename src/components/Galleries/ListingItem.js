@@ -14,6 +14,7 @@ function ListingItem({ active, building, name, street, zip, id, togglePin, galle
         <address>{ address }</address>
       </div>
       <div className="openHours">
+        <strong>Gallery Hours:</strong>
         {galleryHours}
       </div>
     </li>

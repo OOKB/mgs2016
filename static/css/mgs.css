@@ -448,7 +448,10 @@ div.form-group.search input.form-control{
   font-size: .875rem;
   line-height: 1.3;
 }
-#gallerylisting .openHours span {
+.openHours {
+  margin-top: .33em;
+}
+.openHours span {
   display: block;
 }
 
