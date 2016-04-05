@@ -442,15 +442,16 @@ div.form-group.search input.form-control{
   color:rgba(191,127,175,1);
 }
 
-#gallerylisting ul li .building {
+#gallerylisting .building,
+#gallerylisting .address,
+#gallerylisting .openHours {
   font-size: .875rem;
   line-height: 1.3;
 }
-
-#gallerylisting ul li .address {
-    font-size: .875rem;
-    line-height: 1.3;
+#gallerylisting .openHours span {
+  display: block;
 }
+
 /***** Students *****/
 #students .filters-students > li button{
     border: none;
