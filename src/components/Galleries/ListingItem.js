@@ -1,7 +1,7 @@
 import React, { PropTypes } from 'react'
 import classnames from 'classnames'
 
-function ListingItem({ active, building, name, street, zip, id, togglePin }) {
+function ListingItem({ active, building, name, street, zip, id, togglePin, galleryHours }) {
   const address = street ? `${street}, ${zip}` : zip
   return (
     <li
@@ -12,6 +12,9 @@ function ListingItem({ active, building, name, street, zip, id, togglePin }) {
       <div className="building">{ building }</div>
       <div className="address">
         <address>{ address }</address>
+      </div>
+      <div className="openHours">
+        {galleryHours}
       </div>
     </li>
   )
@@ -26,6 +29,7 @@ ListingItem.propTypes = {
   geoData: PropTypes.object.isRequired,
   active: PropTypes.bool.isRequired,
   togglePin: PropTypes.func.isRequired,
+  galleryHours: PropTypes.array,
 }
 ListingItem.defaultProps = {
 }

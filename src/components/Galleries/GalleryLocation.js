@@ -1,6 +1,6 @@
 import React, { PropTypes } from 'react'
 
-function GalleryLocation({ togglePin, active, building, id, name, street, zip }) {
+function GalleryLocation({ togglePin, active, building, id, name, street, zip, galleryHours }) {
   return (
     <div className="mapPin">
       <svg
@@ -21,6 +21,9 @@ function GalleryLocation({ togglePin, active, building, id, name, street, zip })
               <h3 className="m0">{name}</h3>
               <div className="building">
                 {building}
+              </div>
+              <div className="openHours">
+                {galleryHours}
               </div>
               <div className="address">
                 {street}
@@ -46,6 +49,7 @@ GalleryLocation.propTypes = {
   geoData: PropTypes.object.isRequired,
   active: PropTypes.bool.isRequired,
   togglePin: PropTypes.func.isRequired,
+  galleryHours: PropTypes.array,
 }
 GalleryLocation.defaultProps = {
 }
