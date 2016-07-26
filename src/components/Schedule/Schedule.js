@@ -12,7 +12,7 @@ function Schedule({ showGroups, groupTypes, activateMapPin, activateShowGroup, a
           update={activateShowType}
         />
         { showGroups &&
-          <ul className="dates item-grid list-reset">
+          <ul className="dates item-grid list-reset clearfix">
             {
               showGroups.map(dateInfo => (
                 <ScheduleItem
