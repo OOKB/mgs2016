@@ -70,8 +70,8 @@ function mapStateToProps(state) {
   }
   const groupTypes = [
     makeFilter('Exhibitions', 'On Campus Exhibition'),
-    makeFilter('Single Day Events', 'Single Day'),
-    makeFilter('Curatorial Practice Programs', 'City Wide'),
+    makeFilter('Presentations & Symposiums', 'Single Day'),
+    makeFilter('MFA Curatorial Practice Exhibitions', 'City Wide'),
   ]
   return {
     groupTypes,

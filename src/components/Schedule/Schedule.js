@@ -11,21 +11,21 @@ function Schedule({ showGroups, groupTypes, activateMapPin, activateShowGroup, a
           filters={groupTypes}
           update={activateShowType}
         />
+        { showGroups &&
+          <ul className="dates item-grid list-reset">
+            {
+              showGroups.map(dateInfo => (
+                <ScheduleItem
+                  key={dateInfo.id}
+                  titleClick={activateShowGroup}
+                  locationClick={activateMapPin}
+                  {...dateInfo}
+                />
+              ))
+            }
+          </ul>
+        }
       </div>
-      { showGroups &&
-        <div className="dates">
-          {
-            showGroups.map(dateInfo => (
-              <ScheduleItem
-                key={dateInfo.id}
-                titleClick={activateShowGroup}
-                locationClick={activateMapPin}
-                {...dateInfo}
-              />
-            ))
-          }
-        </div>
-      }
     </article>
   )
 }

@@ -26,7 +26,6 @@ class Main extends Component {
     return (
       <div>
         <Header title={title} />
-        <Logo />
         <Intro />
         <Schedule />
         <Galleries />
