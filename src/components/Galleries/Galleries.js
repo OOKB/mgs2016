@@ -6,6 +6,9 @@ import GalleryMap from './GalleryMap'
 function Galleries({ locations, centerMap, groupTypes, activateMapPin, activateShowType }) {
   return (
     <article id="galleries" className="clearfix">
+      <div className="container">
+        <h1>Map</h1>
+      </div>
       <section className="map-wrapper">
         <GalleryMap
           locations={locations}

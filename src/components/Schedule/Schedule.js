@@ -6,6 +6,7 @@ function Schedule({ showGroups, groupTypes, activateMapPin, activateShowGroup, a
   return (
     <article id="schedule">
       <div className="container">
+        <h1>Schedule</h1>
         <Filters
           className="list-reset inline schedule-filters"
           filters={groupTypes}

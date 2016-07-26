@@ -11,6 +11,7 @@ class Students extends Component {
     return (
       <article id="students">
         <div className="container">
+          <h1>Students</h1>
 
           <Filters {...filterInfo} groupId="students" />
 

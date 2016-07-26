@@ -5,7 +5,7 @@ function ScheduleItem({ active, dateStr, show, reception, name, ...handler }) {
   return (
     <li className="item show">
       <div>
-        <h1>{ name }</h1>
+        <h2>{ name }</h2>
         <h4>{ dateStr }</h4>
         <div className="reception">
           <p>{reception}</p>
